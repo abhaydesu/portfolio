@@ -48,6 +48,7 @@ export const Navbar = () => {
                 ease: "linear"
             }}
             className='fixed inset-x-0 top-0 z-50 mx-auto flex max-w-4xl items-center justify-between rounded-full bg-white px-3 py-2 dark:bg-neutral-900'>
+            <Link href="/">
             <Image 
                 className='h-10 w-10 rounded-full' 
                 src="/avatar.jpg" 
@@ -55,6 +56,7 @@ export const Navbar = () => {
                 width="100" 
                 alt="Avatar"  
             />
+            </Link>
 
             <div className='flex items-center'>
                 {navItems.map((item, idx) => (

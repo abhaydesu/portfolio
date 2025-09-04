@@ -7,9 +7,9 @@ const nextConfig = {
   // Optionally, add any other Next.js config below
 }
 
-const withMDX = createMDX({
-  //
-  extension: /\.(md|mdx)$/
-})
+// const withMDX = createMDX({
+//   //
+//   extension: /\.(md|mdx)$/
+// })
  
-module.exports = withMDX(nextConfig)
+module.exports = nextConfig

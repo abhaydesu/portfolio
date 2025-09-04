@@ -2,11 +2,12 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import { Container } from "@/components/container";
 import { Projects } from "@/components/projects";
+import { LandingBlogs } from "@/components/landing-blogs";
 
 export default function Home() {
   return (
    <div className="min-h-screen flex items-start justify-start">
-    <Container className="min-h-[200vh] p-4 md:pt-20 md:pb-10">
+    <Container className="min-h-[200vh] px-10 md:pt-20 md:pb-10">
       <h1 className="text-2xl md:text-4xl font-bold tracking-tight text-primary">
         Abhay Singh
       </h1>
@@ -14,6 +15,7 @@ export default function Home() {
         Im a software engineer with a passion for building scalable and efficient systems. Currently a student, always a student of tech.
       </p>
       <Projects />
+      <LandingBlogs />
     </Container>
    </div>
   );

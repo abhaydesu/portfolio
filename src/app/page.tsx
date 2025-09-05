@@ -1,5 +1,3 @@
-import Image from "next/image";
-import styles from "./page.module.css";
 import { Container } from "@/components/container";
 import { Projects } from "@/components/projects";
 import { LandingBlogs } from "@/components/landing-blogs";

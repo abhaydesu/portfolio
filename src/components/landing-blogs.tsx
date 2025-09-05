@@ -9,7 +9,7 @@ export const LandingBlogs = async () => {
     return str.length > length ? str.substring(0, length) + "..." : str;
     }
   return (
-    <div className=''>
+    <div>
         <p className='text-secondary max-w-lg pt-4 text-sm md:text-sm mb-6'>
             I&apos;m fond of writing.
         </p>

@@ -2,6 +2,7 @@ import { Container } from "@/components/container";
 import { Metadata } from "next";
 import { getBlogs } from "@/utils/mdx";
 import { Link } from "next-view-transitions";
+import { Heading } from "@/components/heading";
 
 export const metadata: Metadata = {
     title: "All blogs - Abhay Singh",
@@ -19,9 +20,9 @@ export default async function BlogsPage() {
     return (
     <div className="min-h-screen flex items-start justify-start">
         <Container className="min-h-[200vh] px-1 md:pt-0 md:pb-10">
-      <h1 className="text-2xl md:text-4xl font-bold tracking-tight text-primary">
+      <Heading >
         All blogs
-      </h1>
+      </Heading>
       <div className="flex flex-col gap-4 py-10">
             {allBlogs.map((blog, idx) => (
                 <Link className="no-underline" key={blog.title} href={`/blog/${blog.slug}`}>

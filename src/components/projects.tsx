@@ -35,7 +35,7 @@ export const Projects = () => {
   return (
     <div className='py-10'>
         <p className="text-secondary text-sm md:text-sm pt-4 max-w-lg">
-        I love building web apps and products that can impact lives.
+        I love building things.
       </p>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 py-4">
       {projects.map((project, idx) => (
@@ -50,7 +50,7 @@ export const Projects = () => {
             key={project.title}
             className='group relative mb-4 h-72'
         >
-            <Link href={project.href}>
+            <Link target='_blank' href={project.href}>
             <Image 
                 src={project.src} 
                 alt={project.title} 

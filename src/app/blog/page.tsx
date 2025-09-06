@@ -19,7 +19,7 @@ export default async function BlogsPage() {
     console.log(allBlogs);
     return (
     <div className="min-h-screen flex items-start justify-start">
-        <Container className="min-h-[200vh] px-1 md:pt-0 md:pb-10">
+        <Container className="min-h-screen px-1 md:pt-0 md:pb-10">
       <Heading >
         All blogs
       </Heading>

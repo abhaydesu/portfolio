@@ -2,7 +2,7 @@
 import React from 'react'
 import { Container } from '../container'
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from 'next-view-transitions';
 import { motion, useMotionValueEvent, useScroll, useTransform } from 'motion/react';
 import { useState } from 'react';
 
@@ -29,7 +29,7 @@ export const Navbar = () => {
     const [scrolled, setScrolled] = useState<boolean>(false);
 
     const y = useTransform(scrollY, [0,100], [0,10]);
-    const width = useTransform(scrollY, [0,100], ['44%', '30%'])
+    const width = useTransform(scrollY, [0,100], ['48%', '30%'])
 
     useMotionValueEvent(scrollY, "change", (latest) => {
         if (latest >20) { 

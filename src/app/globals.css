@@ -12,6 +12,10 @@
 }
 
 .dark {
-  --color-primary: car(--color-neutral-100);
-  --color-secondary: car(--color-neutral-300);
+  --color-primary: var(--color-neutral-100);
+  --color-secondary: var(--color-neutral-300);
+}
+
+::selection {
+  background-color: var(--color-neutral-100); 
 }

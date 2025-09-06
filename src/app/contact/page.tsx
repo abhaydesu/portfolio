@@ -1,0 +1,26 @@
+import { Container } from "@/components/container";
+import { Metadata } from "next";
+import { Heading } from "@/components/heading"; 
+import { Subheading } from "@/components/subheading";
+import { ContactForm } from "@/components/contact-form";
+
+export const metadata: Metadata = {
+    title: "Contact Me",
+    description: "Let's connect — open to collaborations, ideas, and conversations."
+};
+
+export default function Contact() {
+  return (
+   <div className="min-h-screen flex items-start justify-start">
+    <Container className="min-h-screen px-10 md:pt-20 md:pb-10">
+      <Heading >
+        Contact Me
+      </Heading>
+      <Subheading >
+        Whether it&#39;s a project or just a hello, I&#39;d love to hear from you.
+      </Subheading>
+      <ContactForm />
+    </Container>
+   </div>
+  );
+}

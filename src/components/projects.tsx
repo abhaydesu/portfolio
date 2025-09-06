@@ -1,43 +1,18 @@
 "use client";
-import { title } from 'process';
+
 import Image from "next/image";
 import React from 'react';
 import { motion } from 'motion/react';
 import Link from 'next/link';
+import { Project, projects as defaultProjects } from '@/constants/projects';
 
-export const Projects = () => {
-    const projects = [
-        {
-            title: "Dip-Dash",
-            src: "/dipdash.png",
-            href:"https://dipdash.netlify.app",
-            description: "An endless, crossy-road type game, built using three.js"
-        },
-        {
-            title: "Coming soon",
-            src: "/dipdash.png",
-            href:"#",
-            description: "An endless, crossy-road type game, built using three.js"
-        },
-        {
-            title: "Portfolio Website",
-            src: "/dipdash.png",
-            href:"#",
-            description: "This website you're on :)"
-        },
-        {
-            title: "3D Art Gallery",
-            src: "/art-gallery.png",
-            href:"#",
-            description: "A basic showcase of paintings in a 3D manner, built using Three.js"
-        }
-    ]
+export const Projects = ({projects = defaultProjects}: {
+    projects?: Project[]
+}) => {
+    
   return (
     <div className='py-10'>
-        <p className="text-secondary text-sm md:text-sm pt-4 max-w-lg">
-        I love building things.
-      </p>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 py-4">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3 py-4">
       {projects.map((project, idx) => (
         <motion.div 
             initial={{ opacity:0, filter: "blur(10px)", y:10}}
@@ -48,7 +23,8 @@ export const Projects = () => {
                 ease: 'easeInOut'
             }}
             key={project.title}
-            className='group relative mb-4 h-72'
+            className='group relative mt-10 h-45'
+            viewport={{once: true}}
         >
             <Link target='_blank' href={project.href}>
             <Image 
@@ -68,6 +44,7 @@ export const Projects = () => {
         </motion.div>
       ))}
       </div>
+      
     </div>
   )
 }

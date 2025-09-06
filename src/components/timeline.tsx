@@ -2,7 +2,7 @@
 
 import React, { useRef} from "react";
 import {useInView, motion} from 'motion/react';
-import { IconPointFilled } from "./icon-point-filled";
+import { IconPointFilled } from "./icons";
 import { cn } from "@/lib/utils";
 
 

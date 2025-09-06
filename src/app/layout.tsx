@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import { Navbar } from "@/components/navbar";
 import { ViewTransitions } from 'next-view-transitions'
 import "./globals.css";
+import { Footer } from "@/components/navbar/footer";
+import { Toaster } from "sonner";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -22,8 +24,10 @@ export default function RootLayout({
     <ViewTransitions>
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} antialiased bg-neutral-100 dark:bg-neutral-700`}>
+        <Toaster position="top-center"/>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
     </ViewTransitions>

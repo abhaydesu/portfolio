@@ -13,7 +13,7 @@ const sketches = [
 
 const photos = [
   { src: "/bnw_1.jpg", alt: "Photo 1" },
-  { src: "/bnw_2.jpg", alt: "Photo 2" },
+  { src: "/bnw_5.jpg", alt: "Photo 2" },
   { src: "/bnw_3.jpg", alt: "Photo 3" },
   { src: "/bnw_4.jpg", alt: "Photo 4" },
 ];

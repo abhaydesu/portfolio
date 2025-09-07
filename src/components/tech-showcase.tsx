@@ -31,32 +31,30 @@ const topTechs = techs.slice(0, mid);
 const bottomTechs = techs.slice(mid);
 
 return (
-  <div className="py-4 my-8 px-4 pb-8 shadow-section-inset border-y border-neutral-100">
-    <SectionHeading className="mb-4" delay={0.88}>
-      what i&#39;ve worked with.
-    </SectionHeading>
+    <div className="py-4 my-8 px-4 pb-8 shadow-section-inset border-y border-neutral-100">
+      <SectionHeading className="mb-4" delay={0.88}>
+        *what i&#39;ve worked with.
+      </SectionHeading>
 
-    <div className="[mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
-      <div className="flex flex-col gap-3">
-        <Marquee speed={18} pauseOnHover gradient={false} className="py-2">
-          <div className="flex items-center gap-3">
-            {topTechs.concat(topTechs).map((t, idx) => (
+      <div className="[mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
+        <div className="flex flex-col gap-3">
+          {/* 👇 REMOVED the wrapping div and .concat() */}
+          <Marquee speed={18} pauseOnHover gradient={false} className="py-2">
+            {topTechs.map((t, idx) => (
               <TechPill key={`top-${idx}-${t.name}`} {...t} />
             ))}
-          </div>
-        </Marquee>
+          </Marquee>
 
-        <Marquee speed={20} pauseOnHover gradient={false} direction="right" className="py-2">
-          <div className="flex items-center gap-3">
-            {bottomTechs.concat(bottomTechs).map((t, idx) => (
+          {/* 👇 REMOVED the wrapping div and .concat() */}
+          <Marquee speed={20} pauseOnHover gradient={false} direction="right" className="py-2">
+            {bottomTechs.map((t, idx) => (
               <TechPill key={`bottom-${idx}-${t.name}`} {...t} />
             ))}
-          </div>
-        </Marquee>
+          </Marquee>
+        </div>
       </div>
     </div>
-  </div>
-)
+  )
 
 }
 
@@ -64,7 +62,7 @@ const TechPill = ({ name, logo }: { name: string; logo?: string }) => {
   const [imgOk, setImgOk] = React.useState(true)
 
   return (
-    <div className="flex items-center gap-3 px-2 py-1 hover:shadow-md rounded-full border border-neutral-100 shadow-sm bg-white min-w-[6rem]">
+    <div className="flex items-center gap-3 px-2 py-1 hover:shadow-md rounded-full border border-neutral-100 shadow-sm bg-white min-w-[6rem] mr-3">
       {logo && imgOk ? (
         <img
           src={logo}

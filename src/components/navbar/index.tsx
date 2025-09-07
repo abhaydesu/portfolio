@@ -55,14 +55,12 @@ export const Navbar = () => {
           duration: 0.28,
           ease: "linear",
         }}
-        /* NOTE: use justify-between so hamburger stays right on mobile */
         className="fixed left-45 right-10 top-0 z-50 flex flex-row-reverse md:flex-row items-center justify-between bg-transparent md:bg-white px-0 py-3 dark:bg-neutral-900 md:inset-x-0 md:mx-auto md:max-w-4xl md:rounded-full md:px-3 md:py-2"
 
       >
-        {/* LEFT: Avatar (desktop only). Completely hidden on mobile. */}
         <Link href="/" className="hidden md:block">
           <Image
-            className="h-10 w-10 rounded-full"
+            className="h-10 w-10 rounded-full hover:shadow-[0_4px_6px_-1px_rgba(249,168,212,0.5),0_2px_4px_-1px_rgba(249,168,212,0.3)]"
             src="/avatar.jpg"
             height={100}
             width={100}
@@ -70,7 +68,6 @@ export const Navbar = () => {
           />
         </Link>
 
-        {/* CENTER: Desktop nav items (hidden on mobile) */}
         <div className="hidden items-center md:flex">
           {navItems.slice(1).map((item, idx) => (
             <Link
@@ -83,7 +80,7 @@ export const Navbar = () => {
               {hovered === idx && (
                 <motion.span
                   layoutId="hovered-span"
-                  className="absolute inset-0 -z-10 h-full w-full rounded-md bg-neutral-100 dark:bg-neutral-800"
+                  className="absolute inset-0 -z-10 h-full w-full rounded-md bg-pink-100 dark:bg-neutral-800"
                 />
               )}
               <span className="relative z-10">{item.title}</span>
@@ -91,17 +88,16 @@ export const Navbar = () => {
           ))}
         </div>
 
-        {/* RIGHT: Hamburger (mobile) - placed last so it stays to the right */}
         <div className="flex items-center md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="relative z-50 rounded-full shadow-aceternity p-2 bg-white" /* remove visible white bg if present */
+            className="relative z-50 rounded-full shadow-aceternity p-2 bg-white"
             aria-label="Toggle menu"
           >
             <div className="space-y-0.75">
-              <span className="block h-0.5 w-3.5 rounded-full bg-neutral-600 dark:bg-white"></span>
-              <span className="block h-0.5 w-3.5 rounded-full bg-neutral-600 dark:bg-white"></span>
-              <span className="block h-0.5 w-3.5 rounded-full bg-neutral-600 dark:bg-white"></span>
+              <span className="block h-0.5 w-3.5 rounded-full bg-neutral-500 dark:bg-white"></span>
+              <span className="block h-0.5 w-3.5 rounded-full bg-neutral-500 dark:bg-white"></span>
+              <span className="block h-0.5 w-3.5 rounded-full bg-neutral-500 dark:bg-white"></span>
             </div>
           </button>
         </div>
@@ -114,7 +110,7 @@ export const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2, ease: "easeInOut" }}
-            className="fixed inset-0 z-40 flex h-screen w-full flex-col items-center justify-center bg-white/90 pt-16 backdrop-blur-lg dark:bg-neutral-900/90"
+            className="fixed inset-0 z-40 flex h-screen w-full flex-col items-center justify-center bg-[radial-gradient(circle,rgba(253,242,248,1)_0%,rgba(255,255,255,1)_100%)] pt-16 backdrop-blur-lg dark:bg-neutral-900/90"
           >
             <div className="flex flex-col items-center gap-y-6">
               {navItems.map((item, idx) => (
@@ -122,7 +118,7 @@ export const Navbar = () => {
                   href={item.href}
                   key={idx}
                   onClick={() => setIsOpen(false)}
-                  className="py-2 text-lg font-medium text-neutral-800 dark:text-neutral-200"
+                  className="py-2 text-lg font-medium text-neutral-800  dark:text-neutral-200"
                 >
                   {item.title}
                 </Link>

@@ -38,7 +38,7 @@ export const Collage = () => {
   return (
     <section className="px-4 py-4 mt-12 border-y border-neutral-100 shadow-section-inset">
       <SectionHeading className="text-secondary max-w-lg pt-0 text-sm md:text-sm mb-6">
-        A creative outlet.
+        *a creative outlet.
       </SectionHeading>
 
       <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -80,7 +80,7 @@ export const Collage = () => {
                 }}
                 viewport={{once: true}}
                 key={i}
-                className="relative w-full aspect-square overflow-hidden rounded-xl hover:shadow-md transition-transform cursor-pointer"
+                className="relative w-full aspect-square overflow-hidden rounded-xl hover:shadow-[0_4px_6px_-1px_rgba(249,168,212,0.5),0_2px_4px_-1px_rgba(249,168,212,0.3)] transition-transform cursor-pointer"
                 onClick={() => setSelectedImage(img)}
               >
                 <Image src={img.src} alt={img.alt} fill className="object-cover" />
@@ -125,7 +125,7 @@ export const Collage = () => {
                     delay: 0.2 * (i%2)
                 }}
                 key={i}
-                className="relative w-full aspect-square overflow-hidden rounded-xl hover:shadow-md transition-transform cursor-pointer"
+                className="relative w-full aspect-square overflow-hidden rounded-xl hover:shadow-[0_4px_6px_-1px_rgba(249,168,212,0.5),0_2px_4px_-1px_rgba(249,168,212,0.3)] transition-transform cursor-pointer"
                 onClick={() => setSelectedImage(img)}
               >
                 <Image src={img.src} alt={img.alt} fill className="object-cover" />

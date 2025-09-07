@@ -15,7 +15,7 @@ export const Projects = ({projects = defaultProjects}: {
     <div className="border-y border-neutral-100 mt-12 py-4 px-4 shadow-section-inset border-y border-neutral-100">
 
       <SectionHeading delay={0.2}>
-        I love building things.
+        *i love building things.
       </SectionHeading>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3 py-4">
       {projects.map((project, idx) => (

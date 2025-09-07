@@ -14,7 +14,7 @@ export const SectionHeading = ({ children, delay=0, className
   return (
     <h2 
     className={cn(
-      "relative px-1 mt-4 w-fit text-sm font-normal md:text-sm max-w-lg", className)}>
+      "relative px-1 mt-4 w-fit text-sm font-normal dark:text-neutral-300 text-neutral-700 md:text-sm max-w-lg", className)}>
         <Background />
       {children.split(" ").map((word, idx) => (
         <motion.span

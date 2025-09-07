@@ -25,7 +25,7 @@ export default function RootLayout({
     <ViewTransitions>
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} antialiased bg-neutral-100 dark:bg-black [--pattern-fg:var(--color-neutral-950)]/5  dark:[--pattern-fg:var(--color-neutral-100)]/5`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
         <Toaster position="top-center"/>
         <Navbar />
         {children}

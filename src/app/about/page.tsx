@@ -27,7 +27,7 @@ export default function AboutPage() {
         I&#39;m someone who enjoys learning at my own pace and staying curious about different things, whether big or small. For me, it&#39;s less about big achievements and more about doing the things I enjoy and growing along the way.
       </Subheading>
       <Collage />
-      <SectionHeading className="text-secondary mx-4 max-w-lg mt-4 text-sm md:text-sm">
+      <SectionHeading className="mx-4 max-w-lg mt-4 text-sm md:text-sm">
         Education
       </SectionHeading>
       <Timeline />

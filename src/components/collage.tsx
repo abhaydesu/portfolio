@@ -37,7 +37,7 @@ export const Collage = () => {
 
   return (
     <section className="px-4 py-4 mt-12 border-y border-neutral-100 dark:border-neutral-800 shadow-[var(--shadow-section-inset)]">
-      <SectionHeading className="text-secondary max-w-lg pt-0 text-sm md:text-sm mb-6">
+      <SectionHeading className="max-w-lg pt-0 text-sm md:text-sm mb-6">
         *a creative outlet.
       </SectionHeading>
 

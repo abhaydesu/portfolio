@@ -47,9 +47,9 @@ export default async function SingleBlogPage({ params }: Props) {
             alt={frontmatter.title}
             width={896} 
             height={384} 
-            className="rounded-2xl object-cover mx-auto mb-20 max-h-96 max-w-2xl w-full h-auto shadow-2xl"
+            className="rounded-2xl object-cover mx-auto mb-20 max-h-96 max-w-2xl w-full h-auto shadow-[var(--shadow-2xl)]"
 />
-        <div className="prose mx-auto">{content}</div>
+        <div className="prose dark:prose-invert mx-auto">{content}</div>
       </Container>
     </div>
   );

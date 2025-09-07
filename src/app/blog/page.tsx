@@ -33,7 +33,7 @@ export default async function BlogsPage() {
             {allBlogs.map((blog) => (
                 <Link className="no-underline" key={blog.title} href={`/blog/${blog.slug}`}>
                     <div className="flex items-center justify-between">
-                        <h2 className="hover:underline hover:decoration-pink-300 text-[var(--color-primary)] text-base font-bold tracking-tight">
+                        <h2 className="hover:underline hover:decoration-pink-300 dark:hover:decoration-pink-800 text-[var(--color-primary)] text-base font-bold tracking-tight">
                             {blog.title}
                         </h2> 
                         <p className="text-pink-300 text-sm md:text-sm">
@@ -42,7 +42,7 @@ export default async function BlogsPage() {
                             })}
                         </p>
                     </div>
-                    <p className="text-secondary max-w-lg pt-1 text-sm md:text-sm">
+                    <p className="text-[var(--color-secondary)] max-w-lg pt-1 text-sm md:text-sm">
                         { truncate(blog.description || "", 150) }
                     </p>
                     <div className="pt-0">

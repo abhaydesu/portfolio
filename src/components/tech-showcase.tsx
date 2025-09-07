@@ -5,24 +5,24 @@ import { SectionHeading } from './section-heading'
 
 export default function TechShowcase() {
 const techs = [
-  { name: 'C', logo: 'https://cdn.simpleicons.org/c/000000' },
-  { name: 'C++', logo: 'https://cdn.simpleicons.org/cplusplus/000000' },
-  { name: 'Python', logo: 'https://cdn.simpleicons.org/python/000000' },
-  { name: 'JavaScript', logo: 'https://cdn.simpleicons.org/javascript/000000' },
-  { name: 'TypeScript', logo: 'https://cdn.simpleicons.org/typescript/000000' },
-  { name: 'Node.js', logo: 'https://cdn.simpleicons.org/nodedotjs/000000' },
-  { name: 'Express', logo: 'https://cdn.simpleicons.org/express/000000' },
-  { name: 'MongoDB', logo: 'https://cdn.simpleicons.org/mongodb/000000' },
-  { name: 'Postgres', logo: 'https://cdn.simpleicons.org/postgresql/000000' },
-  { name: 'React', logo: 'https://cdn.simpleicons.org/react/000000' },
-  { name: 'Next.js', logo: 'https://cdn.simpleicons.org/nextdotjs/000000' },
-  { name: 'Tailwind CSS', logo: 'https://cdn.simpleicons.org/tailwindcss/000000' },
-  { name: 'CSS', logo: 'https://cdn.simpleicons.org/css3/000000' },
-  { name: 'HTML', logo: 'https://cdn.simpleicons.org/html5/000000' },
-  { name: 'three.js', logo: 'https://cdn.simpleicons.org/three.js/000000' },
-  { name: 'Framer Motion', logo: 'https://cdn.simpleicons.org/framer/000000' },
-  { name: 'Git', logo: 'https://cdn.simpleicons.org/git/000000' },
-  { name: 'GitHub', logo: 'https://cdn.simpleicons.org/github/000000' },
+  { name: 'C', logo: 'https://cdn.simpleicons.org/c/262626' },
+  { name: 'C++', logo: 'https://cdn.simpleicons.org/cplusplus/262626' },
+  { name: 'Python', logo: 'https://cdn.simpleicons.org/python/262626' },
+  { name: 'JavaScript', logo: 'https://cdn.simpleicons.org/javascript/262626' },
+  { name: 'TypeScript', logo: 'https://cdn.simpleicons.org/typescript/262626' },
+  { name: 'Node.js', logo: 'https://cdn.simpleicons.org/nodedotjs/262626' },
+  { name: 'Express', logo: 'https://cdn.simpleicons.org/express/262626' },
+  { name: 'MongoDB', logo: 'https://cdn.simpleicons.org/mongodb/262626' },
+  { name: 'Postgres', logo: 'https://cdn.simpleicons.org/postgresql/262626' },
+  { name: 'React', logo: 'https://cdn.simpleicons.org/react/262626' },
+  { name: 'Next.js', logo: 'https://cdn.simpleicons.org/nextdotjs/262626' },
+  { name: 'Tailwind CSS', logo: 'https://cdn.simpleicons.org/tailwindcss/262626' },
+  { name: 'CSS', logo: 'https://cdn.simpleicons.org/css/262626' },
+  { name: 'HTML', logo: 'https://cdn.simpleicons.org/html5/262626' },
+  { name: 'three.js', logo: 'https://cdn.simpleicons.org/three.js/262626' },
+  { name: 'Framer Motion', logo: 'https://cdn.simpleicons.org/framer/262626' },
+  { name: 'Git', logo: 'https://cdn.simpleicons.org/git/262626' },
+  { name: 'GitHub', logo: 'https://cdn.simpleicons.org/github/262626' },
 ]
 
 
@@ -33,7 +33,7 @@ const bottomTechs = techs.slice(mid);
 return (
   <div className="py-4 my-8 px-4 pb-8 shadow-section-inset border-y border-neutral-100">
     <SectionHeading className="mb-4" delay={0.88}>
-      my skills
+      what i&#39;ve worked with.
     </SectionHeading>
 
     <div className="[mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">

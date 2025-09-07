@@ -5,10 +5,10 @@ import { Heading } from "@/components/heading";
 import { Subheading } from "@/components/subheading";
 import { projects } from "@/constants/projects";
 import { More } from "@/components/more-link";
-import { Testimonials } from "@/components/testomonials";
 import { Scales } from "@/components/scales";
 import { ProjectLanding } from "@/components/project-landing";
 import { Links } from "@/components/links";
+import TechShowcase from "@/components/tech-showcase";
 
 export default function Home() {
   return (
@@ -19,12 +19,12 @@ export default function Home() {
         Abhay Singh
       </Heading>
       <Subheading>
-        I&#39;m a software engineer with a passion for building scalable and efficient systems. Currently a student, always a student of tech.
+        i&#39;m a software engineer with a passion for building scalable and efficient systems. Currently a student, always a student of tech.
       </Subheading>
       <Links />
       <ProjectLanding/>
       <LandingBlogs />
-      <Testimonials />
+      <TechShowcase />
     </Container>
    </div>
   );

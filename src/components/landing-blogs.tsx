@@ -11,9 +11,9 @@ export const LandingBlogs = async () => {
     return str.length > length ? str.substring(0, length) + "..." : str;
     }
   return (
-    <div className='px-4'>
+    <div className='px-4 py-4'>
         <SectionHeading className='my-4' delay={0.4}>
-            I&apos;m fond of writing.
+            i&apos;m fond of writing.
         </SectionHeading>
         <div className='flex flex-col gap-8'>
             {allBlogs.slice(0,3).map((blog,idx) => (

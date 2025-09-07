@@ -18,17 +18,18 @@ export const projects: Project[] = [
             href:"#",
             description: "A basic showcase of paintings in a 3D manner, built using Three.js"
         },
+                {
+            title: "Portfolio Website",
+            src: "/portfolio.png",
+            href:"#",
+            description: "This website you're on :)"
+        },
         {
             title: "Coming soon",
             src: "/dipdash.png",
             href:"#",
             description: "An endless, crossy-road type game, built using three.js"
         },
-        {
-            title: "Portfolio Website",
-            src: "/dipdash.png",
-            href:"#",
-            description: "This website you're on :)"
-        },
+
 
     ]

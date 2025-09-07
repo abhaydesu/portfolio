@@ -7,10 +7,10 @@ import { motion, useMotionValueEvent, useScroll, useTransform } from "motion/rea
 
 export const Navbar = () => {
   const navItems = [
-    { title: "About", href: "/about" },
-    { title: "Projects", href: "/projects" },
-    { title: "Contact", href: "/contact" },
-    { title: "Blog", href: "/blog" },
+    { title: "about", href: "/about" },
+    { title: "projects", href: "/projects" },
+    { title: "contact", href: "/contact" },
+    { title: "blog", href: "/blog" },
   ];
 
   const [hovered, setHovered] = useState<number | null>(null);
@@ -19,7 +19,7 @@ export const Navbar = () => {
 
   const y = useTransform(scrollY, [0, 100], [0, 10]);
   const width = useTransform(scrollY, [0, 100], ["43.15%", "38%"]); 
-  const opacity = useTransform(scrollY, [0, 100], [1, 0.8]);
+  const opacity = useTransform(scrollY, [0, 100], [1, 0.95]);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setScrolled(latest > 20);
@@ -43,7 +43,7 @@ export const Navbar = () => {
         <Link href="/">
           <Image
             className="h-10 w-10 rounded-full"
-            src="/avatar3.jpg"
+              src="/avatar3.jpg"
             height={100}
             width={100}
             alt="Avatar"

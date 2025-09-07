@@ -3,16 +3,18 @@ import { getSingleBlog, getBlogFrontMatterBySlug } from "@/utils/mdx";
 import { redirect } from "next/navigation";
 import { Scales } from "@/components/scales";
 import Image from "next/image";
+
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>; 
 };
 
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const frontmatter = await getBlogFrontMatterBySlug(params.slug);
+  const { slug } = await params; 
+  const frontmatter = await getBlogFrontMatterBySlug(slug);
 
   if (!frontmatter) {
     return {
@@ -27,7 +29,7 @@ export async function generateMetadata({
 }
 
 export default async function SingleBlogPage({ params }: Props) {
-  const slug = params.slug;
+  const { slug } = await params; 
   const blog = await getSingleBlog(slug);
 
   if (!blog) {

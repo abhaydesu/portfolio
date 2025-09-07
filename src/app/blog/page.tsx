@@ -30,7 +30,7 @@ export default async function BlogsPage() {
         My space to document ideas, share experiences, and put learning into words.
       </SectionHeading>
       <div className="flex flex-col gap-8 py-10 px-4">
-            {allBlogs.map((blog, idx) => (
+            {allBlogs.map((blog) => (
                 <Link className="no-underline" key={blog.title} href={`/blog/${blog.slug}`}>
                     <div className="flex items-center justify-between">
                         <h2 className="hover:underline text-primary text-base font-bold tracking-tight">

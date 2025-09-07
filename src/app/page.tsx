@@ -1,10 +1,7 @@
 import { Container } from "@/components/container";
-import { Projects } from "@/components/projects";
 import { LandingBlogs } from "@/components/landing-blogs";
 import { Heading } from "@/components/heading"; 
 import { Subheading } from "@/components/subheading";
-import { projects } from "@/constants/projects";
-import { More } from "@/components/more-link";
 import { Scales } from "@/components/scales";
 import { ProjectLanding } from "@/components/project-landing";
 import { Links } from "@/components/links";

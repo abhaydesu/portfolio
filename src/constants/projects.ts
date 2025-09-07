@@ -15,7 +15,7 @@ export const projects: Project[] = [
                 {
             title: "3D Art Gallery",
             src: "/art-gallery.png",
-            href:"#",
+            href:"https://3d-virtualgallery.netlify.app/",
             description: "A basic showcase of paintings in a 3D manner, built using Three.js"
         },
                 {

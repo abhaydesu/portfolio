@@ -11,8 +11,8 @@ const inter = Inter({
   weight: ["400", "500", "600", "700", "800", "900"]})
 
 export const metadata: Metadata = {
-  title: "Portfolio website",
-  description: "A perfect portfolio that showcases your skills, minimal and smooth microinteractions, perfect for developers.",
+  title: "Abhay's Portfolio",
+  description: "A perfect portfolio that showcases my skills, with minimal and smooth microinteractions.",
 };  
 
 export default function RootLayout({
@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <ViewTransitions>
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} antialiased bg-neutral-100 dark:bg-neutral-700`}>
+      <body className={`${inter.className} antialiased bg-neutral-100 dark:bg-neutral-700 [--pattern-fg:var(--color-neutral-950)]/5`}>
         <Toaster position="top-center"/>
         <Navbar />
         {children}

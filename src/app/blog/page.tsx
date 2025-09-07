@@ -3,6 +3,8 @@ import { Metadata } from "next";
 import { getBlogs } from "@/utils/mdx";
 import { Link } from "next-view-transitions";
 import { Heading } from "@/components/heading";
+import { Scales } from "@/components/scales";
+import { SectionHeading } from "@/components/section-heading";
 
 export const metadata: Metadata = {
     title: "All blogs - Abhay Singh",
@@ -19,11 +21,15 @@ export default async function BlogsPage() {
     console.log(allBlogs);
     return (
     <div className="min-h-screen flex items-start justify-start">
-        <Container className="min-h-screen px-1 md:pt-0 md:pb-10">
+    <Container className="min-h-screen px-8 md:pt-20 md:pb-10">
+        <Scales />
       <Heading >
         All blogs
       </Heading>
-      <div className="flex flex-col gap-4 py-10">
+      <SectionHeading className="text-neutral-500 font-normal mx-5 ">
+        My space to document ideas, share experiences, and put learning into words.
+      </SectionHeading>
+      <div className="flex flex-col gap-8 py-10 px-4">
             {allBlogs.map((blog, idx) => (
                 <Link className="no-underline" key={blog.title} href={`/blog/${blog.slug}`}>
                     <div className="flex items-center justify-between">

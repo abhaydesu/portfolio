@@ -3,6 +3,7 @@ import { Projects } from "@/components/projects";
 import { Subheading } from "@/components/subheading";
 import { Heading } from "@/components/heading";
 import { Metadata } from "next";
+import { Scales } from "@/components/scales";
 
 export const metadata: Metadata = {
     title: "Projects",
@@ -12,7 +13,8 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return (
    <div className="min-h-screen flex items-start justify-start">
-    <Container className="min-h-screen px-10 md:pt-20 md:pb-10">
+    <Container className="min-h-screen px-8 md:pt-20 md:pb-10">
+      <Scales />
       <Heading >
         Projects
       </Heading>

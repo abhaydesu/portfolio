@@ -3,7 +3,9 @@ import { Collage } from "@/components/collage";
 import { Timeline } from "@/components/timeline";
 import { Heading } from "@/components/heading";
 import { Subheading } from "@/components/subheading";
+import { Scales } from "@/components/scales";
 import { Metadata } from "next";
+import { SectionHeading } from "@/components/section-heading";
 
 export const metadata: Metadata = {
     title: "About Me",
@@ -13,7 +15,8 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
    <div className="min-h-screen flex items-start justify-start">
-    <Container className="min-h-screen px-10 md:pt-20 md:pb-10">
+    <Container className="min-h-screen px-8 md:pt-20 md:pb-10">
+      <Scales />
       <Heading>
         About Me
       </Heading>
@@ -24,6 +27,9 @@ export default function AboutPage() {
         I&#39;m someone who enjoys learning at my own pace and staying curious about different things, whether big or small. For me, it&#39;s less about big achievements and more about doing the things I enjoy and growing along the way.
       </Subheading>
       <Collage />
+      <SectionHeading className="text-secondary mx-4 max-w-lg mt-4 text-sm md:text-sm">
+        Education
+      </SectionHeading>
       <Timeline />
     </Container>
    </div>

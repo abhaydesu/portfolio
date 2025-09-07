@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <Container className="px-10 md:pt-20 md:pb-10 min-h-screen prose">
+    <Container className="min-h-screen prose">
         {children}
     </Container>
   );

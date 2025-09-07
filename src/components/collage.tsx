@@ -1,8 +1,11 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import {useInView} from 'motion/react';
+import { SectionHeading } from "./section-heading";
+
 
 const sketches = [
   { src: "/sketch1.jpg", alt: "Sketch 1" },
@@ -19,6 +22,9 @@ const photos = [
 ];
 
 export const Collage = () => {
+  const ref = useRef<HTMLDivElement>(null);
+   const isInView = useInView(ref, { once: true, amount: 0.6});
+
   const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
 
   useEffect(() => {
@@ -30,37 +36,100 @@ export const Collage = () => {
   }, []);
 
   return (
-    <section className="mt-16">
-      <p className="text-secondary max-w-lg pt-0 text-sm md:text-sm mb-6">
+    <section className="px-4 py-4 mt-12 border-y border-neutral-100 shadow-section-inset">
+      <SectionHeading className="text-secondary max-w-lg pt-0 text-sm md:text-sm mb-6">
         A creative outlet.
-      </p>
+      </SectionHeading>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <h2 className="text-primary pb-2 text-base font-bold tracking-tight">sketches</h2>
+          <motion.h2
+          initial={{
+                    filter: "blur(10px)",
+                    opacity: 0,
+                }}
+                animate={{
+                    filter: isInView ? 'blur(0px)' : 'blur(10px)',
+                    opacity: isInView ? 1 : 0,
+                }}
+                transition={{
+                    duration: 0.3,
+                    ease: 'easeInOut',
+                    delay: 0.1
+                }} 
+            className="text-primary pb-2 text-base font-bold tracking-tight">
+              sketches
+            </motion.h2>
           <div className="grid grid-cols-2 gap-4">
             {sketches.map((img, i) => (
-              <div
+              <motion.div
+                initial={{
+                    filter: "blur(10px)",
+                    opacity: 0,
+                    y: 10
+                }}
+                animate={{
+                    filter: isInView ? 'blur(0px)' : 'blur(10px)',
+                    opacity: isInView ? 1 : 0,
+                    y: 0
+                }}
+                transition={{
+                    duration: 0.3,
+                    ease: 'easeInOut',
+                    delay: (i>2) ? 0.4 : 0.2
+                }}
+                viewport={{once: true}}
                 key={i}
-                className="relative w-full aspect-square overflow-hidden rounded-xl shadow-md hover:scale-101 transition-transform cursor-pointer"
+                className="relative w-full aspect-square overflow-hidden rounded-xl hover:shadow-md transition-transform cursor-pointer"
                 onClick={() => setSelectedImage(img)}
               >
                 <Image src={img.src} alt={img.alt} fill className="object-cover" />
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
         <div>
-          <h2 className="text-primary pb-2 text-base font-bold tracking-tight">photos</h2>
+          <motion.h2
+          initial={{
+                    filter: "blur(10px)",
+                    opacity: 0,
+                }}
+                animate={{
+                    filter: isInView ? 'blur(0px)' : 'blur(10px)',
+                    opacity: isInView ? 1 : 0,
+                }}
+                transition={{
+                    duration: 0.3,
+                    ease: 'easeInOut',
+                    delay: 0.1
+                }} 
+            className="text-primary pb-2 text-base font-bold tracking-tight">
+              photos
+            </motion.h2>
           <div className="grid grid-cols-2 gap-4">
             {photos.map((img, i) => (
-              <div
+              <motion.div
+                initial={{
+                    filter: "blur(10px)",
+                    opacity: 0,
+                    y: 10
+                }}
+                animate={{
+                    filter: isInView ? 'blur(0px)' : 'blur(10px)',
+                    opacity: isInView ? 1 : 0,
+                    y: 0
+                }}
+                transition={{
+                    duration: 0.3,
+                    ease: 'easeInOut',
+                    delay: 0.2 * (i%2)
+                }}
                 key={i}
-                className="relative w-full aspect-square overflow-hidden rounded-xl shadow-md hover:scale-101 transition-transform cursor-pointer"
+                className="relative w-full aspect-square overflow-hidden rounded-xl hover:shadow-md transition-transform cursor-pointer"
                 onClick={() => setSelectedImage(img)}
               >
                 <Image src={img.src} alt={img.alt} fill className="object-cover" />
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

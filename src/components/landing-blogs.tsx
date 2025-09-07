@@ -11,12 +11,12 @@ export const LandingBlogs = async () => {
     return str.length > length ? str.substring(0, length) + "..." : str;
     }
   return (
-    <div>
-        <SectionHeading className='pb-10' delay={0.4}>
+    <div className='px-4'>
+        <SectionHeading className='my-4' delay={0.4}>
             I&apos;m fond of writing.
         </SectionHeading>
-        <div className='flex flex-col gap-4'>
-            {allBlogs.map((blog,idx) => (
+        <div className='flex flex-col gap-8'>
+            {allBlogs.slice(0,3).map((blog,idx) => (
                 <MotionDiv
                     key={blog.title}
                     initial={{
@@ -49,7 +49,7 @@ export const LandingBlogs = async () => {
                         </p>
                     </div>
                     <p className='text-secondary max-w-lg pt-2 text-sm md:text-sm'>
-                            {truncate(blog.description || "", 150)}
+                            {truncate(blog.description || "", 120)}
                     </p>
                 </Link>
                 </MotionDiv>

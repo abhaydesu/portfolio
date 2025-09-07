@@ -5,7 +5,7 @@ import { Container } from '../container'
 
 export const Footer = () => {
   return (
-    <Container className='flex justify-between p-3 border-t border-neutral-100'>
+    <Container className='flex justify-between py-3 px-10 border-t border-neutral-100'>
         <p className='text-sm text-neutral-500'>built with love by Abhay Singh</p>
         <div className='flex items-center justify-center gap-4'>
             <Link href="https://github.com/abhaydesu">

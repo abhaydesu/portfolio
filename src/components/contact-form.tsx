@@ -1,6 +1,5 @@
 "use client";
 
-import { form } from 'motion/react-client';
 import React, { useState } from 'react'
 import { toast } from 'sonner';
 
@@ -47,7 +46,8 @@ export const ContactForm = () => {
     }
 
   return (
-    <form onSubmit={handleSubmit} className='py-10 flex flex-col gap-5 max-w-lg'>
+    <form onSubmit={handleSubmit} className='border-y border-neutral-100 shadow-section-inset py-12 my-10 '>
+        <div className="max-w-lg px-4 flex flex-col gap-5 mx-auto">
         <div className="flex flex-col gap-2">
         <label className='text-sm font-medium tracking-tight text-neutral-600' htmlFor="name">Full name</label>
         <input 
@@ -88,10 +88,11 @@ export const ContactForm = () => {
         </div>
         <button 
         type='submit'
-        className='rounded-md bg-primary px-4 py-2 text-neutral-300'
+        className='rounded-md bg-primary px-4 py-2 text-white'
         >
             Send message
         </button>
+        </div>
     </form>
   )
 }

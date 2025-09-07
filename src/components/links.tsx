@@ -44,7 +44,7 @@ export const Links = () => {
         animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         transition={{ duration: 0.2, delay: 0.35, ease: easeInOut }}
         viewport={{ once: true }}
-        className="flex items-start gap-2 text-sm text-pink-700"
+        className="flex items-start gap-2 text-sm text-pink-700 hover:text-pink-300"
       >
         <button
           onClick={toggle}
@@ -52,7 +52,7 @@ export const Links = () => {
           aria-label={open ? "Hide links" : "Show links"}
         >
           <IconLink
-            className={`h-3.5 w-3.5 mt-0.5 ${open ? "text-pink-700" : ""}`}
+            className={`h-3.5 w-3.5 mt-0.5 ${open ? "text-pink-300" : ""}`}
           />
         </button>
 

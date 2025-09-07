@@ -11,8 +11,11 @@ import {
   AnimatePresence,
 } from "framer-motion";
 import { useMediaQuery } from "@/hooks/use-media-query";
+import { ThemeToggle } from "../theme-toggle";
+import { useTheme } from "next-themes";
 
 export const Navbar = () => {
+  const { theme } = useTheme();
   const navItems = [
     { title: "home", href: "/" },
     { title: "about", href: "/about" },
@@ -55,7 +58,7 @@ export const Navbar = () => {
           duration: 0.28,
           ease: "linear",
         }}
-        className="fixed left-45 right-10 top-0 z-50 flex flex-row-reverse md:flex-row items-center justify-between bg-transparent dark:bg-transparent md:bg-white px-0 py-3 dark:bg-neutral-900 md:inset-x-0 md:mx-auto md:max-w-4xl md:rounded-full md:px-3 md:py-2"
+        className="fixed left-45 right-10 top-0 z-50 flex flex-row-reverse md:flex-row items-center justify-between bg-transparent dark:bg-transparent md:bg-white px-0 py-3 md:dark:bg-neutral-900 md:inset-x-0 md:mx-auto md:max-w-4xl md:rounded-full md:px-3 md:py-2 transition-colors duration-500"
 
       >
         <Link href="/" className="hidden md:block">
@@ -68,23 +71,30 @@ export const Navbar = () => {
           />
         </Link>
 
+
         <div className="hidden items-center md:flex">
           {navItems.slice(1).map((item, idx) => (
-            <Link
-              className="relative px-2 py-1 text-sm"
-              href={item.href}
-              key={idx}
-              onMouseEnter={() => setHovered(idx)}
-              onMouseLeave={() => setHovered(null)}
-            >
-              {hovered === idx && (
-                <motion.span
-                  layoutId="hovered-span"
-                  className="absolute inset-0 -z-10 h-full w-full rounded-md bg-pink-100 dark:bg-pink-950"
-                />
+            <React.Fragment key={idx}>
+              {item.title === "about" && (
+                <div className="mr-2">
+                  <ThemeToggle />
+                </div>
               )}
-              <span className="relative z-10">{item.title}</span>
-            </Link>
+              <Link
+                className="relative px-2 py-1 text-sm"
+                href={item.href}
+                onMouseEnter={() => setHovered(idx)}
+                onMouseLeave={() => setHovered(null)}
+              >
+                {hovered === idx && (
+                  <motion.span
+                    layoutId="hovered-span"
+                    className="absolute inset-0 -z-10 h-full w-full rounded-md bg-pink-100 dark:bg-pink-950 transition-colors duration-500"
+                  />
+                )}
+                <span className="relative z-10">{item.title}</span>
+              </Link>
+            </React.Fragment>
           ))}
         </div>
 
@@ -103,30 +113,60 @@ export const Navbar = () => {
         </div>
       </motion.nav>
 
+<AnimatePresence>
+  {isOpen && !isDesktop && (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2, ease: "easeInOut" }}
+      className="fixed inset-0 z-40 flex h-screen w-full flex-col items-center justify-center pt-16 backdrop-blur-lg"
+    >
+      <motion.div
+        className="absolute inset-0 h-full w-full"
+        animate={{
+          backgroundColor: theme === 'light' ? '#ffffff' : '#000000'
+        }}
+        transition={{ duration: 0.7, ease: "easeInOut" }}
+      />
+
       <AnimatePresence>
-        {isOpen && !isDesktop && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.2, ease: "easeInOut" }}
-            className="fixed inset-0 z-40 flex h-screen w-full flex-col items-center justify-center pt-16 backdrop-blur-lg [background-image:var(--bg-mobile-menu)]"
-          >
-            <div className="flex flex-col items-center gap-y-6">
-              {navItems.map((item, idx) => (
-                <Link
-                  href={item.href}
-                  key={idx}
-                  onClick={() => setIsOpen(false)}
-                  className="py-2 text-lg font-medium text-neutral-800 dark:text-neutral-200"
-                >
-                  {item.title}
-                </Link>
-              ))}
-            </div>
-          </motion.div>
-        )}
+        <motion.div
+          key={theme}
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `var(${
+              theme === 'light' 
+              ? '--bg-mobile-menu-light' 
+              : '--bg-mobile-menu-dark'
+            })`
+          }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.7, ease: "easeInOut" }}
+        />
       </AnimatePresence>
+
+      <div className="relative z-10 flex flex-col items-center gap-y-6">
+        {navItems.map((item, idx) => (
+          <Link
+            href={item.href}
+            key={idx}
+            onClick={() => setIsOpen(false)}
+            className="py-2 text-lg font-medium text-neutral-800 dark:text-neutral-200"
+          >
+            {item.title}
+          </Link>
+        ))}
+        <div className="pt-4">
+          <ThemeToggle />
+        </div>
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
+
     </Container>
   );
 };

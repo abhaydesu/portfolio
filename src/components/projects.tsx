@@ -12,8 +12,7 @@ export const Projects = ({projects = defaultProjects}: {
 }) => {
     
   return (
-    <div className="border-y border-neutral-100 mt-12 py-4 px-4 shadow-section-inset border-y border-neutral-100">
-
+      <div className="border-y border-neutral-100 dark:border-neutral-800 mt-12 py-4 px-4 shadow-[var(--shadow-section-inset)]">
       <SectionHeading delay={0.2}>
         *i love building things.
       </SectionHeading>

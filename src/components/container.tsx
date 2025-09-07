@@ -6,7 +6,7 @@ export const Container = ({children, className}: {
     className?: string;
 }) => {
   return (
-    <div className={cn("relative max-w-4xl w-full  bg-white dark:bg-black mx-auto", className)}>
+    <div className={cn("relative max-w-4xl w-full bg-white dark:bg-neutral-900 mx-auto", className)}>
         { children }
     </div>
   )

@@ -46,7 +46,7 @@ export const ContactForm = () => {
     }
 
   return (
-    <form onSubmit={handleSubmit} className='border-y border-neutral-100 shadow-section-inset py-12 my-10 '>
+    <form onSubmit={handleSubmit} className='border-y border-neutral-100 dark:border-neutral-800 shadow-[var(--shadow-section-inset)] py-12 my-10 '>
         <div className="max-w-lg px-4 flex flex-col gap-5 mx-auto">
         <div className="flex flex-col gap-2">
         <label className='text-sm font-medium tracking-tight text-neutral-600' htmlFor="name">Full name</label>
@@ -56,7 +56,7 @@ export const ContactForm = () => {
         onChange={handleChange} 
         type="text" 
         placeholder='Anon Singh'
-        className='shadow-aceternity rounded-md px-2 py-1 text-sm focus-outline-none focus-ring-2 focus:ring-primary'
+        className='shadow-[var(--shadow-aceternity)] rounded-md px-2 py-1 text-sm focus-outline-none focus-ring-2 focus:ring-primary'
         />
         </div>
         <div className="flex flex-col gap-2">
@@ -67,7 +67,7 @@ export const ContactForm = () => {
         onChange={handleChange} 
         type="email" 
         placeholder='anon@tries.com'
-        className='shadow-aceternity rounded-md px-2 py-1 text-sm focus-outline-none focus-ring-2 focus:ring-primary'
+        className='shadow-[var(--shadow-aceternity)] rounded-md px-2 py-1 text-sm focus-outline-none focus-ring-2 focus:ring-primary'
         />
         </div>
         <div className="flex flex-col gap-2">
@@ -83,7 +83,7 @@ export const ContactForm = () => {
             name='message' 
             onChange={handleChange} 
             placeholder='The world is changing. Buckle up, anon.'
-            className='shadow-aceternity rounded-md px-2 py-1 text-sm focus-outline-none focus-ring-2 focus:ring-primary resize-none'
+            className='shadow-[var(--shadow-aceternity)] rounded-md px-2 py-1 text-sm focus-outline-none focus-ring-2 focus:ring-primary resize-none'
             />
         </div>
         <button 

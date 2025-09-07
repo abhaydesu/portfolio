@@ -91,7 +91,7 @@ export const Navbar = () => {
         <div className="flex items-center md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="relative z-50 rounded-full shadow-aceternity p-2 bg-white"
+            className="relative z-50 rounded-full shadow-[var(--shadow-aceternity)] p-2 bg-white"
             aria-label="Toggle menu"
           >
             <div className="space-y-0.75">

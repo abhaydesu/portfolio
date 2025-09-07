@@ -11,15 +11,38 @@
 
     --shadow-section-inset: 0px 1px 4px 0px var(--color-neutral-100) inset, 0px -1px 4px 0px var(--color-neutral-100) inset;
 
-  --color-primary: var(--color-neutral-800);
-  --color-secondary: var(--color-neutral-500);
+    --color-primary: var(--color-neutral-800);
+    --color-secondary: var(--color-neutral-500);
+
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
 .dark {
-  --color-primary: var(--color-neutral-100);
+  --color-primary: white;
   --color-secondary: var(--color-neutral-300);
+
+  --shadow-aceternity:
+    0px 2px 3px -10px rgba(255, 255, 255, 0.1), 0px 1px 0px 0px rgba(255, 255, 255, 0.02),
+    0px 0px 0px 1px rgba(255, 255, 255, 0.08);
+
+  --shadow-section-inset: 0px 1px 4px 0px var(--color-neutral-950) inset, 0px -1px 4px 0px var(--color-neutral-950) inset;
+
+  --shadow-section: 
+    rgba(255, 255, 255, 0.06) 0px 0px 24px, rgba(255, 255, 255, 0.05) 0px 1px 1px,
+    rgba(255, 255, 255, 0.04) 0px 0px 0px 1px, rgba(255, 255, 255, 0.08) 0px 0px 4px,
+    rgba(255, 255, 255, 0.05) 0px 16px 68px, rgba(255, 255, 255, 0.1) 0px 1px 0px inset;
+
+  --shadow-sm: 0 1px 2px 0 rgb(255 255 255 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(255 255 255 / 0.1), 0 2px 4px -2px rgb(255 255 255 / 0.1);
+
+  ::selection {
+   background-color: var(--color-pink-900);
+   color: var(--color-pink-200);  
+  }
 }
 
 ::selection {
   background-color: var(--color-pink-200); 
+  color: var(--color-pink-900)
 }

@@ -13,7 +13,7 @@ export const ProjectLanding = ({projects = defaultProjects}: {
 }) => {
     
   return (
-    <div className="border-y border-neutral-100 mt-12 py-4 px-4 shadow-section-inset border-y border-neutral-100">
+    <div className="border-y border-neutral-100 mt-12 py-4 px-4 shadow-[var(--shadow-section-inset)] border-y border-neutral-100 dark:border-neutral-800">
 
       <SectionHeading delay={0.2}>
         *i love building things.

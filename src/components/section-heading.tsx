@@ -61,11 +61,11 @@ const Background = () => {
       ease: 'easeInOut',
       delay: 1
     }}
-    className="absolute inset-0 h-full scale-[1.04] w-full bg-neutral-100">
-      <div className="h-1 w-1 rounded-full bg-neutral-200 absolute bg-pink-100 animate-pulse -top-px -left-px"></div>
-      <div className="h-1 w-1 rounded-full bg-neutral-200 absolute bg-pink-100 animate-pulse -top-px -right-px"></div>
-      <div className="h-1 w-1 rounded-full bg-neutral-200 absolute bg-pink-100 animate-pulse -bottom-px -left-px"></div>
-      <div className="h-1 w-1 rounded-full bg-neutral-200 absolute bg-pink-100 animate-pulse -bottom-px -right-px"></div>
+    className="absolute inset-0 h-full scale-[1.04] w-full bg-neutral-100 dark:bg-neutral-800 dark:text-neutral-300">
+      <div className="h-1 w-1 rounded-full absolute bg-pink-100 dark:bg-pink-300 animate-pulse -top-px -left-px"></div>
+      <div className="h-1 w-1 rounded-full absolute bg-pink-100 dark:bg-pink-300 animate-pulse -top-px -right-px"></div>
+      <div className="h-1 w-1 rounded-full absolute bg-pink-100 dark:bg-pink-300 animate-pulse -bottom-px -left-px"></div>
+      <div className="h-1 w-1 rounded-full absolute bg-pink-100 dark:bg-pink-300 animate-pulse -bottom-px -right-px"></div>
   </motion.div>
   )
 }

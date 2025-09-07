@@ -36,7 +36,7 @@ export const Collage = () => {
   }, []);
 
   return (
-    <section className="px-4 py-4 mt-12 border-y border-neutral-100 shadow-section-inset">
+    <section className="px-4 py-4 mt-12 border-y border-neutral-100 dark:border-neutral-800 shadow-[var(--shadow-section-inset)]">
       <SectionHeading className="text-secondary max-w-lg pt-0 text-sm md:text-sm mb-6">
         *a creative outlet.
       </SectionHeading>
@@ -57,7 +57,7 @@ export const Collage = () => {
                     ease: 'easeInOut',
                     delay: 0.1
                 }} 
-            className="text-primary pb-2 text-base font-bold tracking-tight">
+            className="text-[var(--color-primary)] pb-2 text-base font-bold tracking-tight">
               sketches
             </motion.h2>
           <div className="grid grid-cols-2 gap-4">
@@ -103,7 +103,7 @@ export const Collage = () => {
                     ease: 'easeInOut',
                     delay: 0.1
                 }} 
-            className="text-primary pb-2 text-base font-bold tracking-tight">
+            className="text-[var(--color-primary)] pb-2 text-base font-bold tracking-tight">
               photos
             </motion.h2>
           <div className="grid grid-cols-2 gap-4">

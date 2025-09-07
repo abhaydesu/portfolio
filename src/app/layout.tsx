@@ -5,6 +5,7 @@ import { ViewTransitions } from 'next-view-transitions'
 import "./globals.css";
 import { Footer } from "@/components/navbar/footer";
 import { Toaster } from "sonner";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -23,11 +24,13 @@ export default function RootLayout({
   return (
     <ViewTransitions>
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} antialiased bg-neutral-100 dark:bg-neutral-700 [--pattern-fg:var(--color-neutral-950)]/5`}>
+      <body className={`${inter.className} antialiased bg-neutral-100 dark:bg-black [--pattern-fg:var(--color-neutral-950)]/5  dark:[--pattern-fg:var(--color-neutral-100)]/5`}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <Toaster position="top-center"/>
         <Navbar />
         {children}
         <Footer />
+        </ThemeProvider>
       </body>
     </html>
     </ViewTransitions>

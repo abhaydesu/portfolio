@@ -63,7 +63,7 @@ export const Timeline = () => {
                     ease: 'easeInOut',
                     delay: 0.1 * index
                 }}
-                className="font-bold text-black px-2 mb-2 py-0.5 rounded-md shadow-aceternity w-fit px-4 py-1">
+                className="font-bold text-black dark:text-white px-2 mb-2 py-0.5 rounded-md shadow-[var(--shadow-aceternity)] w-fit px-4 py-1">
                     {year.title}
                 </motion.h2>
                 <div className="flex flex-col gap-4 ">
@@ -84,7 +84,7 @@ export const Timeline = () => {
                                 ease: 'easeInOut',
                                 delay: 0.2 * idx
                             }}
-                            className="text-neutral-600"
+                            className="text-neutral-600 dark:text-neutral-400"
                             >
                             {item.title}
                         </motion.h3>
@@ -104,7 +104,7 @@ export const Timeline = () => {
                                 ease: 'easeInOut',
                                 delay: 0.3 * idx
                             }}                          
-                            className="pt-1 pl-6 text-neutral-400 text-sm">
+                            className="pt-1 pl-6 text-neutral-400 dark:text-neutral-600 text-sm">
                                 {item.description
                             }</motion.p>
                         )}

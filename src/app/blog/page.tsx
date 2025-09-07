@@ -33,7 +33,7 @@ export default async function BlogsPage() {
             {allBlogs.map((blog) => (
                 <Link className="no-underline" key={blog.title} href={`/blog/${blog.slug}`}>
                     <div className="flex items-center justify-between">
-                        <h2 className="hover:underline hover:decoration-pink-300 text-primary text-base font-bold tracking-tight">
+                        <h2 className="hover:underline hover:decoration-pink-300 text-[var(--color-primary)] text-base font-bold tracking-tight">
                             {blog.title}
                         </h2> 
                         <p className="text-pink-300 text-sm md:text-sm">
@@ -51,7 +51,7 @@ export default async function BlogsPage() {
                             <span
                                 key={tag}
                                 className="px-2 py-0.5 rounded-full text-xs font-medium
-                                        bg-neutral-100 dark:bg-neutral-800 text-primary
+                                        bg-neutral-100 dark:bg-neutral-800 text-[var(--color-primary)]
                                         hover:scale-105 transition"
                             >
                                 {tag}

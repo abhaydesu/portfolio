@@ -34,9 +34,9 @@ export const Projects = ({projects = defaultProjects}: {
             <Image 
                 src={project.src} 
                 alt={project.title} 
-                height={300} 
+                height={100} 
                 width={300} 
-                className="w-full rounded-xl ojbect-cover transition duration-200 group-hover:scale-[1.02]" 
+                className="w-full h-35 rounded-xl ojbect-cover transition duration-200 group-hover:scale-[1.02]" 
             />    
             <h2 className='z-20 mt-2 font-medium tracking-tight text-neutral-500 dark:text-neutral-400'>
                 {project.title} 

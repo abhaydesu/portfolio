@@ -8,17 +8,17 @@ import { SectionHeading } from "./section-heading";
 
 
 const sketches = [
-  { src: "/sketch1.jpg", alt: "Sketch 1" },
-  { src: "/sketch2.jpg", alt: "Sketch 2" },
-  { src: "/sketch3.jpg", alt: "Sketch 3" },
-  { src: "/sketch4.jpg", alt: "Sketch 4" },
+  { src: "/sketch-1.jpg", alt: "Sketch 1" },
+  { src: "/sketch4.jpg", alt: "Sketch 2" },
+  { src: "/sketch-2.jpg", alt: "Sketch 3" },
+  { src: "/sketch-3.jpg", alt: "Sketch 4" },
 ];
 
 const photos = [
   { src: "/bnw_1.jpg", alt: "Photo 1" },
-  { src: "/bnw_5.jpg", alt: "Photo 2" },
-  { src: "/bnw_3.jpg", alt: "Photo 3" },
-  { src: "/bnw_4.jpg", alt: "Photo 4" },
+  { src: "/photo-5.jpg", alt: "Photo 2" },
+  { src: "/photo-2.jpg", alt: "Photo 3" },
+  { src: "/photo-4.jpg", alt: "Photo 4" },
 ];
 
 export const Collage = () => {
@@ -83,7 +83,7 @@ export const Collage = () => {
                 className="relative w-full aspect-square overflow-hidden rounded-xl hover:shadow-[0_4px_6px_-1px_rgba(249,168,212,0.5),0_2px_4px_-1px_rgba(249,168,212,0.3)] transition-transform cursor-pointer"
                 onClick={() => setSelectedImage(img)}
               >
-                <Image src={img.src} alt={img.alt} fill className="object-cover" />
+                <Image src={img.src} alt={img.alt} fill className="object-cover grayscale" />
               </motion.div>
             ))}
           </div>
@@ -128,7 +128,7 @@ export const Collage = () => {
                 className="relative w-full aspect-square overflow-hidden rounded-xl hover:shadow-[0_4px_6px_-1px_rgba(249,168,212,0.5),0_2px_4px_-1px_rgba(249,168,212,0.3)] transition-transform cursor-pointer"
                 onClick={() => setSelectedImage(img)}
               >
-                <Image src={img.src} alt={img.alt} fill className="object-cover" />
+                <Image src={img.src} alt={img.alt} fill className="object-cover grayscale" />
               </motion.div>
             ))}
           </div>

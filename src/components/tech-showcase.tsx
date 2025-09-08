@@ -31,7 +31,7 @@ const bottomTechs = techs.slice(mid);
 
 return (
     <div className="py-4 my-8 px-4 pb-8 shadow-[var(--shadow-section-inset)] border-y border-neutral-100 dark:border-neutral-800">
-      <SectionHeading className="mb-4" delay={0.88}>
+      <SectionHeading className="mb-4" delay={0.1}>
         *what i&#39;ve worked with.
       </SectionHeading>
 

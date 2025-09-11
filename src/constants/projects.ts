@@ -27,7 +27,7 @@ export const projects: Project[] = [
                 {
                     id:3,
             title: "Portfolio Website",
-            src: "/portfolio.png",
+            src: "/portfolio-light.png",
             href:"#",
             description: "This website you're on :)",
             tech: ['TypeScript', 'Next.js', 'TailwindCSS']

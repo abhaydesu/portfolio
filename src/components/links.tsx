@@ -1,7 +1,7 @@
 "use client";
 
 import { Link } from "next-view-transitions";
-import { easeInOut, motion } from "motion/react";
+import { AnimatePresence, easeInOut, motion } from "framer-motion"; // Changed import
 import React, { useState } from "react";
 import { IconLink } from "./icons";
 
@@ -21,19 +21,23 @@ export const Links = () => {
       opacity: 0,
       y: 6,
       filter: "blur(6px)",
-      transition: { duration: 0.18, delay: (i * 0.06), ease: easeInOut },
+      transition: { duration: 0.18, delay: i * 0.06, ease: easeInOut },
     }),
     visible: (i: number) => ({
       opacity: 1,
       y: 0,
       filter: "blur(0px)",
-      transition: { duration: 0.22, delay: (i * 0.06), ease: easeInOut },
+      transition: { duration: 0.22, delay: i * 0.06, ease: easeInOut },
     }),
     exit: (i: number) => ({
       opacity: 0,
       y: 6,
       filter: "blur(6px)",
-      transition: { duration: 0.16, delay: ( (LINKS.length - 1 - i) * 0.04 ), ease: easeInOut },
+      transition: {
+        duration: 0.16,
+        delay: (LINKS.length - 1 - i) * 0.04,
+        ease: easeInOut,
+      },
     }),
   };
 
@@ -44,7 +48,7 @@ export const Links = () => {
         animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         transition={{ duration: 0.2, delay: 0.35, ease: easeInOut }}
         viewport={{ once: true }}
-        className="flex items-start gap-2 text-sm text-pink-700 hover:text-pink-300"
+        className="flex items-start gap-2 text-sm text-pink-700"
       >
         <button
           onClick={toggle}
@@ -52,31 +56,35 @@ export const Links = () => {
           aria-label={open ? "Hide links" : "Show links"}
         >
           <IconLink
-            className={`h-3.5 w-3.5 mt-0.5 ${open ? "text-pink-300" : ""}`}
+            className={`h-3.5 w-3.5 mt-0.5 hover:text-pink-300 ${open ? "text-pink-300" : ""}`}
           />
         </button>
 
         <div className="flex gap-2 items-center">
           <div className="flex gap-2">
-            {LINKS.map((lnk, idx) => (
-              <motion.div
-                key={lnk.label}
-                custom={idx}
-                initial="hidden"
-                animate={open ? "visible" : "hidden"}
-                variants={itemVariants}
-                className="flex items-center text-pink-300"
-              >
-                <Link
-                  className="hover:text-pink-700"
-                  href={lnk.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {lnk.label}
-                </Link>
-              </motion.div>
-            ))}
+            <AnimatePresence>
+              {open &&
+                LINKS.map((lnk, idx) => (
+                  <motion.div
+                    key={lnk.label}
+                    custom={idx}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit" 
+                    variants={itemVariants}
+                    className="flex items-center text-pink-300"
+                  >
+                    <Link
+                      className="hover:text-pink-700"
+                      href={lnk.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {lnk.label}
+                    </Link>
+                  </motion.div>
+                ))}
+            </AnimatePresence>
           </div>
         </div>
       </motion.div>

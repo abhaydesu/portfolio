@@ -56,7 +56,7 @@ export const Links = () => {
           aria-label={open ? "Hide links" : "Show links"}
         >
           <IconLink
-            className={`h-3.5 w-3.5 mt-0.5 hover:text-pink-300 ${open ? "text-pink-300" : ""}`}
+            className={`h-3.5 w-3.5 mt-0.5 cursor-pointer hover:text-pink-300 ${open ? "text-pink-300" : ""}`}
           />
         </button>
 

@@ -63,7 +63,7 @@ export const Navbar = () => {
       >
         <Link href="/" className="hidden md:block">
           <Image
-            className="h-10 w-10 rounded-full hover:shadow-[0_4px_6px_-1px_rgba(249,168,212,0.5),0_2px_4px_-1px_rgba(249,168,212,0.3)]"
+            className="h-10 w-10 rounded-full hover:shadow-[var(--shadow-pink)]"
             src="/avatar.jpg"
             height={100}
             width={100}

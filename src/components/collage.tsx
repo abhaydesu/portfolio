@@ -80,7 +80,7 @@ export const Collage = () => {
                 }}
                 viewport={{once: true}}
                 key={i}
-                className="relative w-full aspect-square overflow-hidden rounded-xl hover:shadow-[0_4px_6px_-1px_rgba(249,168,212,0.5),0_2px_4px_-1px_rgba(249,168,212,0.3)] transition-transform cursor-pointer"
+                className="relative w-full aspect-square overflow-hidden rounded-xl hover:shadow-[var(--shadow-pink)] transition-transform cursor-pointer"
                 onClick={() => setSelectedImage(img)}
               >
                 <Image src={img.src} alt={img.alt} fill className="object-cover grayscale" />
@@ -125,7 +125,7 @@ export const Collage = () => {
                     delay: 0.2 * (i%2)
                 }}
                 key={i}
-                className="relative w-full aspect-square overflow-hidden rounded-xl hover:shadow-[0_4px_6px_-1px_rgba(249,168,212,0.5),0_2px_4px_-1px_rgba(249,168,212,0.3)] transition-transform cursor-pointer"
+                className="relative w-full aspect-square overflow-hidden rounded-xl hover:shadow-[var(--shadow-pink)] transition-transform cursor-pointer"
                 onClick={() => setSelectedImage(img)}
               >
                 <Image src={img.src} alt={img.alt} fill className="object-cover grayscale" />

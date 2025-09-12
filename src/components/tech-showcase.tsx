@@ -63,7 +63,7 @@ const TechPill = ({ name, logo }: { name: string; logo?: string }) => {
   const [imgOk, setImgOk] = React.useState(true)
 
   return (
-    <div className="flex items-center gap-3 px-2 py-1 hover:shadow-[var(--shadow-md)] rounded-full border border-neutral-100 dark:border-neutral-800 shadow-[var(--shadow-sm)] bg-white dark:bg-neutral-950 min-w-[6rem] mr-3">
+    <div className="flex items-center gap-3 px-2 py-1 hover:shadow-[var(--shadow-pink)] rounded-full border border-neutral-100 dark:border-neutral-800 shadow-[var(--shadow-sm)] bg-white dark:bg-neutral-950 min-w-[6rem] mr-3">
       {logo && imgOk ? (
         <img
           src={logo}

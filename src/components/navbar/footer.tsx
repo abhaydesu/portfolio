@@ -8,13 +8,13 @@ export const Footer = () => {
     <Container className='flex justify-between py-3 px-10 border-t border-neutral-100 dark:border-neutral-800'>
         <p className='text-sm text-neutral-500'>built with love by Abhay Singh</p>
         <div className='flex items-center justify-center gap-4'>
-            <Link href="https://github.com/abhaydesu">
+            <Link target='_blank' href="https://github.com/abhaydesu">
                 <IconBrandGithub className='size-4 text-pink-700 hover:text-pink-300' />
             </Link>
-            <Link href="https://www.linkedin.com/in/abhaydesu/">
+            <Link target='_blank' href="https://www.linkedin.com/in/abhaydesu/">
                 <IconBrandLinkedin  className='size-4 text-pink-700 hover:text-pink-300'/>
             </Link>
-            <Link href="https://x.com/abhaydesu">
+            <Link target='_blank' href="https://x.com/abhaydesu">
                 <IconBrandX  className='size-4 text-pink-700 hover:text-pink-300'/>
             </Link>
         </div>

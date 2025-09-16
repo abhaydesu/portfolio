@@ -38,12 +38,12 @@ export const ProjectLanding = ({projects = defaultProjects}: {
                 alt={project.title} 
                 height={300} 
                 width={400} 
-                className="w-full h-39 rounded-xl ojbect-cover transition duration-200 group-hover:scale-[1.02]" 
+                className="w-60 h-34 rounded-xl mx-auto ojbect-cover transition duration-200 group-hover:scale-[1.02]" 
             />    
-            <h2 className='z-20 mt-2 font-medium tracking-tight text-neutral-500 dark:text-neutral-400'>
+            <h2 className='z-20 md:mx-2 mt-2 font-medium tracking-tight md:text-left text-center text-neutral-500 dark:text-neutral-400'>
                 {project.title} 
             </h2>
-            <p className='text-sm max-w-xs mt-2 text-neutral-500 dark:text-neutral-400'>
+            <p className='text-sm max-w-xs md:mx-2 mt-2 md:text-left text-center text-neutral-500 dark:text-neutral-400'>
                 {project.description}
             </p>
             </Link>

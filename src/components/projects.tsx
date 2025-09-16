@@ -27,7 +27,7 @@ export const Projects = ({projects = defaultProjects}: {
                 ease: 'easeInOut'
             }}
             key={project.title}
-            className='group relative mb-4'
+            className='group relative mb-4  flex justify-center align-center '
             viewport={{once: true}}
         >
             <Link target='_blank' href={project.href}>
@@ -36,12 +36,12 @@ export const Projects = ({projects = defaultProjects}: {
                 alt={project.title} 
                 height={100} 
                 width={300} 
-                className="w-full h-35 rounded-xl ojbect-cover transition duration-200 group-hover:scale-[1.02]" 
+                className=" w-60 h-34 rounded-xl ojbect-cover mx-auto transition duration-200 group-hover:scale-[1.02]" 
             />    
-            <h2 className='z-20 mt-2 font-medium tracking-tight text-neutral-500 dark:text-neutral-400'>
+            <h2 className='z-20 mt-2 md:mx-2 font-medium tracking-tight text-center md:text-left text-neutral-500 dark:text-neutral-400'>
                 {project.title} 
             </h2>
-            <p className='text-sm max-w-xs mt-2 text-neutral-500 dark:text-neutral-400'>
+            <p className='text-sm max-w-xs md:mx-2 text-center md:text-left mt-2 text-neutral-500 dark:text-neutral-400'>
                 {project.description}
             </p>
             </Link>

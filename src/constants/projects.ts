@@ -12,7 +12,7 @@ export const projects: Project[] = [
             id: 1,
             title: "Git Pilot CLI",
             src: "/git-pilot-demo.png",
-            href: "https://git-pilot-api.vercel.app/",
+            href: "https://gitpilotcli.vercel.app/",
             description: "An AI assistant in your terminal that translates natural language into Git commands and commit messages.",
             tech: ['Node.js', 'Express.js', 'Google Gemini API', 'Commander.js', 'Vercel']
         },

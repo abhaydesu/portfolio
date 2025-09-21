@@ -17,9 +17,6 @@ export default function Home() {
         text="Abhay Singh"
         words={["Full stack Developer", "Frontend Developer", "Software Engineer"]}
       />
-      {/* <Heading > */}
-        {/* Abhay Singh
-      </Heading> */}
       <Subheading>
         i&#39;m a software engineer with a passion for building scalable and efficient systems. Currently a student, always a student of tech.
       </Subheading>

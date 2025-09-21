@@ -41,7 +41,6 @@ export const LandingBlogs = async () => {
                         </h2>
                         <p className='text-secondary text-sm md:text-sm'>
                             {new Date(blog.date || "").toLocaleDateString("en-us",{
-                                weekday: "long",
                                 year: "numeric", 
                                 month: "short",
                                 day: "numeric",

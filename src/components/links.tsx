@@ -1,7 +1,7 @@
 "use client";
 
 import { Link } from "next-view-transitions";
-import { AnimatePresence, easeInOut, motion } from "framer-motion"; // Changed import
+import { AnimatePresence, easeInOut, motion } from "framer-motion";
 import React, { useState } from "react";
 import { IconLink } from "./icons";
 
@@ -20,7 +20,7 @@ export const Links = () => {
     hidden: (i: number) => ({
       opacity: 0,
       y: 6,
-      filter: "blur(6px)",
+      filter: "blur(5px)",
       transition: { duration: 0.18, delay: i * 0.06, ease: easeInOut },
     }),
     visible: (i: number) => ({
@@ -32,7 +32,7 @@ export const Links = () => {
     exit: (i: number) => ({
       opacity: 0,
       y: 6,
-      filter: "blur(6px)",
+      filter: "blur(5px)",
       transition: {
         duration: 0.16,
         delay: (LINKS.length - 1 - i) * 0.04,
@@ -48,7 +48,7 @@ export const Links = () => {
         animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         transition={{ duration: 0.2, delay: 0.35, ease: easeInOut }}
         viewport={{ once: true }}
-        className="flex items-start gap-2 text-sm text-pink-700"
+        className="relative flex items-start gap-2 text-sm text-pink-700"
       >
         <button
           onClick={toggle}
@@ -59,8 +59,8 @@ export const Links = () => {
             className={`h-3.5 w-3.5 mt-0.5 cursor-pointer hover:text-pink-300 ${open ? "text-pink-300" : ""}`}
           />
         </button>
-
-        <div className="flex gap-2 items-center">
+          
+        <div className="absolute left-6 top-0 flex items-center gap-2">
           <div className="flex gap-2">
             <AnimatePresence>
               {open &&
@@ -70,7 +70,7 @@ export const Links = () => {
                     custom={idx}
                     initial="hidden"
                     animate="visible"
-                    exit="exit" 
+                    exit="exit"
                     variants={itemVariants}
                     className="flex items-center text-pink-300"
                   >

@@ -13,10 +13,10 @@ export const ProjectLanding = ({projects = defaultProjects}: {
 }) => {
     
   return (
-    <div className="border-y border-neutral-100 mt-12 py-4 px-4 shadow-[var(--shadow-section-inset)] border-y border-neutral-100 dark:border-neutral-800 ">
+    <div className="border-y border-neutral-100 mt-12 py-4 px-4 border-y border-neutral-100 dark:border-neutral-800 ">
 
       <SectionHeading delay={0.2}>
-        *i love building things.
+        <span className="text-pink-300 dark:text-pink-700">*</span>i love building things.
       </SectionHeading>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3 py-4">
       {projects.slice(0,3).map((project, idx) => (

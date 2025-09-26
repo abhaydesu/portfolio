@@ -58,12 +58,24 @@ export const Navbar = () => {
           duration: 0.28,
           ease: "linear",
         }}
-        className="fixed left-45 right-10 top-0 z-50 flex flex-row-reverse md:flex-row items-center justify-between bg-transparent dark:bg-transparent md:bg-white px-0 py-3 md:dark:bg-neutral-900 md:inset-x-0 md:mx-auto md:max-w-4xl md:rounded-full md:px-3 md:py-2 transition-colors duration-500"
+className="
+  fixed 
+   top-0 z-50 
+  flex flex-row-reverse md:flex-row 
+  items-center justify-between 
+  bg-white/30 dark:bg-neutral-900/30 md:bg-white/30 md:dark:bg-neutral-900/20 
+  backdrop-blur-md
+  px-0 py-3 
+  md:inset-x-0 md:mx-auto md:max-w-4xl 
+  md:rounded-full md:px-3 md:py-2 
+  transition-colors duration-500
+
+"
 
       >
         <Link href="/" className="hidden md:block">
           <Image
-            className="h-10 w-10 rounded-full hover:shadow-[var(--shadow-pink)]"
+            className="h-10 w-10 rounded-full hover:scale-102 hover:shadow-[var(--shadow-pink)]"
             src="/avatar.jpg"
             height={100}
             width={100}

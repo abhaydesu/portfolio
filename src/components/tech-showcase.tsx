@@ -30,9 +30,9 @@ const topTechs = techs.slice(0, mid);
 const bottomTechs = techs.slice(mid);
 
 return (
-    <div className="py-4 my-8 px-4 pb-8 shadow-[var(--shadow-section-inset)] border-y border-neutral-100 dark:border-neutral-800">
+    <div className="py-4 my-8 px-4 pb-8 border-y border-neutral-100 dark:border-neutral-800">
       <SectionHeading className="mb-4" delay={0.1}>
-        *what i&#39;ve worked with.
+        <span className="text-pink-300 dark:text-pink-700">*</span>what i&#39;ve worked with.
       </SectionHeading>
 
       <div 
@@ -63,7 +63,7 @@ const TechPill = ({ name, logo }: { name: string; logo?: string }) => {
   const [imgOk, setImgOk] = React.useState(true)
 
   return (
-    <div className="flex items-center gap-3 px-2 py-1 hover:shadow-[var(--shadow-pink)] rounded-full border border-neutral-100 dark:border-neutral-800 shadow-[var(--shadow-sm)] bg-white dark:bg-neutral-950 min-w-[6rem] mr-3">
+    <div className="flex items-center gap-3 px-2 py-1 hover:shadow-[var(--shadow-pink)] rounded-full border border-neutral-100 dark:border-neutral-800 shadow-[var(--shadow-sm)] bg-white dark:bg-neutral-950 min-w-[6rem] mr-3 hover:scale-101">
       {logo && imgOk ? (
         <img
           src={logo}

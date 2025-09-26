@@ -13,7 +13,7 @@ export const LandingBlogs = async () => {
   return (
     <div className='px-4 py-4'>
         <SectionHeading className='my-4' delay={0.4}>
-            <span className="text-pink-300 dark:text-pink-700">*</span>i&apos;m fond of writing.
+            <span className="text-pink-300 dark:text-pink-700">*</span>I&apos;m fond of writing
         </SectionHeading>
         <div className='flex flex-col gap-8'>
             {allBlogs.slice(0,3).map((blog,idx) => (

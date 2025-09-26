@@ -12,16 +12,16 @@ export const projects: Project[] = [
             id: 1,
             title: "Git Pilot CLI",
             src: "/git-pilot-demo.png",
-            href: "https://gitpilotcli.vercel.app/",
-            description: "An AI assistant in your terminal that translates natural language into Git commands and commit messages.",
+            href: "https://gitpilot.abhaydesu.dev/",
+            description: "A cli tool that makes git simpler, leveraging AI.",
             tech: ['Node.js', 'Express.js', 'Google Gemini API', 'Commander.js', 'Vercel']
         },
         {
             id: 2,
             title: "Dip-Dash",
             src: "/dipdash.png",
-            href:"https://dipdash.netlify.app",
-            description: "An endless, crossy-road type game, built using three.js",
+            href:"https://dipdash.abhaydesu.dev/",
+            description: "An endless, crossy-road type game.",
             tech: ['Three.js','HTML', 'CSS', 'JavaScript' ]
         },
         {
@@ -29,7 +29,7 @@ export const projects: Project[] = [
             title: "3D Art Gallery",
             src: "/art-gallery.png",
             href:"https://3d-virtualgallery.netlify.app/",
-            description: "A basic showcase of paintings in a 3D manner, built using Three.js",
+            description: "A basic showcase of paintings in a 3D manner.",
             tech: ['Three.js', 'HTML', 'CSS', 'JavaScript']
         },
         {

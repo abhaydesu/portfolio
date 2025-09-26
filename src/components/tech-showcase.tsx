@@ -10,8 +10,11 @@ const techs = [
   { name: 'JavaScript', logo: 'https://cdn.simpleicons.org/javascript/262626' },
   { name: 'TypeScript', logo: 'https://cdn.simpleicons.org/typescript/262626' },
   { name: 'Node.js', logo: 'https://cdn.simpleicons.org/nodedotjs/262626' },
+  { name: 'Supabase', logo: 'https://cdn.simpleicons.org/supabase/262626' },
+  { name: 'Svelte', logo: 'https://cdn.simpleicons.org/svelte/262626' },
   { name: 'Express', logo: 'https://cdn.simpleicons.org/express/262626' },
   { name: 'MongoDB', logo: 'https://cdn.simpleicons.org/mongodb/262626' },
+  { name: 'Bash', logo: 'https://cdn.simpleicons.org/gnubash/262626' },
   { name: 'Postgres', logo: 'https://cdn.simpleicons.org/postgresql/262626' },
   { name: 'React', logo: 'https://cdn.simpleicons.org/react/262626' },
   { name: 'Next.js', logo: 'https://cdn.simpleicons.org/nextdotjs/262626' },
@@ -30,9 +33,9 @@ const topTechs = techs.slice(0, mid);
 const bottomTechs = techs.slice(mid);
 
 return (
-    <div className="py-4 my-8 px-4 pb-8 border-y border-neutral-100 dark:border-neutral-800">
+    <div className="py-4 my-8 px-4 pb-8 border-t border-neutral-100 dark:border-neutral-800">
       <SectionHeading className="mb-4" delay={0.1}>
-        <span className="text-pink-300 dark:text-pink-700">*</span>what i&#39;ve worked with.
+        <span className="text-pink-300 dark:text-pink-700">*</span>what i&#39;ve worked with
       </SectionHeading>
 
       <div 

@@ -1,6 +1,5 @@
 import { Container } from "@/components/container";
 import { LandingBlogs } from "@/components/landing-blogs";
-import { Heading } from "@/components/heading"; 
 import { Subheading } from "@/components/subheading";
 import { Scales } from "@/components/scales";
 import { ProjectLanding } from "@/components/project-landing";
@@ -13,12 +12,9 @@ export default function Home() {
    <div className="min-h-screen flex items-start justify-start">
     <Container className="min-h-screen pt-16 px-8 md:pt-20 md:pb-10">
       <Scales />
-      <LayoutTextFlip 
-        text="Abhay Singh"
-        words={["Full stack Developer", "Frontend Developer", "Software Engineer"]}
-      />
+        <LayoutTextFlip text="Abhay Singh" words={['Software Engineer', 'Full Stack Developer', 'Frontend Developer']} />
       <Subheading>
-        i&#39;m a software engineer with a passion for building scalable and efficient systems. Currently a student, always a student of tech.
+       I approach code as a craft, building elegant solutions to complex problems and delivering experiences that are both thoughtful and functional.
       </Subheading>
       <Links />
       <ProjectLanding/>

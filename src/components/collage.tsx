@@ -38,7 +38,7 @@ export const Collage = () => {
   return (
     <section className="px-4 py-4 mt-12 border-y border-neutral-100 dark:border-neutral-800">
       <SectionHeading className="max-w-lg pt-0 text-sm md:text-sm mb-6">
-        <span className="text-pink-300 dark:text-pink-700">*</span>a creative outlet.
+        <span className="text-pink-300 dark:text-pink-700">*</span>a creative outlet
       </SectionHeading>
 
       <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 gap-4">

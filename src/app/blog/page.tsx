@@ -27,7 +27,7 @@ export default async function BlogsPage() {
         All blogs
       </Heading>
       <SectionHeading className="text-neutral-500 font-normal mx-5 ">
-        My space to document ideas, share experiences, and put learning into words.
+        my space to document ideas, share experiences, and put learning into words.
       </SectionHeading>
       <div className="flex flex-col gap-8 py-10 px-4">
             {allBlogs.map((blog) => (
@@ -59,7 +59,6 @@ export default async function BlogsPage() {
                             ))}
                         </div>
                     </div>
-
                 </Link>
             ))}
       </div>

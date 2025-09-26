@@ -19,7 +19,7 @@ export default function Contact() {
         Contact Me
       </Heading>
       <Subheading >
-        Whether it&#39;s a project or just a hello, I&#39;d love to hear from you.
+        whether it&#39;s a project or just a hello, I&#39;d love to hear from you.
       </Subheading>
       <ContactForm />
     </Container>

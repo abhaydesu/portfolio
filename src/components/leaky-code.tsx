@@ -9,7 +9,6 @@ type LeakyCodeProps = {
   className?: string
 };
 
-// This will orchestrate the children's animations.
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: (i = 1) => ({
@@ -18,8 +17,6 @@ const containerVariants = {
   }),
 };
 
-// 2. Define variants for each word
-// This is the animation that will be applied to each word.
 const wordVariants: Variants = {
   hidden: {
     opacity: 0,
@@ -39,7 +36,6 @@ const wordVariants: Variants = {
 };
 
 export const LeakyCode = ({ text, className }: LeakyCodeProps) => {
-  // 3. Split the text into an array of words
   const words = text.split(" ");
 
   return (
@@ -53,12 +49,11 @@ export const LeakyCode = ({ text, className }: LeakyCodeProps) => {
         className
       )}
     >
-      {/* 4. Map over the words and animate each one */}
       {words.map((word, index) => (
         <motion.span
           key={index}
           variants={wordVariants}
-          style={{ display: "inline-block", marginRight: "0.25em" }} // Keep words separate
+          style={{ display: "inline-block", marginRight: "0.25em" }} 
         >
           {word}
         </motion.span>

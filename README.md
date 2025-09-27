@@ -1,4 +1,4 @@
-# Abhay Singh - Portfolio
+# Portfolio
 
 A personal portfolio website showcasing my work as a software engineer, along with a collection of my skills and personal writings.
 

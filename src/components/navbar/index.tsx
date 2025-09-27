@@ -60,11 +60,11 @@ export const Navbar = () => {
         }}
 className="
   fixed 
-   top-0 z-50 
+  left-45 right-10 top-0 z-50 
   flex flex-row-reverse md:flex-row 
   items-center justify-between 
-  bg-white/30 dark:bg-neutral-900/30 md:bg-white/30 md:dark:bg-neutral-900/20 
-  backdrop-blur-md
+  md:bg-white/30 md:dark:bg-neutral-900/20 
+  md:backdrop-blur-md
   px-0 py-3 
   md:inset-x-0 md:mx-auto md:max-w-4xl 
   md:rounded-full md:px-3 md:py-2 

@@ -5,6 +5,8 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {useInView} from 'motion/react';
 import { SectionHeading } from "./section-heading";
+import { LeakyCode } from "./leaky-code";
+import { useTheme } from "next-themes";
 
 
 const sketches = [
@@ -35,9 +37,13 @@ export const Collage = () => {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
+  const { theme } = useTheme();
+
   return (
     <section className="px-4 py-4 mt-12 border-y border-neutral-100 dark:border-neutral-800">
-      <SectionHeading className="max-w-lg pt-0 text-sm md:text-sm mb-6">
+        <LeakyCode text={`relative text-sm font-normal ${theme === 'dark' ? "dark:text-neutral-300" : "text-neutral-700"}`} className="px-1 " />
+      
+      <SectionHeading className="max-w-lg pt-0 text-sm md:text-sm mb-6 mt-1">
         <span className="text-pink-300 dark:text-pink-700">*</span>a creative outlet
       </SectionHeading>
 

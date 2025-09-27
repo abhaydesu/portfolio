@@ -36,7 +36,7 @@ export const LandingBlogs = async () => {
                 >
                 <Link href={`/blog/${blog.slug}`}>
                     <div className='flex items-center justify-between'>
-                        <h2 className='text-[var(--color-primary)] text-base font-bold tracking-tight'>
+                        <h2 className='text-[var(--color-primary)] hover:underline hover:decoration-pink-300 dark:hover:decoration-pink-700  text-base font-bold tracking-tight'>
                             {blog.title}
                         </h2>
                         <p className='text-secondary text-sm md:text-sm'>

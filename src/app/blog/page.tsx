@@ -5,6 +5,7 @@ import { Link } from "next-view-transitions";
 import { Heading } from "@/components/heading";
 import { Scales } from "@/components/scales";
 import { SectionHeading } from "@/components/section-heading";
+import { LeakyCode } from "@/components/leaky-code";
 
 export const metadata: Metadata = {
     title: "All blogs - Abhay Singh",
@@ -26,10 +27,11 @@ export default async function BlogsPage() {
       <Heading >
         All blogs
       </Heading>
-      <SectionHeading className="text-neutral-500 font-normal mx-5 ">
+      <SectionHeading className="text-neutral-500 font-normal mx-5 mx-3">
         my space to document ideas, share experiences, and put learning into words.
       </SectionHeading>
-      <div className="flex flex-col gap-8 py-10 px-4">
+      <LeakyCode text="flex flex-col gap-8 py-10 px-4 border-y" className="pt-10 px-4"/>
+      <div className="flex flex-col gap-8 pb-10 px-4 border-y border-neutral-100 dark:border-neutral-800">
             {allBlogs.map((blog) => (
                 <Link className="no-underline" key={blog.title} href={`/blog/${blog.slug}`}>
                     <div className="flex items-center justify-between">

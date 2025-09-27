@@ -23,12 +23,14 @@ export const SectionHeading = ({ children, delay=0, className
         className
       )}
     >
+
       {parts.flatMap((part) => {
         if (typeof part === "string") {
           const words = part.trim().split(/\s+/).filter(Boolean);
           return words.map((word) => {
             const k = `w-${word}-${idxCounter++}`;
             return (
+              
               <motion.span
                 key={k}
                 initial={{ opacity: 0, y: 5, filter: "blur(2px)" }}

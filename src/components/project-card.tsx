@@ -120,7 +120,7 @@ function TooltipIcon({
         role="presentation"
         className="pointer-events-none absolute -top-9 left-1/2 -translate-x-1/2
           whitespace-nowrap rounded-md bg-neutral-950 dark:bg-neutral-100 text-neutral-100 dark:text-neutral-950 text-xs 
-          px-2 py-1 opacity-0 group-hover/tt:opacity-100 group-focus-within/tt:opacity-100
+          px-2 py-1 opacity-0 group-hover/tt:opacity-100
           transition-opacity duration-150 shadow-lg"
       >
         {label}

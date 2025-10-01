@@ -75,7 +75,7 @@ className="
       >
         <Link href="/" className="hidden md:block">
           <Image
-            className="h-10 w-10 rounded-full hover:scale-102 hover:shadow-[var(--shadow-pink)]"
+            className="h-10 w-10 rounded-full hover:scale-102"
             src="/avatar.jpg"
             height={100}
             width={100}

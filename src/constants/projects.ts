@@ -11,12 +11,12 @@ export type Project = {
 export const projects: Project[] = [
         {
             id: 1,
-            title: "Git Pilot CLI",
+            title: "Git Pilot",
             src: "/git-pilot-demo.png",
             href: "https://gitpilot.abhaydesu.dev/",
             github: "https://github.com/abhaydesu/git-pilot-cli",
             description: "A cli tool that makes git simpler, leveraging AI.",
-            tech: ['Node.js', 'Tailwind', 'Next.js', 'Framer']
+            tech: ['Node.js', 'JavaScript', 'Express', 'Gemini API']
         },
         {
             id: 2,
@@ -29,7 +29,7 @@ export const projects: Project[] = [
         },
         {
             id: 3,
-            title: "3D Art Gallery",
+            title: "Virtual Gallery",
             src: "/art-gallery.png",
             href:"https://3d-virtualgallery.netlify.app/",
             github: "https://github.com/abhaydesu/virtual-gallery",
@@ -43,7 +43,7 @@ export const projects: Project[] = [
             href:"#",
             github: "https://github.com/abhaydesu/portfolio",
             description: "This website you're on :)",
-            tech: ['TypeScript', 'Next.js', 'TailwindCSS']
+            tech: ['TypeScript', 'Next.js', 'TailwindCSS', 'Motion']
         },
         {
             id:5,
@@ -52,6 +52,6 @@ export const projects: Project[] = [
             href:"#",
             github: "#",
             description: "...",
-            tech: ['Node.js', 'TailwindCSS'],
+            tech: ['><'],
         },
     ]

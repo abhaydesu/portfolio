@@ -30,15 +30,15 @@ export default async function BlogsPage() {
       <SectionHeading className="text-neutral-500 font-normal mx-5 mx-3">
         my space to document ideas, share experiences, and put learning into words.
       </SectionHeading>
-      <LeakyCode text="flex flex-col gap-8 py-10 px-4 border-y" className="pt-10 px-4"/>
-      <div className="flex flex-col gap-8 pb-10 px-4 border-y border-neutral-100 dark:border-neutral-800">
+      <LeakyCode text="flex flex-col gap-8 py-10 px-12 border-y" className="pt-10 px-4"/>
+      <div className="flex flex-col gap-8 pb-10 px-12 border-y border-neutral-100 dark:border-neutral-800 -mx-8">
             {allBlogs.map((blog) => (
                 <Link className="no-underline" key={blog.title} href={`/blog/${blog.slug}`}>
                     <div className="flex items-center justify-between">
                         <h2 className="hover:underline hover:decoration-pink-300 dark:hover:decoration-pink-700 text-[var(--color-primary)] text-base font-bold tracking-tight">
                             {blog.title}
                         </h2> 
-                        <p className="text-pink-300 text-sm md:text-sm">
+                        <p className="text-pink-300 dark:text-pink-700 text-sm md:text-sm">
                             {new Date(blog.date!).toLocaleDateString('en-us', {
                                 weekday:"long", year:"numeric", month:"short", day:"numeric"
                             })}

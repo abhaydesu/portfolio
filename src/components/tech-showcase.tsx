@@ -33,7 +33,7 @@ const topTechs = techs.slice(0, mid);
 const bottomTechs = techs.slice(mid);
 
 return (
-    <div className="py-4 my-8 px-4 pb-8 border-t border-neutral-100 dark:border-neutral-800">
+    <div className="py-4 my-8 px-12 pb-8 border-t border-neutral-100 dark:border-neutral-800 -mx-8">
       <SectionHeading className="mb-4" delay={0.1}>
         <span className="text-pink-300 dark:text-pink-700">*</span>what i&#39;ve worked with
       </SectionHeading>

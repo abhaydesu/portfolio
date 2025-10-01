@@ -2,6 +2,30 @@
 @import "tailwindcss";
 @plugin '@tailwindcss/typography';
 
+::-webkit-scrollbar {
+  width: 8px; 
+  height: 8px; 
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(244, 114, 182); 
+  border-radius: 9999px; 
+  transition: background-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(244, 114, 182, 0.8); 
+}
+
+html {
+  scrollbar-color: rgba(244, 114, 182, 0.5) transparent; 
+  scrollbar-width: thin;
+}
+
 @theme inline {
     --shadow-aceternity:
     0px 2px 3px -10px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02),
@@ -25,11 +49,9 @@
 }
 
   .pink-shadow-theme {
-    /* Light Mode Color (pink-300) */
     --shadow-color-rgb: 249 168 212;
   }
 
-  /* Defines the dark mode color when .dark and .pink-shadow-theme are on the same element or .dark is an ancestor */
 
 .dark {
   --color-primary: white;
@@ -54,13 +76,16 @@
   --bg-mobile-menu-dark:  radial-gradient(circle,rgba(46, 23, 29, 1) 0%, rgba(23, 23, 23, 1) 100%);
 
   pink-shadow-theme {
-    /* Dark Mode Color (pink-800) */
     --shadow-color-rgb: 157 23 77;
   }
 
   ::selection {
    background-color: var(--color-pink-900);
    color: var(--color-pink-200);  
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgb(190, 24, 93);
   }
 }
 

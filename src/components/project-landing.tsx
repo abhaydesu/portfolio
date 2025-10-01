@@ -1,56 +1,29 @@
 "use client";
 
-import Image from "next/image";
-import React from 'react';
-import { motion } from 'motion/react';
-import Link from 'next/link';
-import { Project, projects as defaultProjects } from '@/constants/projects';
+import React from "react";
+import { Project, projects as defaultProjects } from "@/constants/projects";
 import { SectionHeading } from "./section-heading";
 import { More } from "./more-link";
+import { ProjectCard } from "./project-card";
 
-export const ProjectLanding = ({projects = defaultProjects}: {
-    projects?: Project[]
+export const ProjectLanding = ({
+  projects = defaultProjects,
+}: {
+  projects?: Project[];
 }) => {
-    
   return (
-    <div className="border-y border-neutral-100 mt-12 py-4 px-4 border-y border-neutral-100 dark:border-neutral-800 ">
-
+    <div className="border-y border-neutral-100 mt-12 py-4 px-12 dark:border-neutral-800 -mx-8">
       <SectionHeading delay={0.2}>
-        <span className="text-pink-300 dark:text-pink-700">*</span>I love building things
+        <span className="text-pink-300 dark:text-pink-700">*</span> I love building things
       </SectionHeading>
+
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3 py-4">
-      {projects.slice(0,3).map((project, idx) => (
-        <motion.div 
-            initial={{ opacity:0, filter: "blur(10px)", y:10}}
-            whileInView={{ opacity:1, filter: "blur(0px)", y:0}}
-            transition={{
-                duration: 0.3,
-                delay: idx * 0.1,
-                ease: 'easeInOut'
-            }}
-            key={project.title}
-            className='group relative mb-4'
-            viewport={{once: true}}
-        >
-            <Link target='_blank' href={project.href}>
-            <Image 
-                src={project.src} 
-                alt={project.title} 
-                height={300} 
-                width={400} 
-                className="w-60 h-34 rounded-xl mx-auto ojbect-cover transition duration-200 group-hover:scale-[1.02]" 
-            />    
-            <h2 className='z-20 md:mx-2 mt-2 font-medium tracking-tight md:text-left text-center text-neutral-500 dark:text-neutral-400'>
-                {project.title} 
-            </h2>
-            <p className='text-sm max-w-xs md:mx-2 mt-2 md:text-left text-center text-neutral-500 dark:text-neutral-400'>
-                {project.description}
-            </p>
-            </Link>
-        </motion.div>
-      ))}
+        {projects.slice(0, 3).map((project, idx) => (
+          <ProjectCard key={project.title} project={project} idx={idx} />
+        ))}
       </div>
-    <More />
+
+      <More />
     </div>
-  )
-}
+  );
+};

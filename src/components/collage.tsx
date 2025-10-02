@@ -17,7 +17,7 @@ const sketches = [
 ];
 
 const photos = [
-  { src: "/bnw_1.jpg", alt: "Photo 1" },
+  { src: "/photo-3.jpg", alt: "Photo 1" },
   { src: "/photo-5.jpg", alt: "Photo 2" },
   { src: "/photo-2.jpg", alt: "Photo 3" },
   { src: "/photo-4.jpg", alt: "Photo 4" },
@@ -86,10 +86,10 @@ export const Collage = () => {
                 }}
                 viewport={{once: true}}
                 key={i}
-                className="relative w-full aspect-square overflow-hidden rounded-xl hover:scale-101 transition ease-in cursor-pointer"
+                className="relative w-full aspect-square overflow-hidden rounded-xl hover:border border-pink-300 dark:border-pink-700 transition ease-in"
                 onClick={() => setSelectedImage(img)}
               >
-                <Image src={img.src} alt={img.alt} fill className="object-cover grayscale" />
+                <Image src={img.src} alt={img.alt} fill className="object-cover grayscale-60 md:grayscale hover:grayscale-0 transition duration-300" />
               </motion.div>
             ))}
           </div>
@@ -131,10 +131,10 @@ export const Collage = () => {
                     delay: 0.2 * (i%2)
                 }}
                 key={i}
-                className="relative w-full aspect-square overflow-hidden rounded-xl hover:scale-101 transition ease-in cursor-pointer"
+                className="relative w-full aspect-square overflow-hidden rounded-xl hover:border border-pink-300 dark:border-pink-700 transition ease-in"
                 onClick={() => setSelectedImage(img)}
               >
-                <Image src={img.src} alt={img.alt} fill className="object-cover grayscale" />
+                <Image src={img.src} alt={img.alt} fill className="object-cover grayscale-60 md:grayscale hover:grayscale-0 transition duration-300" />
               </motion.div>
             ))}
           </div>
@@ -163,7 +163,7 @@ export const Collage = () => {
               <button
                 type="button"
                 aria-label="Close"
-                className="absolute top-4 right-4 z-60 text-white text-3xl font-bold leading-none hover:text-gray-300"
+                className="absolute top-4 right-4 z-60 text-pink-300 dark:text-pink-700 text-3xl font-bold leading-none hover:text-pink-700 dark:hover:text-pink-300 cursor-pointer"
                 onClick={() => setSelectedImage(null)}
               >
                 ×

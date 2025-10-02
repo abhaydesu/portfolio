@@ -19,7 +19,6 @@ export default async function BlogsPage() {
         return str.length > length ? str.substring(0, length) + "..." : str;
     }
 
-    console.log(allBlogs);
     return (
     <div className="min-h-screen flex items-start justify-start">
     <Container className="min-h-screen pt-16 px-8 md:pt-20 md:pb-10">

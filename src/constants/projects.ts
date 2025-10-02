@@ -33,13 +33,13 @@ export const projects: Project[] = [
             src: "/art-gallery.png",
             href:"https://3d-virtualgallery.netlify.app/",
             github: "https://github.com/abhaydesu/virtual-gallery",
-            description: "A basic showcase of paintings in a 3D manner.",
+            description: "A showcase of paintings in a 3D manner.",
             tech: ['Three.js', 'HTML', 'CSS', 'JavaScript']
         },
         {
             id:4,
             title: "Portfolio Website",
-            src: "/portfolio-light.png",
+            src: "/portfolio.png",
             href:"#",
             github: "https://github.com/abhaydesu/portfolio",
             description: "This website you're on :)",

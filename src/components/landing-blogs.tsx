@@ -15,7 +15,7 @@ export const LandingBlogs = async () => {
         <SectionHeading className='my-4' delay={0.4}>
             <span className="text-pink-300 dark:text-pink-700">*</span>I&apos;m fond of writing
         </SectionHeading>
-        <div className='flex flex-col gap-8'>
+        <div className='flex flex-col gap-8 px-2'>
             {allBlogs.slice(0,3).map((blog,idx) => (
                 <MotionDiv
                     key={blog.title}

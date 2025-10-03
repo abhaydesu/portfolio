@@ -29,6 +29,15 @@ export const projects: Project[] = [
         },
         {
             id: 3,
+            title: "Pathly",
+            src: "/pathly.png",
+            href:"https://pathly-delta.vercel.app/",
+            github: "https://github.com/abhaydesu/pathly",
+            description: "A URL shortener with analytics",
+            tech: ['React', 'Express', 'MongoDB', 'Tailwind']
+        },
+        {
+            id: 4,
             title: "Virtual Gallery",
             src: "/art-gallery.png",
             href:"https://3d-virtualgallery.netlify.app/",
@@ -37,7 +46,7 @@ export const projects: Project[] = [
             tech: ['Three.js', 'HTML', 'CSS', 'JavaScript']
         },
         {
-            id:4,
+            id:5,
             title: "Portfolio Website",
             src: "/portfolio.png",
             href:"#",
@@ -46,7 +55,7 @@ export const projects: Project[] = [
             tech: ['TypeScript', 'Next.js', 'TailwindCSS', 'Motion']
         },
         {
-            id:5,
+            id:6,
             title: "Coming soon",
             src: "/coming-soon.png",
             href:"#",

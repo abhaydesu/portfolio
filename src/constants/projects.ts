@@ -33,7 +33,7 @@ export const projects: Project[] = [
             src: "/pathly.png",
             href:"https://pathly-delta.vercel.app/",
             github: "https://github.com/abhaydesu/pathly",
-            description: "A URL shortener with analytics",
+            description: "A URL shortener with simple analytics",
             tech: ['React', 'Express', 'MongoDB', 'Tailwind']
         },
         {

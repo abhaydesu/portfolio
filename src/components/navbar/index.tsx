@@ -106,7 +106,7 @@ export const Navbar = () => {
           </div>
 
           <div className="md:hidden">
-            <nav className="fixed bottom-3 left-1/2 z-50 w-[75%] -translate-x-1/2 rounded-full bg-white/70 dark:bg-neutral-900/70 backdrop-blur-md px-2 py-1.5 shadow-[var(--shadow-aceternity)]">
+            <nav className="fixed bottom-13 left-1/2 z-50 w-[75%] -translate-x-1/2 rounded-full bg-white/70 dark:bg-neutral-900/70 backdrop-blur-md px-2 py-1.5 shadow-[var(--shadow-aceternity)]">
               <div className="flex items-center justify-around">
                 {navItems.map((item, idx) => {
                   const Icon = item.icon;

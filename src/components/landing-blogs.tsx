@@ -34,11 +34,22 @@ export const LandingBlogs = async () => {
                         delay: idx * 0.1
                     }}
                 >
-                <Link href={`/blog/${blog.slug}`}>
+                <Link href={`/blog/${blog.slug}`} className='group'>
                     <div className='flex items-center justify-between'>
-                        <h2 className='text-[var(--color-primary)] hover:underline hover:decoration-pink-300 dark:hover:decoration-pink-700  text-base font-bold tracking-tight'>
-                            {blog.title}
-                        </h2>
+                      <h2 className='
+    text-[var(--color-primary)] text-base font-bold tracking-tight 
+    relative inline-block 
+    after:content-[""] after:absolute after:bottom-[-2px] after:left-1/2 after:h-px after:w-0 
+    after:-translate-x-1/2 after:bg-pink-300 after:transition-all after:duration-300 
+    group-hover:after:w-full dark:after:bg-pink-700
+'>
+    {blog.title}
+</h2>
+
+
+
+
+
                         <p className='text-secondary text-sm md:text-sm'>
                             {new Date(blog.date || "").toLocaleDateString("en-us",{
                                 year: "numeric", 

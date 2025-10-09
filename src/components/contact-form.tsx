@@ -52,7 +52,7 @@ export const ContactForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className='border-y border-neutral-100 dark:border-neutral-800 py-12 my-10 -mx-8'>
+        <form onSubmit={handleSubmit} className='border-y border-neutral-100 dark:border-neutral-800 py-12 my-10 -mx-8 px-8 '>
             <div className="max-w-lg px-4 flex flex-col gap-5 mx-auto">
                 <div className="flex flex-col gap-2">
                     <label className='text-sm font-medium tracking-tight text-neutral-600' htmlFor="name">Full name</label>

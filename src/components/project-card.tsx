@@ -26,7 +26,7 @@ export function ProjectCard({ project, idx = 0 }: ProjectCardProps) {
     alt={project.title}
     height={100}
     width={300}
-    className="w-60 h-34 rounded-xl object-cover mx-auto md:px-1 md:pt-1 mb-5 md:grayscale-30 md:group-hover:grayscale-0"
+    className="w-60 h-34 rounded-xl object-cover mx-auto md:px-1 md:pt-1 mb-5 md:grayscale-30 md:group-hover:grayscale-0 transition-all duration-300 ease-in-out"
   />
 
   <div className="border-t border-dashed border-neutral-200 dark:border-neutral-700 w-full" />
@@ -36,10 +36,7 @@ export function ProjectCard({ project, idx = 0 }: ProjectCardProps) {
       className="
         relative font-medium tracking-tight text-neutral-600 dark:text-neutral-300 
         text-center md:text-left inline-block
-        after:content-[''] after:absolute after:left-0 after:-bottom-0.5
-        after:h-[0.25px] after:bg-pink-300 dark:after:bg-pink-700/70 
-        after:w-0 after:transition-all after:duration-300 after:ease-out
-        group-hover:after:w-full
+        group-hover:after:w-full group-hover:text-black dark:group-hover:text-white transition
       "
     >
       {project.title}

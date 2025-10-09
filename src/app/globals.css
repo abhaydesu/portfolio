@@ -40,6 +40,7 @@ html {
 
       --shadow-pink: 0 4px 6px -1px rgb(157 23 77 / 0.5), 0 2px 4px -2px rgb(157 23 77 / 0.3);
 
+    --border-hover-color: #f9a8d4;
 
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -72,6 +73,7 @@ html {
   --shadow-md: 0 4px 6px -1px rgb(255 255 255 / 0.1), 0 2px 4px -2px rgb(255 255 255 / 0.1);
   --shadow-2xl: 0 25px 50px -12px rgb(255 255 255 / 0.15);
 
+   --border-hover-color: #831843;
 
   --bg-mobile-menu-dark:  radial-gradient(circle,rgba(46, 23, 29, 1) 0%, rgba(23, 23, 23, 1) 100%);
 

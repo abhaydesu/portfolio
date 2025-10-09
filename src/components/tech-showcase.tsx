@@ -66,7 +66,7 @@ const TechPill = ({ name, logo }: { name: string; logo?: string }) => {
   const [imgOk, setImgOk] = React.useState(true)
 
   return (
-    <div className="group flex items-center gap-3 px-2 py-1 hover:shadow-md rounded-full border border-neutral-100 dark:border-neutral-800 shadow-[var(--shadow-sm)] bg-white dark:bg-neutral-950 min-w-[6rem] mr-3 hover:scale-101 transition-all">
+    <div className="group flex items-center gap-3 px-2 py-1 hover:shadow-md dark:hover:shadow-md dark:hover:shadow-neutral-800 rounded-full border border-neutral-100 dark:border-neutral-800 shadow-[var(--shadow-sm)] bg-white dark:bg-neutral-950 min-w-[6rem] mr-3 hover:scale-101 transition-all">
       {logo && imgOk ? (
         <img
           src={logo}
@@ -79,7 +79,7 @@ const TechPill = ({ name, logo }: { name: string; logo?: string }) => {
       )}
 
       <div className="flex flex-col text-left">
-        <span className="text-sm font-sm text-neutral-600 dark:text-neutral-300 hover:text-neutral-800 dark:hover:text-neutral-100">{name}</span>
+        <span className="text-sm font-sm text-neutral-600 dark:text-neutral-300 ">{name}</span>
       </div>
     </div>
   )

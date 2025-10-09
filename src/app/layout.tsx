@@ -12,7 +12,7 @@ const inter = Inter({
   weight: ["400", "500", "600", "700", "800", "900"]})
 
 export const metadata: Metadata = {
-  title: "Abhay's Portfolio",
+  title: "Abhay Singh",
   description: "A perfect portfolio that showcases my skills, with minimal and smooth microinteractions.",
 };  
 

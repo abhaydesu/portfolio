@@ -8,7 +8,7 @@ import { SectionHeading } from "@/components/section-heading";
 import { LeakyCode } from "@/components/leaky-code";
 
 export const metadata: Metadata = {
-    title: "All blogs - Abhay Singh",
+    title: "Blog | Abhay Singh",
     description: "All my wisdom and shenanigans documented."
 };
 
@@ -26,7 +26,7 @@ export default async function BlogsPage() {
       <Heading >
         All blogs
       </Heading>
-      <SectionHeading className="text-neutral-500 font-normal mx-5 mx-3">
+      <SectionHeading className="text-neutral-500 font-normal mx-3">
         my space to document ideas, share experiences, and put learning into words.
       </SectionHeading>
       <LeakyCode text="flex flex-col gap-8 py-10 px-12 border-y" className="pt-10 px-4"/>

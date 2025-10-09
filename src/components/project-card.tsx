@@ -26,7 +26,7 @@ export function ProjectCard({ project, idx = 0 }: ProjectCardProps) {
     alt={project.title}
     height={100}
     width={300}
-    className="w-60 h-34 rounded-xl object-cover mx-auto md:px-1 md:pt-1 mb-5 md:grayscale-30 md:group-hover:grayscale-0 transition-all duration-300 ease-in-out"
+    className="w-60 h-34 rounded-xl object-cover mx-auto md:px-1 md:pt-1 mb-5 md:grayscale-30 md:group-hover:grayscale-0 transition-all duration-300"
   />
 
   <div className="border-t border-dashed border-neutral-200 dark:border-neutral-700 w-full" />
@@ -36,7 +36,7 @@ export function ProjectCard({ project, idx = 0 }: ProjectCardProps) {
       className="
         relative font-medium tracking-tight text-neutral-600 dark:text-neutral-300 
         text-center md:text-left inline-block
-        group-hover:after:w-full group-hover:text-black dark:group-hover:text-white transition
+        group-hover:after:w-full group-hover:text-neutral-700 dark:group-hover:text-neutral-200 transition
       "
     >
       {project.title}
@@ -49,7 +49,7 @@ export function ProjectCard({ project, idx = 0 }: ProjectCardProps) {
             href={project.href}
             target="_blank"
             aria-label="View live"
-            className="p-1 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-pink-400/60 hover:scale-110 transition"
+            className="p-1 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-pink-400/60 hover:scale-110 transition group-hover:animate-jiggle"
           >
             <ExternalLink
               size={16}

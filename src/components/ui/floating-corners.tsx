@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Icon } from './Icon';
+import { Icon } from './icon';
 
 const cornerVariants = {
   hidden: { opacity: 0 },
@@ -24,13 +24,13 @@ export default function FloatingCorners({
       {showTop && (
         <>
           <motion.span
-            className="absolute h-6 w-6 -top-3 left-5 text-neutral-200 dark:text-pink-700"
+            className="absolute h-6 w-6 -top-3 left-5 text-neutral-200 dark:text-neutral-600"
             variants={cornerVariants}
           >
             <Icon className="h-6 w-6" />
           </motion.span>
           <motion.span
-            className="absolute h-6 w-6 -top-3 right-5 text-neutral-200 dark:text-pink-700"
+            className="absolute h-6 w-6 -top-3 right-5 text-neutral-200 dark:text-neutral-600"
             variants={cornerVariants}
           >
             <Icon className="h-6 w-6" />
@@ -38,17 +38,16 @@ export default function FloatingCorners({
         </>
       )}
 
-      {/* Conditionally render the bottom two corners */}
       {showBottom && (
         <>
           <motion.span
-            className="absolute h-6 w-6 -bottom-3 left-5 text-neutral-200 dark:text-pink-700"
+            className="absolute h-6 w-6 -bottom-3 left-5 text-neutral-200 dark:text-neutral-700"
             variants={cornerVariants}
           >
             <Icon className="h-6 w-6" />
           </motion.span>
           <motion.span
-            className="absolute h-6 w-6 -bottom-3 right-5 text-neutral-200 dark:text-pink-700"
+            className="absolute h-6 w-6 -bottom-3 right-5 text-neutral-200 dark:text-neutral-700"
             variants={cornerVariants}
           >
             <Icon className="h-6 w-6" />

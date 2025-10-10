@@ -12,7 +12,7 @@ import {
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { ThemeToggle } from "../theme-toggle";
 import { useTheme } from "next-themes";
-import { Home, User, FolderGit2, FileText, Mail, NotebookPen, Laptop, PersonStanding } from "lucide-react";
+import { Home, Mail, NotebookPen, Laptop, PersonStanding } from "lucide-react";
 
 export const Navbar = () => {
   const { theme } = useTheme();

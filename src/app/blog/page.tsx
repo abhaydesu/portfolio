@@ -6,6 +6,7 @@ import { Heading } from "@/components/heading";
 import { Scales } from "@/components/scales";
 import { SectionHeading } from "@/components/section-heading";
 import { LeakyCode } from "@/components/leaky-code";
+import FloatingCorners from "@/components/ui/floating-corners";
 
 export const metadata: Metadata = {
     title: "Blog | Abhay Singh",
@@ -30,7 +31,8 @@ export default async function BlogsPage() {
         my space to document ideas, share experiences, and put learning into words.
       </SectionHeading>
       <LeakyCode text="flex flex-col gap-8 py-10 px-12 border-y" className="pt-10 px-4"/>
-      <div className="flex flex-col gap-8 pb-10 px-12 border-y border-neutral-100 dark:border-neutral-800 -mx-8">
+      <div className="relative flex flex-col gap-8 pb-10 px-12 border-y border-neutral-100 dark:border-neutral-800 -mx-8">
+        <FloatingCorners />
             {allBlogs.map((blog) => (
                 <Link className="no-underline group " key={blog.title} href={`/blog/${blog.slug}`}>
                     <div className="flex items-center justify-between">

@@ -6,6 +6,7 @@ import { SectionHeading } from "./section-heading";
 import { LeakyCode } from "./leaky-code";
 import { Project, projects as defaultProjects } from "@/constants/projects";
 import { ProjectCard } from "./project-card";
+import FloatingCorners from "./ui/floating-corners";
 
 export const Projects = ({
   projects = defaultProjects,
@@ -15,7 +16,8 @@ export const Projects = ({
   const { theme } = useTheme();
 
   return (
-    <div className="border-t border-neutral-100 dark:border-neutral-800 mt-12 py-4 px-12 -mx-8">
+    <div className="relative border-t border-neutral-100 dark:border-neutral-800 mt-12 py-4 px-12 -mx-8">
+      <FloatingCorners showBottom={false} />
       <LeakyCode
         text={`relative text-sm font-normal ${
           theme === "dark" ? "dark:text-neutral-300" : "text-neutral-700"

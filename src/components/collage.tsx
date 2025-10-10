@@ -7,6 +7,7 @@ import {useInView} from 'motion/react';
 import { SectionHeading } from "./section-heading";
 import { LeakyCode } from "./leaky-code";
 import { useTheme } from "next-themes";
+import FloatingCorners from "./ui/floating-corners";
 
 
 const sketches = [
@@ -40,7 +41,8 @@ export const Collage = () => {
   const { theme } = useTheme();
 
   return (
-    <section className="px-12 py-4 mt-12 border-y border-neutral-100 dark:border-neutral-800 -mx-8">
+    <section className="relative px-12 py-4 mt-12 border-y border-neutral-100 dark:border-neutral-800 -mx-8">
+      <FloatingCorners />
         <LeakyCode text={`relative text-sm font-normal ${theme === 'dark' ? "dark:text-neutral-300" : "text-neutral-700"}`} className="px-1 " />
       
       <SectionHeading className="max-w-lg pt-0 text-sm md:text-sm mb-6 mt-1">

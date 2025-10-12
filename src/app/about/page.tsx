@@ -21,10 +21,9 @@ export default function AboutPage() {
         About Me
       </Heading>
       <Subheading>
-        Hi, I like keeping things simple — spending time with books, watching or playing football, admiring cars, and taking photos when something catches my eye.
+        Hi, I like keeping things simple; coding, reading, writing and sketching.
         <br />
-
-        I&#39;m someone who enjoys learning at my own pace and staying curious about different things, whether big or small. For me, it&#39;s less about big achievements and more about doing the things I enjoy and growing along the way.
+        staying curious and learning along the way.
       </Subheading>
       <Collage />
       <SectionHeading className="mx-4 max-w-lg mt-4 text-sm md:text-sm">

@@ -29,6 +29,16 @@ export const projects: Project[] = [
         },
         {
             id: 3,
+            title: "Throtl",
+            src: "/throtl.png",
+            href:"https://throtl.vercel.app/",
+            github: "https://github.com/abhaydesu/throtl",
+            description: "Make frontend for Throtl: Automated bandwidth throttler.",
+            tech: ['Frontend','Tailwind', 'Recharts', 'React' ]
+        }
+        ,
+        {
+            id: 4,
             title: "Pathly",
             src: "/pathly.png",
             href:"https://pathly-delta.vercel.app/",
@@ -37,7 +47,7 @@ export const projects: Project[] = [
             tech: ['React', 'Express', 'MongoDB', 'Tailwind']
         },
         {
-            id: 4,
+            id: 5,
             title: "Virtual Gallery",
             src: "/art-gallery.png",
             href:"https://3d-virtualgallery.netlify.app/",
@@ -46,7 +56,7 @@ export const projects: Project[] = [
             tech: ['Three.js', 'HTML', 'CSS', 'JavaScript']
         },
         {
-            id:5,
+            id:6,
             title: "Portfolio Website",
             src: "/portfolio.png",
             href:"#",
@@ -55,7 +65,7 @@ export const projects: Project[] = [
             tech: ['TypeScript', 'Next.js', 'TailwindCSS', 'Motion']
         },
         {
-            id:6,
+            id:7,
             title: "Coming soon",
             src: "/coming-soon.png",
             href:"#",

@@ -51,7 +51,7 @@ export const projects: Project[] = [
             title: "Aetos ",
             src: "/aetos.png",
             href:"https://aetos0.vercel.app/",
-            github: "https://github.com/abhaydesu/pathly",
+            github: "https://github.com/abhaydesu/Aetos",
             description: "Made frontend for Aetos: An analytics Dashboard",
             tech: ['React', 'Tailwind', 'Motion']
         },

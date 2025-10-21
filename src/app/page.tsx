@@ -11,7 +11,7 @@ import { LeakyCode } from "@/components/leaky-code";
 export default function Home() {
   return (
    <div className="min-h-screen flex items-start justify-start">
-    <Container className="min-h-screen pt-8 px-8 md:pt-20 md:pb-10">
+    <Container className="min-h-screen pt-8 px-8 md:pb-10">
       <Scales />
       <LeakyCode text="px-4 md:text-4xl tracking-tighter" className="px-4"/>
         <LayoutTextFlip text="Abhay Singh" words={['Software Engineer', 'Full Stack Developer', 'Frontend Developer']} />

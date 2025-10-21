@@ -16,7 +16,7 @@ export function ThemeToggle() {
 
   return (
     <button
-      className="relative inline-flex items-center justify-center p-2 rounded-full hover:bg-pink-100 dark:hover:bg-pink-950 transition-colors duration-500 cursor-pointer"
+      className="relative inline-flex items-center justify-center p-2 rounded-full transition-colors duration-500 cursor-pointer"
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
       aria-label="Toggle theme"
     >

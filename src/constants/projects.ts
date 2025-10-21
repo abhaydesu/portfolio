@@ -15,7 +15,7 @@ export const projects: Project[] = [
             src: "/git-pilot-demo.png",
             href: "https://gitpilot.abhaydesu.dev/",
             github: "https://github.com/abhaydesu/git-pilot-cli",
-            description: "A cli tool that makes git simpler, leveraging AI.",
+            description: "A cli tool that makes git simpler, leveraging AI. With 450+ all-time downloads",
             tech: ['Node.js', 'JavaScript', 'Express', 'Gemini API']
         },
         {
@@ -33,7 +33,7 @@ export const projects: Project[] = [
             src: "/throtl.png",
             href:"https://throtl.vercel.app/",
             github: "https://github.com/abhaydesu/throtl",
-            description: "Make frontend for Throtl: Automated bandwidth throttler.",
+            description: "Made frontend for Throtl: Automated bandwidth throttler.",
             tech: ['Frontend','Tailwind', 'Recharts', 'React' ]
         }
         ,

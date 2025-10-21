@@ -21,9 +21,9 @@ export const Navbar = () => {
 
   const navItems = [
     { title: "home", href: "/", icon: Home },
-    { title: "about", href: "/about", icon: PersonStanding },
     { title: "projects", href: "/projects", icon: Laptop },
     { title: "blog", href: "/blog", icon: NotebookPen },
+    { title: "about", href: "/about", icon: PersonStanding },
     { title: "contact", href: "/contact", icon: Mail },
   ];
 
@@ -42,14 +42,14 @@ export const Navbar = () => {
             border border-white/10 dark:border-neutral-800
             shadow-[0_8px_20px_rgba(0,0,0,0.2)]
             transition-all duration-300
-            px-4 py-2
+            px-2 py-1
           `}
           style={{
             width: "auto",
             maxWidth: "90%",
           }}
         >
-          <div className="flex items-center justify-between w-full gap-1">
+          <div className="flex items-center justify-between w-full">
             {navItems.map((item, idx) => {
               const Icon = item.icon;
               const isHovered = hovered === idx;
@@ -78,11 +78,11 @@ export const Navbar = () => {
                       className={`
                         flex items-center justify-center gap-2
                         rounded-full
-                        transition-all duration-300
-                        px-4 py-2
+                        transition-all duration-10
+                        px-4 py-2 cursor-pointer
                         ${
                           isActive
-                            ? "bg-pink-300/10 text-pink-700 dark:bg-pink-950/10 dark:text-pink-400"
+                            ? " text-pink-700  dark:text-pink-400"
                             : "text-neutral-400 hover:text-pink-400"
                         }
                       `}
@@ -110,7 +110,7 @@ export const Navbar = () => {
                   {isActive && (
                     <motion.span
                       layoutId="dock-active"
-                      className="absolute -bottom-2 w-2 h-0.5 rounded-full bg-pink-500"
+                      className="absolute -bottom-1 w-2.5 h-0.5 rounded-full bg-pink-700 dark:bg-pink-400"
                       transition={{
                         type: "spring",
                         stiffness: 350,
@@ -122,14 +122,14 @@ export const Navbar = () => {
               );
             })}
 
-            {/* Theme toggle button — spacing fixed */}
             <motion.button
-              whileHover={{ scale: 1.1, y: -1 }}
+              whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              
               className="
                 flex items-center justify-center rounded-lg text-neutral-400 hover:text-pink-400
-                transition-all duration-300
+                transition-all duration-10 cursor-pointer
                 px-4 py-2
               "
             >

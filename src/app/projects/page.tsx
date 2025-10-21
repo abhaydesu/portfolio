@@ -21,7 +21,7 @@ export default function ProjectsPage() {
       <Subheading>
        A collection of things I&#39;ve built, broken, and learned from along the way.  
         Some are experiments, some are polished, but all of them reflect my curiosity and growth as a developer.  
-gi      </Subheading>
+    </Subheading>
       <Projects />
     </Container>
    </div>

@@ -15,7 +15,7 @@ export const projects: Project[] = [
             src: "/git-pilot-demo.png",
             href: "https://gitpilot.abhaydesu.dev/",
             github: "https://github.com/abhaydesu/git-pilot-cli",
-            description: "A cli tool that makes git simpler, leveraging AI. With 450+ all-time downloads",
+            description: "A cli tool that makes git simpler, leveraging AI. With 550+ all-time downloads",
             tech: ['Node.js', 'JavaScript', 'Express', 'Gemini API']
         },
         {

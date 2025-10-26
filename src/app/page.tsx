@@ -16,7 +16,7 @@ export default function Home() {
       <LeakyCode text="px-4 md:text-4xl tracking-tighter" className="px-4"/>
         <LayoutTextFlip text="Abhay Singh" words={['Software Engineer', 'Full Stack Developer', 'Frontend Developer']} />
       <Subheading>
-       I approach code as a craft, building elegant solutions to complex problems and delivering experiences that are both thoughtful and functional.
+       I like to code.
       </Subheading>
       <Links />
       <ProjectLanding/>

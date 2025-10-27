@@ -12,7 +12,7 @@ export const projects: Project[] = [
         {
             id: 1,
             title: "Git Pilot",
-            src: "/git-pilot-demo.png",
+            src: "/git-pilot.png",
             href: "https://gitpilot.abhaydesu.dev/",
             github: "https://github.com/abhaydesu/git-pilot-cli",
             description: "A cli tool that makes git simpler, leveraging AI. With 550+ all-time downloads",

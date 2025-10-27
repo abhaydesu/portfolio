@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "next-view-transitions";
 import { useTheme } from "next-themes";
+import { usePathname } from "next/navigation"; // 1. IMPORT
 import {
   Home,
   PersonStanding,
@@ -17,7 +18,7 @@ import {
 export const Navbar = () => {
   const { theme, setTheme } = useTheme();
   const [hovered, setHovered] = useState<number | null>(null);
-  const [active, setActive] = useState<number>(0);
+  const pathname = usePathname();
 
   const navItems = [
     { title: "home", href: "/", icon: Home },
@@ -53,7 +54,11 @@ export const Navbar = () => {
             {navItems.map((item, idx) => {
               const Icon = item.icon;
               const isHovered = hovered === idx;
-              const isActive = active === idx;
+
+              const isActive =
+                item.href === "/"
+                  ? pathname === item.href 
+                  : pathname.startsWith(item.href);
 
               return (
                 <div
@@ -64,7 +69,6 @@ export const Navbar = () => {
                     <motion.button
                       onMouseEnter={() => setHovered(idx)}
                       onMouseLeave={() => setHovered(null)}
-                      onClick={() => setActive(idx)}
                       whileTap={{ scale: 0.9 }}
                       animate={{
                         y: isHovered ? -2 : 0,
@@ -126,7 +130,6 @@ export const Navbar = () => {
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              
               className="
                 flex items-center justify-center rounded-lg text-neutral-400 hover:text-pink-400
                 transition-all duration-10 cursor-pointer

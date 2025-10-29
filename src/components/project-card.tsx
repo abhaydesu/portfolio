@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 import * as React from "react";
-import { ExternalLink } from "lucide-react";
+import { Globe } from "lucide-react";
 import type { Project } from "@/constants/projects";
 
 type ProjectCardProps = {
@@ -51,7 +51,7 @@ export function ProjectCard({ project, idx = 0 }: ProjectCardProps) {
             aria-label="View live"
             className="p-1 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-pink-400/60 hover:scale-110 transition group-hover:animate-jiggle"
           >
-            <ExternalLink
+            <Globe
               size={16}
               className="text-neutral-500 dark:text-neutral-400"
             />

@@ -16,7 +16,7 @@ export const ProjectLanding = ({
     <div className="relative border-y border-neutral-100 mt-12 py-4 px-12 dark:border-neutral-800 -mx-8">
       <FloatingCorners />
       <SectionHeading delay={0.2}>
-        <span className="text-pink-300 dark:text-pink-700">*</span> I love building things
+        <span className="text-pink-300 dark:text-pink-700">*</span> proof of work
       </SectionHeading>
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3 py-4">

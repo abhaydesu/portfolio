@@ -40,8 +40,8 @@ export const LandingBlogs = async () => {
     text-[var(--color-primary)] text-base font-bold tracking-tight 
     relative inline-block 
     after:content-[""] after:absolute after:bottom-[-2px] after:left-1/2 after:h-px after:w-0 
-    after:-translate-x-1/2 after:bg-pink-300 after:transition-all after:duration-300 
-    group-hover:after:w-full dark:after:bg-pink-700
+    after:-translate-x-1/2 after:bg-neutral-300 after:transition-all after:duration-300 
+    group-hover:after:w-full dark:after:bg-neutral-700
 '>
     {blog.title}
 </h2>

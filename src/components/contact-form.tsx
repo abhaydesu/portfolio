@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import { toast } from 'sonner';
-import FloatingCorners from './ui/floating-corners';
 
 export const ContactForm = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -54,7 +53,6 @@ export const ContactForm = () => {
 
     return (
         <form onSubmit={handleSubmit} className=' relative border-y border-neutral-100 dark:border-neutral-800 py-12 my-10 -mx-8 px-8'>
-                <FloatingCorners />
 
             <div className="max-w-lg px-4 flex flex-col gap-5 mx-auto">
 

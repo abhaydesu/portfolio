@@ -17,7 +17,7 @@ export const More = () => {
     >
       <Link
         href="/projects"
-        className="flex gap-2 text-pink-300 dark:text-pink-700 hover:text-pink-700 dark:hover:text-pink-300 text-sm md:text-sm ml-1 max-w-lg transition-all duration-400"
+        className="flex gap-2 text-neutral-400 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-300 text-sm md:text-sm ml-1 max-w-lg transition-all duration-400"
       >
         <IconArrowWaveRightUp />
         more

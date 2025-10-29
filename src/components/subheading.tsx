@@ -25,7 +25,7 @@ export const Subheading = ({
         viewport={{once: true}}
 
     >
-        <Tag className={cn("text-secondary px-4 text-sm md:text-sm pt-4 max-w-lg", className)}>
+        <Tag className={cn("text-secondary px-4 text-sm md:text-sm max-w-lg", className)}>
             { children }
       </Tag>
       </motion.div>

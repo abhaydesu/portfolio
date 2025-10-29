@@ -7,24 +7,7 @@
   height: 8px; 
 }
 
-::-webkit-scrollbar-track {
-  background: transparent; 
-}
 
-::-webkit-scrollbar-thumb {
-  background-color: rgb(244, 114, 182); 
-  border-radius: 9999px; 
-  transition: background-color 0.3s ease;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(244, 114, 182, 0.8); 
-}
-
-html {
-  scrollbar-color: rgba(244, 114, 182, 0.5) transparent; 
-  scrollbar-width: thin;
-}
 
 @theme inline {
     --shadow-aceternity:
@@ -86,9 +69,7 @@ html {
    color: var(--color-pink-200);  
   }
 
-  ::-webkit-scrollbar-thumb {
-    background-color: rgb(190, 24, 93);
-  }
+
 }
 
 ::selection {

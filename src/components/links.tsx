@@ -3,9 +3,9 @@
 import { Link } from "next-view-transitions";
 import { AnimatePresence, easeInOut, motion } from "framer-motion";
 import React, { useState } from "react";
-import { IconLink } from "./icons";
 
 const LINKS = [
+  { label: "resume", href: "https://drive.google.com/file/d/1HjrCUe-WB1tF3hNo6Wqj3oxQOv9IO0jY/view?usp=drive_link" },
   { label: "linkedin", href: "https://www.linkedin.com/in/abhaydesu/" },
   { label: "github", href: "https://github.com/abhaydesu/" },
   { label: "x", href: "https://www.x.com/abhaydesu/" },
@@ -48,23 +48,13 @@ export const Links = () => {
         animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         transition={{ duration: 0.2, delay: 0.35, ease: easeInOut }}
         viewport={{ once: true }}
-        className="relative flex items-start gap-2 text-sm text-pink-300 dark:text-pink-700"
+        className="relative flex items-start gap-2 text-sm text-pink-300 dark:text-neutral-700"
       >
-        <button
-          onClick={toggle}
-          aria-expanded={open}
-          aria-label={open ? "Hide links" : "Show links"}
-        >
-          <IconLink
-            className={`h-3.5 w-3.5 mt-0.5 cursor-pointer hover:text-pink-700 dark:hover:text-pink-300 ${open ? "text-pink-300 dark:text-pink-700" : ""}`}
-          />
-        </button>
           
-        <div className="absolute left-6 top-0 flex items-center gap-2">
-          <div className="flex gap-2">
+        <div className="flex items-center gap-2">
+          <div className="flex gap-2 md:gap-4">
             <AnimatePresence>
-              {open &&
-                LINKS.map((lnk, idx) => (
+              { LINKS.map((lnk, idx) => (
                   <motion.div
                     key={lnk.label}
                     custom={idx}
@@ -72,10 +62,10 @@ export const Links = () => {
                     animate="visible"
                     exit="exit"
                     variants={itemVariants}
-                    className="flex items-center text-pink-300 dark:text-pink-700"
+                    className="flex items-center text-neutral-500 dark:text-neutral-400"
                   >
                     <Link
-                      className="hover:text-pink-700 dark:hover:text-pink-300"
+                      className="hover:text-neutral-700 dark:hover:text-neutral-300"
                       href={lnk.href}
                       target="_blank"
                       rel="noopener noreferrer"

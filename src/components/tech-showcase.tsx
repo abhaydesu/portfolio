@@ -2,7 +2,6 @@
 import React from 'react'
 import Marquee from 'react-fast-marquee'
 import { SectionHeading } from './section-heading'
-import FloatingCorners from './ui/floating-corners';
 
 export default function TechShowcase() {
 const techs = [
@@ -35,7 +34,6 @@ const bottomTechs = techs.slice(mid);
 
 return (
     <div className="relative py-4 my-8 px-12 pb-8 border-t border-neutral-100 dark:border-neutral-800 -mx-8">
-      <FloatingCorners showBottom={false}/>
       <SectionHeading className="mb-4" delay={0.1}>
         <span className="text-pink-300 dark:text-pink-700">*</span>what i&#39;ve worked with
       </SectionHeading>

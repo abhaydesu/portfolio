@@ -32,7 +32,6 @@ export default async function BlogsPage() {
       </SectionHeading>
       <LeakyCode text="flex flex-col gap-8 py-10 px-12 border-y" className="pt-10 px-4"/>
       <div className="relative flex flex-col gap-8 pb-10 px-12 border-y border-neutral-100 dark:border-neutral-800 -mx-8">
-        <FloatingCorners />
             {allBlogs.map((blog) => (
                 <Link className="no-underline group " key={blog.title} href={`/blog/${blog.slug}`}>
                     <div className="flex items-center justify-between">
@@ -40,13 +39,13 @@ export default async function BlogsPage() {
                                     text-[var(--color-primary)] text-base font-bold tracking-tight 
                                     relative inline-block 
                                     after:content-[""] after:absolute after:bottom-[-2px] after:left-1/2 after:h-px after:w-0 
-                                    after:-translate-x-1/2 after:bg-pink-300 after:transition-all after:duration-300 
-                                    group-hover:after:w-full dark:after:bg-pink-700
+                                    after:-translate-x-1/2 after:bg-neutral-300 after:transition-all after:duration-300 
+                                    group-hover:after:w-full dark:after:bg-neutral-700
                                 '
                             >
                             {blog.title}
                             </h2>
-                        <p className="text-pink-300 dark:text-pink-700 text-sm md:text-sm">
+                        <p className="dark:text-neutral-300 text-neutral-700 text-sm md:text-sm">
                             {new Date(blog.date!).toLocaleDateString('en-us', {
                                 weekday:"long", year:"numeric", month:"short", day:"numeric"
                             })}

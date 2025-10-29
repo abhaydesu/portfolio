@@ -5,7 +5,6 @@ import { Project, projects as defaultProjects } from "@/constants/projects";
 import { SectionHeading } from "./section-heading";
 import { More } from "./more-link";
 import { ProjectCard } from "./project-card";
-import FloatingCorners from "./ui/floating-corners";
 
 export const ProjectLanding = ({
   projects = defaultProjects,
@@ -13,8 +12,7 @@ export const ProjectLanding = ({
   projects?: Project[];
 }) => {
   return (
-    <div className="relative border-y border-neutral-100 mt-12 py-4 px-12 dark:border-neutral-800 -mx-8">
-      <FloatingCorners />
+    <div className="relative border-y border-neutral-100 mt-8 md:mt-4 py-4 px-12 dark:border-neutral-800 -mx-8">
       <SectionHeading delay={0.2}>
         <span className="text-pink-300 dark:text-pink-700">*</span> proof of work
       </SectionHeading>

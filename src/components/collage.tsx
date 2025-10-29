@@ -7,7 +7,6 @@ import {useInView} from 'motion/react';
 import { SectionHeading } from "./section-heading";
 import { LeakyCode } from "./leaky-code";
 import { useTheme } from "next-themes";
-import FloatingCorners from "./ui/floating-corners";
 
 
 const sketches = [
@@ -42,7 +41,6 @@ export const Collage = () => {
 
   return (
     <section className="relative px-12 py-4 mt-12 border-y border-neutral-100 dark:border-neutral-800 -mx-8">
-      <FloatingCorners />
         <LeakyCode text={`relative text-sm font-normal ${theme === 'dark' ? "dark:text-neutral-300" : "text-neutral-700"}`} className="px-1 " />
       
       <SectionHeading className="max-w-lg pt-0 text-sm md:text-sm mb-6 mt-1">
@@ -88,7 +86,7 @@ export const Collage = () => {
                 }}
                 viewport={{once: true}}
                 key={i}
-                className="relative w-full aspect-square overflow-hidden rounded-xl hover:border border-pink-300 dark:border-pink-700 transition ease-in"
+                className="relative w-full aspect-square overflow-hidden rounded-xl  transition ease-in"
                 onClick={() => setSelectedImage(img)}
               >
                 <Image src={img.src} alt={img.alt} fill className="object-cover grayscale-60 md:grayscale hover:grayscale-0 transition duration-300" />
@@ -133,7 +131,7 @@ export const Collage = () => {
                     delay: 0.2 * (i%2)
                 }}
                 key={i}
-                className="relative w-full aspect-square overflow-hidden rounded-xl hover:border border-pink-300 dark:border-pink-700 transition ease-in"
+                className="relative w-full aspect-square overflow-hidden rounded-xl transition ease-in"
                 onClick={() => setSelectedImage(img)}
               >
                 <Image src={img.src} alt={img.alt} fill className="object-cover grayscale-60 md:grayscale hover:grayscale-0 transition duration-300" />

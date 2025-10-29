@@ -25,7 +25,6 @@ export const Navbar = () => {
     { title: "projects", href: "/projects", icon: Laptop },
     { title: "blog", href: "/blog", icon: NotebookPen },
     { title: "about", href: "/about", icon: PersonStanding },
-    { title: "contact", href: "/contact", icon: Mail },
   ];
 
   return (
@@ -86,8 +85,8 @@ export const Navbar = () => {
                         px-4 py-2 cursor-pointer
                         ${
                           isActive
-                            ? " text-pink-700  dark:text-pink-400"
-                            : "text-neutral-400 hover:text-pink-400"
+                            ? " text-neutral-800 font-bold dark:text-neutral-200"
+                            : "text-neutral-400 hover:text-neutral-500 dark:hover:text-neutral-300"
                         }
                       `}
                     >
@@ -114,7 +113,7 @@ export const Navbar = () => {
                   {isActive && (
                     <motion.span
                       layoutId="dock-active"
-                      className="absolute -bottom-1 w-2.5 h-0.5 rounded-full bg-pink-700 dark:bg-pink-400"
+                      className="absolute -bottom-1 w-2.5 h-0.5 rounded-full bg-neutral-700 dark:bg-neutral-200"
                       transition={{
                         type: "spring",
                         stiffness: 350,
@@ -131,7 +130,7 @@ export const Navbar = () => {
               whileTap={{ scale: 0.9 }}
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               className="
-                flex items-center justify-center rounded-lg text-neutral-400 hover:text-pink-400
+                flex items-center justify-center rounded-lg text-neutral-400 hover:text-neutral-500 dark:hover:text-neutral-200
                 transition-all duration-10 cursor-pointer
                 px-4 py-2
               "

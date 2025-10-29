@@ -72,28 +72,28 @@ export const SectionHeading = ({ children, delay=0, className
   )
 }
 
-// const Background = () => {
-//   return (
-//   <motion.div 
-//     initial={{
-//       opacity: 0
-//     }}
-//     animate={{
-//       opacity: 1
-//     }}
-//     whileInView={{
-//       opacity: 1
-//     }}
-//     transition={{
-//       duration: 0.3,
-//       ease: 'easeInOut',
-//       delay: 1
-//     }}
-//     className="absolute inset-0 h-full scale-[1.04] w-full bg-neutral-100 dark:bg-neutral-800 dark:text-neutral-300">
-//       <div className="h-1 w-1 rounded-full absolute bg-pink-100 dark:bg-pink-300 animate-pulse -top-px -left-px"></div>
-//       <div className="h-1 w-1 rounded-full absolute bg-pink-100 dark:bg-pink-300 animate-pulse -top-px -right-px"></div>
-//       <div className="h-1 w-1 rounded-full absolute bg-pink-100 dark:bg-pink-300 animate-pulse -bottom-px -left-px"></div>
-//       <div className="h-1 w-1 rounded-full absolute bg-pink-100 dark:bg-pink-300 animate-pulse -bottom-px -right-px"></div>
-//   </motion.div>
-//   )
-// }
+const Background = () => {
+  return (
+  <motion.div 
+    initial={{
+      opacity: 0
+    }}
+    animate={{
+      opacity: 1
+    }}
+    whileInView={{
+      opacity: 1
+    }}
+    transition={{
+      duration: 0.3,
+      ease: 'easeInOut',
+      delay: 1
+    }}
+    className="absolute inset-0 h-full scale-[1.04] w-full bg-neutral-100 dark:bg-neutral-800 dark:text-neutral-300">
+      <div className="h-1 w-1 rounded-full absolute bg-pink-100 dark:bg-pink-300 animate-pulse -top-px -left-px"></div>
+      <div className="h-1 w-1 rounded-full absolute bg-pink-100 dark:bg-pink-300 animate-pulse -top-px -right-px"></div>
+      <div className="h-1 w-1 rounded-full absolute bg-pink-100 dark:bg-pink-300 animate-pulse -bottom-px -left-px"></div>
+      <div className="h-1 w-1 rounded-full absolute bg-pink-100 dark:bg-pink-300 animate-pulse -bottom-px -right-px"></div>
+  </motion.div>
+  )
+}

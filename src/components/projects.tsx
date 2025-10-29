@@ -28,11 +28,21 @@ export const Projects = ({
         I love building things
       </SectionHeading>
 
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-3 py-4">
-        {projects.map((project, idx) => (
-          <ProjectCard key={project.title} project={project} idx={idx} />
-        ))}
-      </div>
+     <div className="grid grid-cols-1 md:grid-cols-3 gap-x-4 py-4">
+  {projects.map((project, idx) => (
+    <React.Fragment key={project.title}>
+      <ProjectCard project={project} idx={idx} />
+
+      {((idx % 3 === 2) || idx === projects.length - 1) && (
+        <div
+          aria-hidden
+          className="col-span-full border-t border-neutral-100 dark:border-neutral-800 -mx-4"
+        />
+      )}
+    </React.Fragment>
+  ))}
+</div>
+
     </div>
   );
 };

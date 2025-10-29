@@ -29,7 +29,7 @@ export const Navbar = () => {
   ];
 
   return (
-    <div className="fixed bottom-4 md:bottom-12 inset-x-0 z-50 px-4 md:px-0">
+    <div className="fixed bottom-4 md:bottom-12 inset-x-0 z-50 px-4 md:px-0 ">
       <div className="mx-auto flex justify-center">
         <motion.div
           initial={{ y: -6, opacity: 0 }}
@@ -39,7 +39,7 @@ export const Navbar = () => {
             flex items-center justify-between
             rounded-full
             bg-white/10 dark:bg-neutral-900/40
-            backdrop-blur-lg
+            backdrop-blur-sm
             border border-white/10 dark:border-neutral-800
             shadow-[0_8px_20px_rgba(0,0,0,0.2)]
             transition-all duration-300

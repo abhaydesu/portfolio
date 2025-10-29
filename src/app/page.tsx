@@ -38,7 +38,7 @@ export default function Home() {
             />
           </div>
         </div>
-        <div className="flex justify-between max-w-5xl items-center border-b h-8 border-neutral-100 dark:border-neutral-800">
+        <div className="flex justify-between max-w-5xl items-center border-b md:h-8 border-neutral-100 dark:border-neutral-800">
           <Subheading>A dev with an eye for design.</Subheading>
           <Links />
         </div>

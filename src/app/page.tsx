@@ -16,7 +16,7 @@ export default function Home() {
         <div className=" max-w-5xl items-center py-0 border-t -mx-8 px-8 border-neutral-100 dark:border-neutral-800 ">
           <div className="flex justify-between bg-[image:radial-gradient(_var(--pattern-fg)_1px,transparent_1px)] bg-[size:10px_10px]
  bg-fixed">
-          <div className=" border-r border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900">
+          <div className=" border-r border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 transition-color duration-500">
             <LeakyCode
               text="px-4 md:text-4xl tracking-tighter"
               className="px-4"
@@ -31,7 +31,7 @@ export default function Home() {
               ]}
             />
           </div>
-          <div className="border-x border-neutral-100 dark:border-neutral-800 p-0 mr-4  bg-white dark:bg-neutral-900">
+          <div className="border-x border-neutral-100 dark:border-neutral-800 p-0 mr-4  bg-white dark:bg-neutral-900 transition-color duration-500">
             <img
               src="/avatar.jpg"
               height={96}

@@ -56,9 +56,9 @@ export const LandingBlogs = async () => {
                     })}
                   </p>
                 </div>
-                <div className="border-x border-b border-neutral-100 dark:border-neutral-800 w-full px-2 py-1">
-                <p className="text-secondary max-w-lg pt-2 text-sm md:text-sm bg-[image:radial-gradient(_var(--pattern-fg)_1px,transparent_1px)] bg-[size:10px_10px]
+                <div className="border-x border-b border-neutral-100 dark:border-neutral-800 w-full px-2 py-1 bg-[image:radial-gradient(_var(--pattern-fg)_1px,transparent_1px)] bg-[size:10px_10px]
  bg-fixed">
+                <p className="text-secondary max-w-lg pt-2 text-sm md:text-sm ">
                   {truncate(blog.description || "", 120)}
                 </p>
                 </div>

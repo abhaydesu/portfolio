@@ -36,7 +36,7 @@ export const Navbar = () => {
           className={`
             flex items-center justify-between
             rounded-full
-            bg-white/10 dark:bg-neutral-900/40
+            bg-neutral-100/40 dark:bg-neutral-950/40
             backdrop-blur-sm
             border border-white/10 dark:border-neutral-800
             shadow-[0_8px_20px_rgba(0,0,0,0.2)]

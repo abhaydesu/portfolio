@@ -14,11 +14,11 @@ export const More = () => {
         ease: "easeInOut",
       }}
       viewport={{ once: true }}
-      className=""
+      className="border-t border-neutral-100 dark:border-neutral-800 px-4"
     >
       <Link
         href="/projects"
-        className="flex gap-2 text-neutral-400 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-300 text-sm md:text-sm ml-1 max-w-lg transition-all duration-400 py-2 md:py-1"
+        className="flex gap-2 text-neutral-400 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-300 text-sm md:text-sm ml-1  transition-all duration-400 py-2 md:py-1 w-fit"
       >
         <IconArrowWaveRightUp />
         more

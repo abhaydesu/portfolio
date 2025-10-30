@@ -20,7 +20,7 @@ export default function ProjectsPage() {
         Projects
       </Heading>
       {/* <div className="w-full border-b border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 transition-colors duratino-300"> */}
-      <Subheading className=" border-t md:border-l border-neutral-100 dark:border-neutral-800 py-2 md:py-4 " >
+      <Subheading className=" border-t md:border-t-0 md:border-l border-neutral-100 dark:border-neutral-800 py-2 md:py-4 " >
        A collection of things I&#39;ve built, broken, and learned from along the way.  
         Some are experiments, some are polished, but all of them reflect my curiosity and growth as a developer.  
     </Subheading>

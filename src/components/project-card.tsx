@@ -19,7 +19,7 @@ export function ProjectCard({ project, idx = 0 }: ProjectCardProps) {
   whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
   transition={{ duration: 0.3, delay: idx * 0.1, ease: "easeInOut" }}
   viewport={{ once: true }}
-  className="group relative flex flex-col items-center md:items-start    border-neutral-100  dark:border-neutral-800  -mx-4 p-4"
+  className="group relative flex flex-col items-center md:items-start  md:h-100   border-neutral-100  dark:border-neutral-800  -mx-4 p-4"
 >
   <div className="rounded-xl border border-neutral-100 dark:border-neutral-800 md:py-2 py-4 px-4 md:px-2 hover:border-neutral-400 hover:dark:border-neutral-600 h-full transition-all duration-400">
   <Image
@@ -31,7 +31,8 @@ export function ProjectCard({ project, idx = 0 }: ProjectCardProps) {
   />
 
   <div className="border-t border-dashed border-neutral-200 dark:border-neutral-700 w-full" />
-
+<div className="flex flex-col justify-between md:h-48">
+  <div className="mb-6 md:mb-0">
   <div className="flex items-center justify-between w-full mt-3 px-1">
     <h2
       className="
@@ -87,10 +88,11 @@ export function ProjectCard({ project, idx = 0 }: ProjectCardProps) {
     </div>
   </div>
 
-  <p className="text-sm max-w-xs mt-2 text-neutral-500 dark:text-neutral-400 text-left mb-6 px-1 ">
+  <p className="text-sm max-w-xs mt-2 text-neutral-500 dark:text-neutral-400 text-left px-1 ">
     {project.description}
   </p>
-
+</div>
+<div>
   <div className="flex flex-wrap justify-start md:my-1.5 px-0">
     {project.tech.map((tech, i) => (
       <motion.span
@@ -108,6 +110,8 @@ export function ProjectCard({ project, idx = 0 }: ProjectCardProps) {
         {tech}
       </motion.span>
     ))}
+  </div>
+  </div>
   </div>
   </div>
 </motion.div>

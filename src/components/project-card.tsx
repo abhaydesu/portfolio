@@ -19,7 +19,7 @@ export function ProjectCard({ project, idx = 0 }: ProjectCardProps) {
   whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
   transition={{ duration: 0.3, delay: idx * 0.1, ease: "easeInOut" }}
   viewport={{ once: true }}
-  className="group relative flex flex-col items-center md:items-start  border-y  border-neutral-100  dark:border-neutral-800  -mx-4 p-4"
+  className="group relative flex flex-col items-center md:items-start    border-neutral-100  dark:border-neutral-800  -mx-4 p-4"
 >
   <div className="rounded-xl border border-neutral-100 dark:border-neutral-800 md:py-2 py-4 px-4 md:px-2 hover:border-neutral-400 hover:dark:border-neutral-600 h-full transition-all duration-400">
   <Image

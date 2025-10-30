@@ -36,7 +36,7 @@ export default function Home() {
               src="/avatar.jpg"
               height={96}
               width={96}
-              className="rounded-full border border-neutral-100 dark:border-neutral-800 p-0.5"
+              className="rounded-full border border-neutral-100 dark:border-neutral-800 p-0.5 md:grayscale-30 md:hover:grayscale-0 transition-all duration-300"
             />
           </div>
           </div>

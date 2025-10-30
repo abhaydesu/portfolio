@@ -21,22 +21,22 @@ export function ProjectCard({ project, idx = 0 }: ProjectCardProps) {
   viewport={{ once: true }}
   className="group relative flex flex-col items-center md:items-start  border-y  border-neutral-100  dark:border-neutral-800  -mx-4 p-4"
 >
-  <div className="rounded-xl border border-neutral-100 dark:border-neutral-800 md:py-2 py-8 px-2 hover:border-neutral-400 hover:dark:border-neutral-600 h-full transition-all duration-400">
+  <div className="rounded-xl border border-neutral-100 dark:border-neutral-800 md:py-2 py-4 px-4 md:px-2 hover:border-neutral-400 hover:dark:border-neutral-600 h-full transition-all duration-400">
   <Image
     src={project.src}
     alt={project.title}
     height={100}
     width={300}
-    className="w-60 h-34 rounded-xl object-cover mx-auto md:px-1 md:pt-1 mb-5 md:grayscale-30 md:group-hover:grayscale-0 transition-all duration-300"
+    className="md:w-60 md:h-34 h-fit w-fit rounded-xl object-cover mx-auto md:px-1 md:pt-1 mb-5 md:grayscale-30 md:group-hover:grayscale-0 transition-all duration-300"
   />
 
   <div className="border-t border-dashed border-neutral-200 dark:border-neutral-700 w-full" />
 
-  <div className="flex items-center justify-center md:justify-between w-full mt-3 px-1">
+  <div className="flex items-center justify-between w-full mt-3 px-1">
     <h2
       className="
         relative font-medium tracking-tight text-neutral-600 dark:text-neutral-300 
-        text-center md:text-left inline-block
+        text-left inline-block
         group-hover:after:w-full group-hover:text-neutral-700 dark:group-hover:text-neutral-200 transition
       "
     >
@@ -87,11 +87,11 @@ export function ProjectCard({ project, idx = 0 }: ProjectCardProps) {
     </div>
   </div>
 
-  <p className="text-sm max-w-xs mt-2 text-neutral-500 dark:text-neutral-400 text-center md:text-left mb-6 md:px-1 px-10">
+  <p className="text-sm max-w-xs mt-2 text-neutral-500 dark:text-neutral-400 text-left mb-6 px-1 ">
     {project.description}
   </p>
 
-  <div className="flex flex-wrap justify-center md:justify-start md:my-1.5 md:px-0 px-5">
+  <div className="flex flex-wrap justify-start md:my-1.5 px-0">
     {project.tech.map((tech, i) => (
       <motion.span
         key={i}

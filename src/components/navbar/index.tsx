@@ -10,7 +10,6 @@ import {
   PersonStanding,
   Laptop,
   NotebookPen,
-  Mail,
   Moon,
   Sun,
 } from "lucide-react";
@@ -28,7 +27,7 @@ export const Navbar = () => {
   ];
 
   return (
-    <div className="fixed bottom-4 md:bottom-12 inset-x-0 z-50 px-4 md:px-0 ">
+    <div className="fixed bottom-12 inset-x-0 z-50 px-4 md:px-0 ">
       <div className="mx-auto flex justify-center">
         <motion.div
           initial={{ y: -6, opacity: 0 }}

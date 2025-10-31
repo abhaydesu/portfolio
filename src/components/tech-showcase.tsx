@@ -2,7 +2,6 @@
 import React from 'react'
 import Marquee from 'react-fast-marquee'
 import { SectionHeading } from './section-heading'
-import FloatingCorners from './ui/floating-corners';
 
 export default function TechShowcase() {
 const techs = [

@@ -12,9 +12,6 @@ const LINKS = [
 ];
 
 export const Links = () => {
-  const [open, setOpen] = useState(false);
-
-  const toggle = () => setOpen((s) => !s);
 
   const itemVariants = {
     hidden: (i: number) => ({

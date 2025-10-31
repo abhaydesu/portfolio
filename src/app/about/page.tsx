@@ -23,7 +23,7 @@ export default function AboutPage() {
       <Subheading>
         Hi, I like keeping things simple; coding, reading, writing and sketching.
         <br />
-        staying curious and learning along the way.
+        Staying curious and learning along the way.
       </Subheading>
       <Collage />
       <SectionHeading className="mx-4 max-w-lg mt-4 text-sm md:text-sm">

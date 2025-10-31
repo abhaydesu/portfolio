@@ -48,6 +48,15 @@ export const projects: Project[] = [
         },
         {
             id: 5,
+            title: "Aakar ",
+            src: "/aakar.png",
+            href:"https://aakar0.vercel.app/",
+            github: "https://github.com/abhaydesu/Aakar",
+            description: "Made frontend for Aakar: A credentials aggregator platform",
+            tech: ['Next.js', 'Tailwind', 'Motion']
+        },
+        {
+            id: 6,
             title: "Aetos ",
             src: "/aetos.png",
             href:"https://aetos0.vercel.app/",
@@ -56,7 +65,7 @@ export const projects: Project[] = [
             tech: ['React', 'Tailwind', 'Motion']
         },
         {
-            id: 6,
+            id: 7,
             title: "Virtual Gallery",
             src: "/art-gallery.png",
             href:"https://3d-virtualgallery.netlify.app/",
@@ -65,7 +74,7 @@ export const projects: Project[] = [
             tech: ['Three.js', 'HTML', 'CSS', 'JavaScript']
         },
         {
-            id:7,
+            id:8,
             title: "Portfolio Website",
             src: "/portfolio.png",
             href:"#",
@@ -74,7 +83,7 @@ export const projects: Project[] = [
             tech: ['TypeScript', 'Next.js', 'TailwindCSS', 'Motion']
         },
         {
-            id:8,
+            id:9,
             title: "Coming soon",
             src: "/coming-soon.png",
             href:"",

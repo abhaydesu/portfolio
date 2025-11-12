@@ -6,7 +6,6 @@ import { Heading } from "@/components/heading";
 import { Scales } from "@/components/scales";
 import { SectionHeading } from "@/components/section-heading";
 import { LeakyCode } from "@/components/leaky-code";
-import FloatingCorners from "@/components/ui/floating-corners";
 
 export const metadata: Metadata = {
     title: "Blog | Abhay Singh",

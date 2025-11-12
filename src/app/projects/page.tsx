@@ -13,9 +13,9 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return (
    <div className="min-h-screen flex items-start justify-start">
-    <Container className="min-h-screen pt-8 px-8 md:pb-10">
+    <Container className="min-h-screen  px-8 md:pb-10">
       <Scales />
-      <div className="flex flex-col md:flex-row justify-start md:items-center border-y border-neutral-100 dark:border-neutral-800">
+      <div className="flex flex-col md:flex-row justify-start md:items-center border-b border-neutral-100 dark:border-neutral-800">
       <Heading className=" py-2 mb-0 w-full" >
         Projects
       </Heading>

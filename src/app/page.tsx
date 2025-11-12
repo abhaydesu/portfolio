@@ -11,9 +11,9 @@ import { LeakyCode } from "@/components/leaky-code";
 export default function Home() {
   return (
     <div className="min-h-screen flex items-start justify-start">
-      <Container className="min-h-screen pt-4 px-8 md:pb-10">
+      <Container className="min-h-screen  px-8 md:pb-10">
         <Scales />
-        <div className=" max-w-5xl items-center py-0 border-t -mx-8 px-8 border-neutral-100 dark:border-neutral-800 ">
+        <div className=" max-w-5xl items-center py-0  -mx-8 px-8  ">
           <div className="flex justify-between bg-[image:radial-gradient(_var(--pattern-fg)_1px,transparent_1px)] bg-[size:10px_10px]
  bg-fixed">
           <div className=" border-r border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 transition-color duration-500">
@@ -41,13 +41,13 @@ export default function Home() {
           </div>
           </div>
         </div>
-        <div className="flex justify-between max-w-5xl items-center border-y md:h-8 border-neutral-100 dark:border-neutral-800">
+        <div className="flex justify-between max-w-5xl items-center border-t md:h-8 border-neutral-100 dark:border-neutral-800">
           <Subheading>A dev with an eye for design.</Subheading>
           <Links />
         </div>
-        <div className="rounded-full text-xs py-1 px-2 mt-2  w-fit ml-3 text-neutral-400 shadow-[inset_0_0_3px_rgba(0,0,0,0.25)] dark:shadow-[inset_0_0_3px_rgba(255,255,255,0.45)]">
+        {/* <div className="rounded-full text-xs py-1 px-2  w-fit ml-3 text-neutral-400 shadow-[inset_0_0_3px_rgba(0,0,0,0.25)] dark:shadow-[inset_0_0_3px_rgba(255,255,255,0.45)]">
           Open to work
-        </div>
+        </div> */}
         <ProjectLanding />
         <LandingBlogs />
         <TechShowcase />

@@ -34,7 +34,7 @@ export const projects: Project[] = [
             href:"https://throtl.vercel.app/",
             github: "https://github.com/abhaydesu/throtl",
             description: "Made frontend for Throtl: Automated bandwidth throttler.",
-            tech: ['Frontend','Tailwind', 'Recharts', 'React' ]
+            tech: ['Frontend','Tailwind', 'Motion', 'React' ]
         }
         ,
         {

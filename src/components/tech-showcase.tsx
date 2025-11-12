@@ -33,7 +33,7 @@ const topTechs = techs.slice(0, mid);
 const bottomTechs = techs.slice(mid);
 
 return (
-    <div className="relative my-8 px-8 pb-8 border-t border-neutral-100 dark:border-neutral-800 -mx-8">
+    <div className="relative  px-8 pb-8 border-t border-neutral-100 dark:border-neutral-800 -mx-8">
       <div className='bg-[image:repeating-linear-gradient(-315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed w-full h-4 border-b border-neutral-100 dark:border-neutral-800'></div>
       <div className='mx-4'>
       <SectionHeading className="mb-4 mt-2" delay={0.1}>
@@ -69,7 +69,7 @@ const TechPill = ({ name, logo }: { name: string; logo?: string }) => {
   const [imgOk, setImgOk] = React.useState(true)
 
   return (
-    <div className="group flex items-center gap-3 px-2 py-1 hover:shadow-md dark:hover:shadow-md dark:hover:shadow-neutral-800 rounded-full border border-neutral-100 dark:border-neutral-800 shadow-[var(--shadow-sm)] bg-white dark:bg-neutral-950 min-w-[6rem] mr-3 hover:scale-101 transition-all">
+    <div className="group flex items-center gap-3 px-2 py-1 hover:shadow-md dark:hover:shadow-md dark:hover:shadow-neutral-800 rounded-full border border-neutral-100 dark:border-neutral-800 shadow-[var(--shadow-sm)] bg-white dark:bg-neutral-900 min-w-[6rem] mr-3 hover:scale-101 transition-all">
       {logo && imgOk ? (
         <img
           src={logo}

@@ -21,7 +21,7 @@ export function ProjectCard({ project, idx = 0 }: ProjectCardProps) {
   viewport={{ once: true }}
   className="group relative flex flex-col items-center md:items-start  md:h-100   border-neutral-100  dark:border-neutral-800  -mx-4 p-4"
 >
-  <div className="rounded-xl border border-neutral-100 dark:border-neutral-800 md:py-2 py-4 px-4 md:px-2 hover:border-neutral-400 hover:dark:border-neutral-600 h-full transition-all duration-200">
+  <div className="rounded-xl border border-neutral-200 dark:border-neutral-800 md:py-2 py-4 px-4 md:px-2 hover:border-neutral-400 hover:dark:border-neutral-600 h-full transition-all duration-200">
   <Image
     src={project.src}
     alt={project.title}

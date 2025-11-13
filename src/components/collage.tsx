@@ -134,7 +134,7 @@ export const Collage = () => {
                 className="relative w-full aspect-square overflow-hidden rounded-xl transition ease-in"
                 onClick={() => setSelectedImage(img)}
               >
-                <Image src={img.src} alt={img.alt} fill className="object-cover grayscale-60 md:grayscale hover:grayscale-0 transition duration-300" />
+                <Image src={img.src} alt={img.alt} fill className="object-cover grayscale-60 md:grayscale hover:grayscale-60 transition duration-300" />
               </motion.div>
             ))}
           </div>

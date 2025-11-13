@@ -44,7 +44,7 @@ export const LandingBlogs = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <div className="border border-neutral-100 dark:border-neutral-800 rounded-xl p-4 hover:border-neutral-400 hover:dark:border-neutral-600  transition-all duration-400 ">
+                <div className="border border-neutral-100 dark:border-neutral-800 rounded-xl p-4 hover:border-neutral-400 hover:dark:border-neutral-600  transition-all duration-200 ">
                 <div className="flex items-center justify-between  ">
                   <h2 className="text-[var(--color-primary)] text-base font-bold tracking-tight relative inline-block group-hover:scale-101 transition-all duration-200 dark:after:bg-neutral-700">
                     {blog.title}

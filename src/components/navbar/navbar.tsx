@@ -6,7 +6,7 @@ import { Link } from "next-view-transitions";
 import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
 import { Scales } from "../scales";
-import { Moon, Sun } from "lucide-react";
+import { Moon, MoveUpRight, Sun } from "lucide-react";
 import { Container } from "../container";
 
 export const NavbarNew = () => {
@@ -16,7 +16,6 @@ export const NavbarNew = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // show shadow after scrolling 10px
       setScrolled(window.scrollY > 10);
     };
     window.addEventListener("scroll", handleScroll);
@@ -27,7 +26,7 @@ export const NavbarNew = () => {
     { title: "home", href: "/", new: "_self" },
     { title: "projects", href: "/projects", new: "_self" },
     { title: "about", href: "/about", new: "_self" },
-    { title: "blog", href: "https://blog.abhaydesu.dev", new: "_blank" },
+    { title: "blog", href: "https://blog.abhaydesu.dev", new: "_blank", icon: MoveUpRight },
   ];
 
   return (
@@ -78,6 +77,11 @@ export const NavbarNew = () => {
                         className="text-sm font-medium whitespace-nowrap inline-block"
                       >
                         {item.title}
+                        {item.icon && 
+                          <span>
+                            <item.icon className="inline h-3 w-3" />
+                          </span>
+                        }
                       </motion.span>
                     </AnimatePresence>
                   </motion.button>

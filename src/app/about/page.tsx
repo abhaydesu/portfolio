@@ -17,13 +17,13 @@ export default function AboutPage() {
    <div className="min-h-screen flex items-start justify-start">
     <Container className="min-h-screen  px-8 md:pb-10">
       <Scales />
-      <div className="grid grid-cols-8 border-b border-neutral-100 dark:border-neutral-800/50">
-      <div className="col-span-2 pt-4">
+      <div className="flex flex-col md:grid md:grid-cols-8 border-b border-neutral-100 dark:border-neutral-800/50">
+      <div className="md:col-span-2 pt-4">
       <Heading >
         About Me
       </Heading>
       </div>
-       <div className="col-span-6 border-l border-neutral-100 dark:border-neutral-800/50 bg-[image:repeating-linear-gradient(60deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%),repeating-linear-gradient(-60deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:20px_34px]">
+       <div className="md:col-span-6 border-l border-neutral-100 dark:border-neutral-800/50 bg-[image:repeating-linear-gradient(60deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%),repeating-linear-gradient(-60deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:20px_34px]">
         
       </div>
       </div>

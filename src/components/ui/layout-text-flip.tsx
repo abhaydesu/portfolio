@@ -51,7 +51,7 @@ export const LayoutTextFlip = ({
               y: 0,
               filter: "blur(0px)",
             }}
-            exit={{ y: 10, filter: "blur(5px)", opacity: 0 }}
+            exit={{  opacity: 0 }}
             transition={{
               duration: 0.3,
             }}

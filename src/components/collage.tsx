@@ -1,13 +1,12 @@
 "use client";
 
-import React, { useEffect, useState,useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import {useInView} from 'motion/react';
+import { useInView } from "motion/react";
 import { SectionHeading } from "./section-heading";
 import { LeakyCode } from "./leaky-code";
 import { useTheme } from "next-themes";
-
 
 const sketches = [
   { src: "/sketch-1.jpg", alt: "Sketch 1" },
@@ -25,9 +24,12 @@ const photos = [
 
 export const Collage = () => {
   const ref = useRef<HTMLDivElement>(null);
-   const isInView = useInView(ref, { once: true, amount: 0.6});
+  const isInView = useInView(ref, { once: true, amount: 0.6 });
 
-  const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
+  const [selectedImage, setSelectedImage] = useState<{
+    src: string;
+    alt: string;
+  } | null>(null);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -40,101 +42,117 @@ export const Collage = () => {
   const { theme } = useTheme();
 
   return (
-    <section className="relative px-12 pb-4 mt-4 border-y border-neutral-100 dark:border-neutral-800 -mx-8">
-        <LeakyCode text={`relative text-sm font-normal ${theme === 'dark' ? "dark:text-neutral-300" : "text-neutral-700"}`} className="px-1 " />
-      
+    <section className="relative px-12 pb-4 border-y border-neutral-100 dark:border-neutral-800/50 -mx-8">
+      <LeakyCode
+        text={`relative text-sm font-normal ${theme === "dark" ? "dark:text-neutral-300" : "text-neutral-700"}`}
+        className="px-1 "
+      />
+
       <SectionHeading className="max-w-lg pt-0 text-sm md:text-sm mb-6 mt-1">
-        <span className="text-pink-300 dark:text-pink-700">*</span>a creative outlet
+        <span className="text-pink-300 dark:text-pink-700">*</span>a creative
+        outlet
       </SectionHeading>
 
       <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <motion.h2
-          initial={{
-                    filter: "blur(10px)",
-                    opacity: 0,
-                }}
-                animate={{
-                    filter: isInView ? 'blur(0px)' : 'blur(10px)',
-                    opacity: isInView ? 1 : 0,
-                }}
-                transition={{
-                    duration: 0.3,
-                    ease: 'easeInOut',
-                    delay: 0.1
-                }} 
-            className="text-[var(--color-primary)] pb-2 text-base font-bold tracking-tight">
-              sketches
-            </motion.h2>
+            initial={{
+              filter: "blur(10px)",
+              opacity: 0,
+            }}
+            animate={{
+              filter: isInView ? "blur(0px)" : "blur(10px)",
+              opacity: isInView ? 1 : 0,
+            }}
+            transition={{
+              duration: 0.3,
+              ease: "easeInOut",
+              delay: 0.1,
+            }}
+            className="text-[var(--color-primary)] pb-2 text-base font-bold tracking-tight"
+          >
+            sketches
+          </motion.h2>
           <div className="grid grid-cols-2 gap-4">
             {sketches.map((img, i) => (
               <motion.div
                 initial={{
-                    filter: "blur(10px)",
-                    opacity: 0,
-                    y: 10
+                  filter: "blur(10px)",
+                  opacity: 0,
+                  y: 10,
                 }}
                 animate={{
-                    filter: isInView ? 'blur(0px)' : 'blur(10px)',
-                    opacity: isInView ? 1 : 0,
-                    y: 0
+                  filter: isInView ? "blur(0px)" : "blur(10px)",
+                  opacity: isInView ? 1 : 0,
+                  y: 0,
                 }}
                 transition={{
-                    duration: 0.3,
-                    ease: 'easeInOut',
-                    delay: (i>2) ? 0.4 : 0.2
+                  duration: 0.3,
+                  ease: "easeInOut",
+                  delay: i > 2 ? 0.4 : 0.2,
                 }}
-                viewport={{once: true}}
+                viewport={{ once: true }}
                 key={i}
                 className="relative w-full aspect-square overflow-hidden rounded-xl  transition ease-in"
                 onClick={() => setSelectedImage(img)}
               >
-                <Image src={img.src} alt={img.alt} fill className="object-cover grayscale-60 md:grayscale hover:grayscale-0 transition duration-300" />
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover grayscale-60 md:grayscale hover:grayscale-0 transition duration-300"
+                />
               </motion.div>
             ))}
           </div>
         </div>
         <div>
           <motion.h2
-          initial={{
-                    filter: "blur(10px)",
-                    opacity: 0,
-                }}
-                animate={{
-                    filter: isInView ? 'blur(0px)' : 'blur(10px)',
-                    opacity: isInView ? 1 : 0,
-                }}
-                transition={{
-                    duration: 0.3,
-                    ease: 'easeInOut',
-                    delay: 0.1
-                }} 
-            className="text-[var(--color-primary)] pb-2 text-base font-bold tracking-tight">
-              photos
-            </motion.h2>
+            initial={{
+              filter: "blur(10px)",
+              opacity: 0,
+            }}
+            animate={{
+              filter: isInView ? "blur(0px)" : "blur(10px)",
+              opacity: isInView ? 1 : 0,
+            }}
+            transition={{
+              duration: 0.3,
+              ease: "easeInOut",
+              delay: 0.1,
+            }}
+            className="text-[var(--color-primary)] pb-2 text-base font-bold tracking-tight"
+          >
+            photos
+          </motion.h2>
           <div className="grid grid-cols-2 gap-4">
             {photos.map((img, i) => (
               <motion.div
                 initial={{
-                    filter: "blur(10px)",
-                    opacity: 0,
-                    y: 10
+                  filter: "blur(10px)",
+                  opacity: 0,
+                  y: 10,
                 }}
                 animate={{
-                    filter: isInView ? 'blur(0px)' : 'blur(10px)',
-                    opacity: isInView ? 1 : 0,
-                    y: 0
+                  filter: isInView ? "blur(0px)" : "blur(10px)",
+                  opacity: isInView ? 1 : 0,
+                  y: 0,
                 }}
                 transition={{
-                    duration: 0.3,
-                    ease: 'easeInOut',
-                    delay: 0.2 * (i%2)
+                  duration: 0.3,
+                  ease: "easeInOut",
+                  delay: 0.2 * (i % 2),
                 }}
                 key={i}
                 className="relative w-full aspect-square overflow-hidden rounded-xl transition ease-in"
                 onClick={() => setSelectedImage(img)}
               >
-                <Image src={img.src} alt={img.alt} fill className="object-cover grayscale-60 md:grayscale hover:grayscale-60 transition duration-300" />
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover grayscale-60 md:grayscale hover:grayscale-60 transition duration-300"
+                />
               </motion.div>
             ))}
           </div>

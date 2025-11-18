@@ -26,7 +26,12 @@ export const NavbarNew = () => {
     { title: "home", href: "/", new: "_self" },
     { title: "projects", href: "/projects", new: "_self" },
     { title: "about", href: "/about", new: "_self" },
-    { title: "blog", href: "https://blog.abhaydesu.dev", new: "_blank", icon: MoveUpRight },
+    {
+      title: "blog",
+      href: "https://blog.abhaydesu.dev",
+      new: "_blank",
+      icon: MoveUpRight,
+    },
   ];
 
   return (
@@ -35,9 +40,9 @@ export const NavbarNew = () => {
         sticky top-0 z-50 max-w-4xl mx-auto
         backdrop-blur supports-[backdrop-filter]:backdrop-blur
         bg-neutral-100/70 dark:bg-black/40
-        border-b border-neutral-100 dark:border-neutral-800
+        
         transition-shadow duration-300
-        ${scrolled ? "shadow-[0_2px_8px_rgba(0,0,0,0.05)] dark:shadow-[0_2px_8px_rgba(255,255,255,0.05)]" : ""}
+        ${scrolled ? "shadow-[0_2px_8px_rgba(0,0,0,0.1)] dark:shadow-[0_2px_8px_rgba(255,255,255,0.1)]" : "border-b border-neutral-100 dark:border-neutral-800"}
       `}
     >
       <Container className="px-8 py-1">
@@ -77,11 +82,11 @@ export const NavbarNew = () => {
                         className="text-sm font-medium whitespace-nowrap inline-block"
                       >
                         {item.title}
-                        {item.icon && 
+                        {item.icon && (
                           <span>
                             <item.icon className="inline h-3 w-3" />
                           </span>
-                        }
+                        )}
                       </motion.span>
                     </AnimatePresence>
                   </motion.button>

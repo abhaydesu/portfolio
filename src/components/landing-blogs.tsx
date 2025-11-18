@@ -12,7 +12,8 @@ export const LandingBlogs = () => {
     {
       title: "How I type 120+ wpm",
       href: "https://blog.abhaydesu.dev/blog/improve-typing-speed",
-      description: "Learn how to type fast with simple techinques, daily practice routines and the right mindset. ",
+      description:
+        "Learn how to type fast with simple techinques, daily practice routines and the right mindset. ",
       date: "2025-09-20",
     },
   ];
@@ -22,7 +23,7 @@ export const LandingBlogs = () => {
 
   return (
     <div>
-      <div className="bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed border-b border-neutral-100 dark:border-neutral-800 w-full h-4" />
+      <div className="bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed border-b border-neutral-100 dark:border-neutral-800/50 w-full h-4" />
 
       <div className="px-4">
         <SectionHeading className="mt-2 mb-2" delay={0.4}>
@@ -30,7 +31,7 @@ export const LandingBlogs = () => {
           I&apos;m fond of writing
         </SectionHeading>
 
-        <div className="flex flex-col gap-8 border-t border-neutral-100 dark:border-neutral-800 pt-4 -mx-4 px-4">
+        <div className="flex flex-col gap-8 border-t border-neutral-100 dark:border-neutral-800/50 pt-4 -mx-4 px-4">
           {blogs.slice(0, 3).map((blog, idx) => (
             <MotionDiv
               key={blog.href}
@@ -44,32 +45,30 @@ export const LandingBlogs = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <div className="border border-neutral-100 dark:border-neutral-800 rounded-xl p-4 hover:border-neutral-400 hover:dark:border-neutral-600  transition-all duration-200 ">
-                <div className="flex items-center justify-between  ">
-                  <h2 className="text-[var(--color-primary)] text-base font-bold tracking-tight relative inline-block group-hover:scale-101 transition-all duration-200 dark:after:bg-neutral-700">
-                    {blog.title}
-                  </h2>
+                <div className="border border-neutral-100 dark:border-neutral-800/50 rounded-xl p-4 hover:border-neutral-400 hover:dark:border-neutral-600  transition-all duration-200 ">
+                  <div className="flex items-center justify-between  ">
+                    <h2 className="text-[var(--color-primary)] text-base font-bold tracking-tight group-hover:tracking-normal relative inline-block group-hover:scale-101 transition-all duration-200 dark:after:bg-neutral-700">
+                      {blog.title}
+                    </h2>
 
-                  <p className="text-secondary text-sm md:text-sm">
-                    {blog.date
-                      ? new Date(blog.date).toLocaleDateString("en-us", {
-                          year: "numeric",
-                          month: "short",
-                          day: "numeric",
-                        })
-                      : ""}
-                  </p>
-                </div>
-                
+                    <p className="text-secondary text-sm md:text-sm">
+                      {blog.date
+                        ? new Date(blog.date).toLocaleDateString("en-us", {
+                            year: "numeric",
+                            month: "short",
+                            day: "numeric",
+                          })
+                        : ""}
+                    </p>
+                  </div>
 
-                <div className="w-full ">
-                  <p className="text-secondary max-w-lg pt-2 text-sm md:text-sm">
-                    {truncate(blog.description || "", 120)}
-                  </p>
-                </div>
+                  <div className="w-full ">
+                    <p className="text-secondary max-w-lg pt-2 text-sm md:text-sm">
+                      {truncate(blog.description || "", 120)}
+                    </p>
+                  </div>
                 </div>
               </a>
-
             </MotionDiv>
           ))}
         </div>
@@ -83,7 +82,7 @@ export const LandingBlogs = () => {
             ease: "easeInOut",
           }}
           viewport={{ once: true }}
-          className="border-t border-neutral-100 dark:border-neutral-800 mt-4 -mx-4 px-4"
+          className="border-t border-neutral-100 dark:border-neutral-800/50 mt-4 -mx-4 px-4"
         >
           <Link
             href="https://blog.abhaydesu.dev"

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "next-view-transitions"; 
+import { Link } from "next-view-transitions";
 import { IconArrowWaveRightUp } from "./icons";
 import { motion } from "framer-motion";
 
@@ -14,7 +14,7 @@ export const More = () => {
         ease: "easeInOut",
       }}
       viewport={{ once: true }}
-      className="border-t border-neutral-100 dark:border-neutral-800 px-4"
+      className="border-t border-neutral-100 dark:border-neutral-800/50 px-4"
     >
       <Link
         href="/projects"

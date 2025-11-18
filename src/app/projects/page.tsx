@@ -6,28 +6,27 @@ import { Metadata } from "next";
 import { Scales } from "@/components/scales";
 
 export const metadata: Metadata = {
-    title: "Projects",
-    description: "Showcasing work, experiments, and creations."
+  title: "Projects",
+  description: "Showcasing work, experiments, and creations.",
 };
 
 export default function ProjectsPage() {
   return (
-   <div className="min-h-screen flex items-start justify-start">
-    <Container className="min-h-screen  px-8 md:pb-10">
-      <Scales />
-      <div className="flex flex-col md:flex-row justify-start md:items-center border-b border-neutral-100 dark:border-neutral-800">
-      <Heading className=" py-2 mb-0 w-full" >
-        Projects
-      </Heading>
-      {/* <div className="w-full border-b border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 transition-colors duratino-300"> */}
-      <Subheading className=" border-t md:border-t-0 md:border-l border-neutral-100 dark:border-neutral-800 py-2 md:py-4 " >
-       A collection of things I&#39;ve built, broken, and learned from along the way.  
-        Some are experiments, some are polished, but all of them reflect my curiosity and growth as a developer.  
-    </Subheading>
-    {/* </div> */}
+    <div className="min-h-screen flex items-start justify-start">
+      <Container className="min-h-screen  px-8 md:pb-10">
+        <Scales />
+        <div className="flex flex-col md:flex-row justify-start md:items-center border-b border-neutral-100 dark:border-neutral-800/50">
+          <Heading className=" py-2 mb-0 w-full">Projects</Heading>
+          {/* <div className="w-full border-b border-neutral-100 dark:border-neutral-800/50 bg-white dark:bg-neutral-900 transition-colors duratino-300"> */}
+          <Subheading className=" border-t md:border-t-0 md:border-l border-neutral-100 dark:border-neutral-800/50 py-2 md:py-4 ">
+            A collection of things I&#39;ve built, broken, and learned from
+            along the way. Some are experiments, some are polished, but all of
+            them reflect my curiosity and growth as a developer.
+          </Subheading>
+          {/* </div> */}
+        </div>
+        <Projects />
+      </Container>
     </div>
-      <Projects />
-    </Container>
-   </div>
   );
 }

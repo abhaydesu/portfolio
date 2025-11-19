@@ -28,7 +28,7 @@ export default function AboutPage() {
       </div>
       </div>
       <Subheading className="py-2">
-        Hi, I like keeping things simple; coding, reading, writing and sketching.
+        I like keeping things simple; coding, reading, writing, crafting and sketching.
         <br />
         Staying curious and learning along the way.
       </Subheading >

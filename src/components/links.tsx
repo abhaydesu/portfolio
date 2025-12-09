@@ -5,7 +5,7 @@ import { AnimatePresence, easeInOut, motion } from "framer-motion";
 import React, { useState } from "react";
 
 const LINKS = [
-  { label: "resume", href: "https://drive.google.com/file/d/16cOrYnv6jc6KLiT30yow5yPbWjM4O7QH/view?usp=sharing" },
+  { label: "resume", href: "https://drive.google.com/file/d/1FPs5PQFCjltpJZ91QE5FtF89yyl-fiV1/view?usp=sharing" },
   { label: "linkedin", href: "https://www.linkedin.com/in/abhaydesu/" },
   { label: "github", href: "https://github.com/abhaydesu/" },
   { label: "x", href: "https://www.x.com/abhaydesu/" },

@@ -45,7 +45,7 @@ export const LeakyCode = ({ text, className }: LeakyCodeProps) => {
       whileInView="visible"
       viewport={{ once: true }}
       className={cn(
-        "mt-8 my-1 text-neutral-200 dark:text-neutral-700 text-xs tracking-tight",
+        "mt-8 my-1 text-neutral-200 dark:text-neutral-700 text-xs tracking-tight ",
         className
       )}
     >
@@ -54,6 +54,7 @@ export const LeakyCode = ({ text, className }: LeakyCodeProps) => {
           key={index}
           variants={wordVariants}
           style={{ display: "inline-block", marginRight: "0.25em" }} 
+          className="select-none pointer-events-none"
         >
           {word}
         </motion.span>

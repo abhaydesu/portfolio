@@ -1,21 +1,19 @@
 import { Container } from "@/components/container";
 import { LandingBlogs } from "@/components/landing-blogs";
 import { Subheading } from "@/components/subheading";
-import { ProjectLanding } from "@/components/project-landing";
+import { ProjectLanding } from "@/components/project/project-landing";
 import { Links } from "@/components/links";
 import TechShowcase from "@/components/tech-showcase";
 import { LayoutTextFlip } from "@/components/ui/layout-text-flip";
 import { LeakyCode } from "@/components/leaky-code";
-import Experience from "@/components/experience";
+import Experience from "@/components/experience/experience";
 
 export default function Home() {
   return (
     <div className="min-h-screen flex items-start justify-start">
       <Container className="min-h-screen  px-4 md:pb-10">
         <div className=" max-w-5xl items-center py-0  -mx-12 px-8  ">
-          <div
-            className="flex justify-between"
-          >
+          <div className="flex justify-between">
             <div className=" border-r border-neutral-100 dark:border-neutral-800/50 bg-white dark:bg-black transition-color duration-500">
               <LeakyCode
                 text="px-4 md:text-4xl tracking-tighter"

@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 import * as React from "react";
-import { Globe } from "lucide-react";
 import type { Project } from "@/constants/projects";
 
 type ProjectCardProps = {
@@ -13,6 +12,12 @@ type ProjectCardProps = {
 };
 
 export function ProjectCard({ project, idx = 0 }: ProjectCardProps) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const CardWrapper = (project.href ? Link : "div") as any;
+  const wrapperProps = project.href
+    ? { href: project.href, target: "_blank", rel: "noreferrer" }
+    : {};
+
   return (
     <motion.div
       initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
@@ -25,7 +30,10 @@ export function ProjectCard({ project, idx = 0 }: ProjectCardProps) {
       <div className="h-0.5 w-2 bg-neutral-400 dark:bg-neutral-600 absolute transition-all duration-3 top-2 left-4 opacity-0 group-hover:opacity-100" />
       <div className="h-2 w-0.5 bg-neutral-400 dark:bg-neutral-600 absolute transition-all duration-3 bottom-2 right-4 opacity-0 group-hover:opacity-100" />
       <div className="h-0.5 w-2 bg-neutral-400 dark:bg-neutral-600 absolute transition-all duration-3 bottom-2 right-4 opacity-0 group-hover:opacity-100" />
-      <div className=" border border-neutral-200 dark:border-neutral-800/50 md:py-2 py-4 px-4 md:px-2 hover:border-dashed hover:border-neutral-400 hover:dark:border-neutral-600 h-full transition-all duration-200">
+      <CardWrapper
+        {...wrapperProps}
+        className="block border border-neutral-200 dark:border-neutral-800/50 md:py-2 py-4 px-4 md:px-2 hover:border-dashed hover:border-neutral-400 hover:dark:border-neutral-600 h-full transition-all duration-200 cursor-pointer"
+      >
         <Image
           src={project.src}
           alt={project.title}
@@ -49,23 +57,10 @@ export function ProjectCard({ project, idx = 0 }: ProjectCardProps) {
                 {project.title}
               </h2>
 
-              <div className="flex items-center gap-2 ml-2">
-                {project.href && (
-                  <TooltipIcon label="View live">
-                    <Link
-                      href={project.href}
-                      target="_blank"
-                      aria-label="View live"
-                      className="p-1 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-pink-400/60 hover:scale-110 transition group-hover:animate-jiggle"
-                    >
-                      <Globe
-                        size={16}
-                        className="text-neutral-500 dark:text-neutral-400"
-                      />
-                    </Link>
-                  </TooltipIcon>
-                )}
-
+              <div
+                className="flex items-center gap-2 ml-2"
+                onClick={(e) => e.stopPropagation()}
+              >
                 {project.github && (
                   <TooltipIcon label="View github">
                     <Link
@@ -122,7 +117,7 @@ export function ProjectCard({ project, idx = 0 }: ProjectCardProps) {
             </div>
           </div>
         </div>
-      </div>
+      </CardWrapper>
     </motion.div>
   );
 }

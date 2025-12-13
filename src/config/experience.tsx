@@ -33,7 +33,7 @@ export const experiences: Experience[] = [
   {
     isCurrent: true,
     company: 'Seeqlo',
-    position: 'Frontend Developer',
+    position: 'Frontend Developer Intern',
     location: 'Canada (Remote)',
     image: '/seeqlo-logo.png',
     description: [

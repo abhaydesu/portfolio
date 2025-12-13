@@ -2,8 +2,8 @@
 
 import React from "react";
 import { useTheme } from "next-themes";
-import { SectionHeading } from "./section-heading";
-import { LeakyCode } from "./leaky-code";
+import { SectionHeading } from "../section-heading";
+import { LeakyCode } from "../leaky-code";
 import { Project, projects as defaultProjects } from "@/constants/projects";
 import { ProjectCard } from "./project-card";
 
@@ -37,10 +37,7 @@ export const Projects = ({
             <ProjectCard project={project} idx={idx} />
 
             {(idx % 3 === 2 || idx === projects.length - 1) && (
-              <div
-                aria-hidden
-                className="col-span-full  -mx-4"
-              />
+              <div aria-hidden className="col-span-full  -mx-4" />
             )}
           </React.Fragment>
         ))}

@@ -2,8 +2,8 @@
 
 import React from "react";
 import { Project, projects as defaultProjects } from "@/constants/projects";
-import { SectionHeading } from "./section-heading";
-import { More } from "./more-link";
+import { SectionHeading } from "../section-heading";
+import { More } from "../more-link";
 import { ProjectCard } from "./project-card";
 
 export const ProjectLanding = ({

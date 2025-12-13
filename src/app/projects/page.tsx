@@ -1,9 +1,8 @@
 import { Container } from "@/components/container";
-import { Projects } from "@/components/projects";
+import { Projects } from "@/components/project/projects";
 import { Subheading } from "@/components/subheading";
 import { Heading } from "@/components/heading";
 import { Metadata } from "next";
-import { Scales } from "@/components/scales";
 
 export const metadata: Metadata = {
   title: "Projects",

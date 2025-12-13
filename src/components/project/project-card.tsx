@@ -12,11 +12,11 @@ type ProjectCardProps = {
 };
 
 export function ProjectCard({ project, idx = 0 }: ProjectCardProps) {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const CardWrapper = (project.href ? Link : "div") as any;
-  const wrapperProps = project.href
-    ? { href: project.href, target: "_blank", rel: "noreferrer" }
-    : {};
+  const handleCardClick = () => {
+    if (project.href) {
+      window.open(project.href, "_blank", "noopener,noreferrer");
+    }
+  };
 
   return (
     <motion.div
@@ -30,8 +30,8 @@ export function ProjectCard({ project, idx = 0 }: ProjectCardProps) {
       <div className="h-0.5 w-2 bg-neutral-400 dark:bg-neutral-600 absolute transition-all duration-3 top-2 left-4 opacity-0 group-hover:opacity-100" />
       <div className="h-2 w-0.5 bg-neutral-400 dark:bg-neutral-600 absolute transition-all duration-3 bottom-2 right-4 opacity-0 group-hover:opacity-100" />
       <div className="h-0.5 w-2 bg-neutral-400 dark:bg-neutral-600 absolute transition-all duration-3 bottom-2 right-4 opacity-0 group-hover:opacity-100" />
-      <CardWrapper
-        {...wrapperProps}
+      <div
+        onClick={handleCardClick}
         className="block border border-neutral-200 dark:border-neutral-800/50 md:py-2 py-4 px-4 md:px-2 hover:border-dashed hover:border-neutral-400 hover:dark:border-neutral-600 h-full transition-all duration-200 cursor-pointer"
       >
         <Image
@@ -117,7 +117,7 @@ export function ProjectCard({ project, idx = 0 }: ProjectCardProps) {
             </div>
           </div>
         </div>
-      </CardWrapper>
+      </div>
     </motion.div>
   );
 }

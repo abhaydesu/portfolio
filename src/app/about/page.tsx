@@ -8,38 +8,34 @@ import { Metadata } from "next";
 import { SectionHeading } from "@/components/section-heading";
 
 export const metadata: Metadata = {
-    title: "About Me",
-    description: "Exploring technology, creativity, and continuous growth."
+  title: "About Me",
+  description: "Exploring technology, creativity, and continuous growth.",
 };
 
 export default function AboutPage() {
   return (
-   <div className="min-h-screen flex items-start justify-start">
-    <Container className="min-h-screen  px-8 md:pb-10">
-      <Scales />
-      <div className="flex flex-col md:grid md:grid-cols-8 border-b border-neutral-100 dark:border-neutral-800/50">
-      <div className="md:col-span-2 pt-4">
-      <Heading >
-        About Me
-      </Heading>
-      </div>
-       <div className="md:col-span-6 border-l border-neutral-100 dark:border-neutral-800/50 bg-[image:repeating-linear-gradient(60deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%),repeating-linear-gradient(-60deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:20px_34px]">
-        
-      </div>
-      </div>
-      <Subheading className="py-2">
-        I like keeping things simple; coding, reading, writing, crafting and sketching.
-        <br />
-        Staying curious and learning along the way.
-      </Subheading >
-      <div className="border-t border-neutral-100 dark:border-neutral-800/50 h-4 bg-[image:repeating-linear-gradient(-315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed" />
-      <Collage />
-            <div className="border-b border-neutral-100 dark:border-neutral-800/50 h-4 bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed" />
-      <SectionHeading className="mx-4 max-w-lg mt-4 text-sm md:text-sm">
-        Education
-      </SectionHeading>
-      <Timeline />
-    </Container>
-   </div>
+    <div className="min-h-screen flex items-start justify-start">
+      <Container className="min-h-screen md:pb-10">
+        <div className="flex flex-col md:grid md:grid-cols-8 border-b border-neutral-100 dark:border-neutral-800/50">
+          <div className="md:col-span-2 pt-4">
+            <Heading>About Me</Heading>
+          </div>
+          <div className="md:col-span-6 border-l border-neutral-100 dark:border-neutral-800/50"></div>
+        </div>
+        <Subheading className="py-2">
+          I like keeping things simple; coding, reading, writing, crafting and
+          sketching.
+          <br />
+          Staying curious and learning along the way.
+        </Subheading>
+        <div className="border-t border-neutral-100 dark:border-neutral-800/50 h-4 bg-[image:repeating-linear-gradient(-315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed" />
+        <Collage />
+        <div className="border-b border-neutral-100 dark:border-neutral-800/50 h-4 bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed" />
+        <SectionHeading className="mx-4 max-w-lg mt-4 text-sm md:text-sm">
+          Education
+        </SectionHeading>
+        <Timeline />
+      </Container>
+    </div>
   );
 }

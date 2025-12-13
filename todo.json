@@ -1,0 +1,24 @@
+{
+  "steps": [
+    {
+      "id": 1,
+      "task": "Review current experience-card",
+      "status": "completed"
+    },
+    {
+      "id": 2,
+      "task": "Update styling to match site",
+      "status": "completed"
+    },
+    {
+      "id": 3,
+      "task": "Validate build/lint",
+      "status": "completed"
+    },
+    {
+      "id": 4,
+      "task": "Summarize changes",
+      "status": "completed"
+    }
+  ]
+}

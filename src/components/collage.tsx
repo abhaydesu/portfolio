@@ -42,7 +42,7 @@ export const Collage = () => {
   const { theme } = useTheme();
 
   return (
-    <section className="relative px-12 pb-4 border-y border-neutral-100 dark:border-neutral-800/50 -mx-8">
+    <section className="relative px-4 pb-4 border-y border-neutral-100 dark:border-neutral-800/50 ">
       <LeakyCode
         text={`relative text-sm font-normal ${theme === "dark" ? "dark:text-neutral-300" : "text-neutral-700"}`}
         className="px-1 "
@@ -93,7 +93,7 @@ export const Collage = () => {
                 }}
                 viewport={{ once: true }}
                 key={i}
-                className="relative w-full aspect-square overflow-hidden rounded-xl  transition ease-in"
+                className="relative w-full aspect-square overflow-hidden rounded-sm  transition ease-in"
                 onClick={() => setSelectedImage(img)}
               >
                 <Image
@@ -144,7 +144,7 @@ export const Collage = () => {
                   delay: 0.2 * (i % 2),
                 }}
                 key={i}
-                className="relative w-full aspect-square overflow-hidden rounded-xl transition ease-in"
+                className="relative w-full aspect-square overflow-hidden rounded-sm transition ease-in"
                 onClick={() => setSelectedImage(img)}
               >
                 <Image

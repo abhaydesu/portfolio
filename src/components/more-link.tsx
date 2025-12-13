@@ -14,7 +14,7 @@ export const More = () => {
         ease: "easeInOut",
       }}
       viewport={{ once: true }}
-      className="border-t border-neutral-100 dark:border-neutral-800/50 px-4"
+      className="px-8"
     >
       <Link
         href="/projects"

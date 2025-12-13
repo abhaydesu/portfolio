@@ -112,7 +112,7 @@ export default function TechShowcase() {
   const bottomTechs = techs.slice(mid);
 
   return (
-    <div className="relative px-8 pb-8 border-t border-neutral-100 dark:border-neutral-800/50 -mx-8">
+    <div className="relative pb-8 border-t border-neutral-100 dark:border-neutral-800/50 -mx-4">
       <div className="bg-[image:repeating-linear-gradient(-315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed w-full h-4 border-b border-neutral-100 dark:border-neutral-800/50"></div>
       <div className="mx-4">
         <SectionHeading className="mb-4 mt-2" delay={0.1}>
@@ -134,7 +134,7 @@ export default function TechShowcase() {
             </Marquee>
 
             <Marquee
-              speed={20}
+              speed={18}
               pauseOnHover
               gradient={false}
               direction="right"
@@ -186,7 +186,7 @@ const TechPill = ({
   );
 
   const commonClasses =
-    "group flex items-center gap-3 px-2 py-1 hover:shadow-md dark:hover:shadow-md dark:hover:shadow-neutral-800 rounded-full border border-neutral-100 dark:border-neutral-800/50 shadow-[var(--shadow-sm)] bg-white dark:bg-neutral-900 min-w-[6rem] mr-3 hover:scale-101 transition-all";
+    "group flex items-center gap-3 px-2 py-1 hover:shadow-md dark:hover:shadow-md dark:hover:shadow-neutral-800 rounded-full border border-neutral-100 dark:border-neutral-800/50 shadow-[var(--shadow-sm)] bg-white dark:bg-black min-w-[6rem] mr-3 hover:scale-101 transition-all";
 
   if (url) {
     return (

@@ -42,11 +42,10 @@ export const NavbarNew = () => {
         bg-neutral-100/70 dark:bg-black/40
         
         transition-shadow duration-300
-        ${scrolled ? "shadow-[0_2px_8px_rgba(0,0,0,0.1)] dark:shadow-[0_2px_8px_rgba(255,255,255,0.1)]" : "border-b border-neutral-100 dark:border-neutral-800"}
+        ${scrolled ? "shadow-[0_1px_1px_rgba(0,0,0,0.1)] dark:shadow-[0_1px_1px_rgba(255,255,255,0.1)]" : "border-b border-neutral-100 dark:border-neutral-800/50"}
       `}
     >
-      <Container className="px-8 py-1">
-        <Scales />
+      <Container className="px-12 py-1">
         <div className="flex items-center justify-center w-full">
           {navItems.map((item) => {
             const isActive =

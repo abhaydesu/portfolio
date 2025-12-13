@@ -15,10 +15,9 @@ export const Projects = ({
   const { theme } = useTheme();
 
   return (
-    <div className="relative  pb-2 px-8 -mx-8">
-      <div
-className="w-full h-6 bg-[image:radial-gradient(_var(--pattern-fg)_1.5px,transparent_1.5px),radial-gradient(_var(--pattern-fg)_1.5px,transparent_1.5px)] bg-[size:10px_10px] bg-[position:0_0,5px_5px]"      />
-      <div className="w-full border-y border-neutral-100 dark:border-neutral-800/50 pb-4 ">
+    <div className="relative  pb-2 px-12 -mx-12">
+      <div className="w-full h-4 bg-[image:repeating-linear-gradient(-315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed" />
+      <div className="w-full border-t border-neutral-100 dark:border-neutral-800/50 ">
         <LeakyCode
           text={`relative text-sm font-normal ${
             theme === "dark" ? "dark:text-neutral-300" : "text-neutral-700"
@@ -32,7 +31,7 @@ className="w-full h-6 bg-[image:radial-gradient(_var(--pattern-fg)_1.5px,transpa
         </SectionHeading>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-x-4 px-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-x-4 px-8">
         {projects.map((project, idx) => (
           <React.Fragment key={project.title}>
             <ProjectCard project={project} idx={idx} />
@@ -40,7 +39,7 @@ className="w-full h-6 bg-[image:radial-gradient(_var(--pattern-fg)_1.5px,transpa
             {(idx % 3 === 2 || idx === projects.length - 1) && (
               <div
                 aria-hidden
-                className="col-span-full border-t border-neutral-100 dark:border-neutral-800/50 -mx-4"
+                className="col-span-full  -mx-4"
               />
             )}
           </React.Fragment>

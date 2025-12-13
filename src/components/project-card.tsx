@@ -19,9 +19,13 @@ export function ProjectCard({ project, idx = 0 }: ProjectCardProps) {
       whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
       transition={{ duration: 0.3, delay: idx * 0.1, ease: "easeInOut" }}
       viewport={{ once: true }}
-      className="group relative flex flex-col items-center md:items-start  md:h-100   border-neutral-100  dark:border-neutral-800/50  -mx-4 p-4"
+      className="group relative flex flex-col items-center md:items-start  md:h-100   border-neutral-100  dark:border-neutral-800/50  -mx-4 py-2 px-4"
     >
-      <div className="rounded-xl border border-neutral-200 dark:border-neutral-800/50 md:py-2 py-4 px-4 md:px-2 hover:border-neutral-400 hover:dark:border-neutral-600 h-full transition-all duration-200">
+      <div className="h-2 w-0.5 bg-neutral-400 dark:bg-neutral-600 absolute transition-all duration-3 top-2 left-4 opacity-0 group-hover:opacity-100" />
+      <div className="h-0.5 w-2 bg-neutral-400 dark:bg-neutral-600 absolute transition-all duration-3 top-2 left-4 opacity-0 group-hover:opacity-100" />
+      <div className="h-2 w-0.5 bg-neutral-400 dark:bg-neutral-600 absolute transition-all duration-3 bottom-2 right-4 opacity-0 group-hover:opacity-100" />
+      <div className="h-0.5 w-2 bg-neutral-400 dark:bg-neutral-600 absolute transition-all duration-3 bottom-2 right-4 opacity-0 group-hover:opacity-100" />
+      <div className=" border border-neutral-200 dark:border-neutral-800/50 md:py-2 py-4 px-4 md:px-2 hover:border-dashed hover:border-neutral-400 hover:dark:border-neutral-600 h-full transition-all duration-200">
         <Image
           src={project.src}
           alt={project.title}

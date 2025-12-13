@@ -1,24 +1,22 @@
 import { Container } from "@/components/container";
 import { LandingBlogs } from "@/components/landing-blogs";
 import { Subheading } from "@/components/subheading";
-import { Scales } from "@/components/scales";
 import { ProjectLanding } from "@/components/project-landing";
 import { Links } from "@/components/links";
 import TechShowcase from "@/components/tech-showcase";
 import { LayoutTextFlip } from "@/components/ui/layout-text-flip";
 import { LeakyCode } from "@/components/leaky-code";
+import Experience from "@/components/experience";
 
 export default function Home() {
   return (
     <div className="min-h-screen flex items-start justify-start">
-      <Container className="min-h-screen  px-8 md:pb-10">
-        <Scales />
-        <div className=" max-w-5xl items-center py-0  -mx-8 px-8  ">
+      <Container className="min-h-screen  px-4 md:pb-10">
+        <div className=" max-w-5xl items-center py-0  -mx-12 px-8  ">
           <div
-            className="flex justify-between bg-[image:radial-gradient(_var(--pattern-fg)_1px,transparent_1px)] bg-[size:10px_10px]
- bg-fixed"
+            className="flex justify-between"
           >
-            <div className=" border-r border-neutral-100 dark:border-neutral-800/50 bg-white dark:bg-neutral-900 transition-color duration-500">
+            <div className=" border-r border-neutral-100 dark:border-neutral-800/50 bg-white dark:bg-black transition-color duration-500">
               <LeakyCode
                 text="px-4 md:text-4xl tracking-tighter"
                 className="px-4"
@@ -28,12 +26,12 @@ export default function Home() {
                 text="Abhay Singh"
                 words={[
                   "Software Developer",
-                  "Full Stack Developer",
                   "Frontend Developer",
+                  "Sweating the details",
                 ]}
               />
             </div>
-            <div className="border-x border-neutral-100 dark:border-neutral-800/50 p-0 mr-4  bg-white dark:bg-neutral-900 transition-color duration-500">
+            <div className="border-x border-neutral-100 dark:border-neutral-800/50 p-0 mr-4  bg-white dark:bg-black transition-color duration-500">
               <img
                 src="/avatar.jpg"
                 height={96}
@@ -43,7 +41,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="flex justify-between max-w-5xl items-center border-t md:h-8 border-neutral-100 dark:border-neutral-800/50">
+        <div className="flex justify-between max-w-5xl items-center -mx-4 border-t md:h-8 border-neutral-100 dark:border-neutral-800/50">
           <Subheading>A dev with an eye for design.</Subheading>
           <Links />
         </div>
@@ -51,6 +49,7 @@ export default function Home() {
           Open to work
         </div> */}
         <ProjectLanding />
+        <Experience />
         <LandingBlogs />
         <TechShowcase />
       </Container>

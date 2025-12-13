@@ -22,16 +22,16 @@ export const LandingBlogs = () => {
     str.length > length ? str.substring(0, length) + "..." : str;
 
   return (
-    <div>
-      <div className="bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed border-b border-neutral-100 dark:border-neutral-800/50 w-full h-4" />
+    <div className="-mx-4">
+      <div className="bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed border-b border-neutral-100 dark:border-neutral-800/50  w-full h-4" />
 
-      <div className="px-4">
-        <SectionHeading className="mt-2 mb-2" delay={0.4}>
+      <div className="">
+        <SectionHeading className="px-4 mt-2 mb-2" delay={0.4}>
           <span className="text-pink-300 dark:text-pink-700">*</span>
           I&apos;m fond of writing
         </SectionHeading>
 
-        <div className="flex flex-col gap-8 border-t border-neutral-100 dark:border-neutral-800/50 pt-4 -mx-4 px-4">
+        <div className="flex flex-col gap-8 pt-4  px-8">
           {blogs.slice(0, 3).map((blog, idx) => (
             <MotionDiv
               key={blog.href}
@@ -45,9 +45,9 @@ export const LandingBlogs = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <div className="border border-neutral-100 dark:border-neutral-800/50 rounded-xl p-4 hover:border-neutral-400 hover:dark:border-neutral-600  transition-all duration-200 ">
+                <div className="border border-neutral-100 dark:border-neutral-800/50 rounded-xl p-4 hover:border-dashed hover:border-neutral-400 hover:dark:border-neutral-600  transition-all duration-200 ">
                   <div className="flex items-center justify-between  ">
-                    <h2 className="text-[var(--color-primary)] text-base font-bold tracking-tight group-hover:tracking-normal relative inline-block group-hover:scale-101 transition-all duration-200 dark:after:bg-neutral-700">
+                    <h2 className="text-[var(--color-primary)] text-base font-bold tracking-tighter group-hover:tracking-tight relative inline-block group-hover:scale-101 transition-all duration-200 dark:after:bg-neutral-700">
                       {blog.title}
                     </h2>
 
@@ -82,12 +82,12 @@ export const LandingBlogs = () => {
             ease: "easeInOut",
           }}
           viewport={{ once: true }}
-          className="border-t border-neutral-100 dark:border-neutral-800/50 mt-4 -mx-4 px-4"
+          className="mt-4 -mx-4 px-4"
         >
           <Link
             href="https://blog.abhaydesu.dev"
             target="_blank"
-            className="flex gap-2 text-neutral-400 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-300 text-sm md:text-sm ml-1  transition-all duration-400 py-2 md:py-1 w-fit"
+            className="flex gap-2 text-neutral-400 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-300 text-sm md:text-sm ml-1  transition-all duration-400 py-2 md:py-1 px-8 w-fit"
           >
             <IconArrowWaveRightUp />
             more

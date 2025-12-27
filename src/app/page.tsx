@@ -7,6 +7,7 @@ import TechShowcase from "@/components/tech-showcase";
 import { LayoutTextFlip } from "@/components/ui/layout-text-flip";
 import { LeakyCode } from "@/components/leaky-code";
 import Experience from "@/components/experience/experience";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -29,13 +30,22 @@ export default function Home() {
                 ]}
               />
             </div>
-            <div className="border-x border-neutral-100 dark:border-neutral-800/50 p-0 mr-4  bg-white dark:bg-black transition-color duration-500">
-              <img
-                src="/avatar.jpg"
+            <div className="relative border-x border-neutral-100 dark:border-neutral-800/50 p-0 mr-4  bg-white dark:bg-black transition-color duration-500">
+              <Image
                 height={96}
                 width={96}
+                alt="Avatar"
+                src={"/avatar.jpg"}
                 className="rounded-full border border-neutral-100 dark:border-neutral-800/50 p-0.5 md:grayscale-30 md:hover:grayscale-0 transition-all duration-300"
               />
+              <div className="absolute right-0 top-0">
+                <Image
+                  height={20}
+                  width={28}
+                  alt="Flag of the Republic of India"
+                  src={"/flag.png"}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -43,9 +53,6 @@ export default function Home() {
           <Subheading>A dev with an eye for design.</Subheading>
           <Links />
         </div>
-        {/* <div className="rounded-full text-xs py-1 px-2  w-fit ml-3 text-neutral-400 shadow-[inset_0_0_3px_rgba(0,0,0,0.25)] dark:shadow-[inset_0_0_3px_rgba(255,255,255,0.45)]">
-          Open to work
-        </div> */}
         <ProjectLanding />
         <Experience />
         <LandingBlogs />

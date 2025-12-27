@@ -15,12 +15,12 @@ export default function SnowfallClient() {
   const lightColor = "rgba(255,182,193,0.55)"; // light pink
   const darkColor = "rgba(255,182,193,0.22)";
 
-  const colors = theme === "dark" ? [darkColor] : [lightColor];
+  const color = theme === "dark" ? darkColor : lightColor;
 
   return (
     <Snowfall
       snowflakeCount={160}
-      color={colors}
+      color={color}
       style={{
         position: "fixed",
         width: "100%",

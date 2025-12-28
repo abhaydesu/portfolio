@@ -24,9 +24,8 @@ export default function Home() {
               <LayoutTextFlip
                 text="Abhay Singh"
                 words={[
-                  "Software Developer",
-                  "Frontend Developer",
-                  "Sweating the details",
+                  "Full Stack Web Developer",
+                  "Sweating the details"
                 ]}
               />
             </div>
@@ -38,14 +37,14 @@ export default function Home() {
                 src={"/avatar.jpg"}
                 className="rounded-full border border-neutral-100 dark:border-neutral-800/50 p-0.5 md:grayscale-30 md:hover:grayscale-0 transition-all duration-300"
               />
-              <div className="absolute right-0 top-0">
+              {/* <div className="absolute right-0 top-0">
                 <Image
                   height={20}
                   width={28}
                   alt="Flag of the Republic of India"
                   src={"/flag.png"}
                 />
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

@@ -5,11 +5,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "next-view-transitions";
 import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
-import { Scales } from "../scales";
 import { Moon, MoveUpRight, Sun } from "lucide-react";
 import { Container } from "../container";
 
-export const NavbarNew = () => {
+export const Navbar = () => {
   const { theme, setTheme } = useTheme();
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);

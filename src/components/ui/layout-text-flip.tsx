@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 export const LayoutTextFlip = ({
   text = "Build Amazing",
-  words = ["Landing Pages", "Component Blocks", "Page Sections", "3D Shaders"],
+  words = ["Landing Pages", "Component Blocks"],
   duration = 3000,
 }: {
   text: string;
@@ -46,10 +46,9 @@ export const LayoutTextFlip = ({
         <AnimatePresence mode="popLayout">
           <motion.span
             key={currentIndex}
-            initial={{ y: -10, filter: "blur(5px)" }}
+            initial={{ y: -10 }}
             animate={{
-              y: 0,
-              filter: "blur(0px)",
+              y: 0
             }}
             exit={{  opacity: 0 }}
             transition={{

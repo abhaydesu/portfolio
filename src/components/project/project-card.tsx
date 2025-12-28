@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
+import { Forward, MoveUpRight } from "lucide-react";
 import * as React from "react";
 import type { Project } from "@/constants/projects";
 
@@ -46,15 +47,17 @@ export function ProjectCard({ project, idx = 0 }: ProjectCardProps) {
         <div className="flex flex-col justify-between md:h-48">
           <div className="mb-6 md:mb-0">
             <div className="flex items-center justify-between w-full mt-3 px-1">
-              <h2
-                className="
-        relative font-medium tracking-tight text-neutral-600 dark:text-neutral-300 
-        text-left inline-block
-        group-hover:after:w-full group-hover:text-neutral-700 dark:group-hover:text-neutral-200
-        group-hover:tracking-normal transition-all duration-300
-      "
-              >
-                {project.title}
+              <h2 className="relative font-medium tracking-tight text-neutral-600 dark:text-neutral-300 text-left inline-block transition-all duration-300">
+                <span className="flex items-center gap-2">
+                <span className="relative z-10 group-hover:tracking-normal transition-all duration-300 ease-out">{project.title}</span>
+
+                <span className="hidden md:inline-block z-0 transform -translate-x-4 opacity-0 group-hover:translate-x-0  group-hover:opacity-100 group-hover:z-20 transition-all duration-300 ease-out">
+                  <Forward className="w-3 h-4 text-neutral-500 dark:text-neutral-400" />
+                </span>
+                <span className="md:hidden">
+                  <MoveUpRight className="w-3 h-4 text-neutral-500 dark:text-neutral-400" />
+                </span>
+                </span>
               </h2>
 
               <div

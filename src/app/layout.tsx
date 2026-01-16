@@ -4,6 +4,7 @@ import "./globals.css";
 import { Footer } from "@/components/navbar/footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar/navbar";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Abhay Singh",
@@ -24,6 +25,7 @@ export default function RootLayout({
             href="https://api.fontshare.com/v2/css?f[]=satoshi@400&display=swap"
             rel="stylesheet"
           ></link>
+          <Script defer src="https://cloud.umami.is/script.js" data-website-id="2bea1071-2be4-4fe2-9d11-bfbc407c2028"></Script>
         </head>
         <body
           className={` antialiased bg-white dark:bg-black [--pattern-fg:var(--color-neutral-950)]/5  dark:[--pattern-fg:var(--color-neutral-100)]/5 transition-colors duration-500`}

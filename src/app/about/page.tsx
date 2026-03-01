@@ -6,6 +6,7 @@ import { Subheading } from "@/components/subheading";
 import { Scales } from "@/components/scales";
 import { Metadata } from "next";
 import { SectionHeading } from "@/components/section-heading";
+import { ManUtdScore } from "@/components/man-utd-score";
 
 export const metadata: Metadata = {
   title: "About Me",
@@ -16,11 +17,19 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen flex items-start justify-start">
       <Container className="min-h-screen md:pb-10">
-        <div className="flex flex-col md:grid md:grid-cols-8 border-b border-neutral-100 dark:border-neutral-800/50">
+        <div className="flex md:grid md:grid-cols-8 border-b border-r border-neutral-100 dark:border-neutral-800/50">
           <div className="md:col-span-2 pt-4">
             <Heading>About Me</Heading>
           </div>
-          <div className="md:col-span-6 border-l border-neutral-100 dark:border-neutral-800/50"></div>
+          <div id="score" className="md:col-span-6 border-l border-neutral-100 dark:border-neutral-800/50 flex justify-center items-center md:justify-end px-4 gap-4">
+            <div className="flex flex-col items-center justify-center text-[9px] font-bold tracking-widest text-neutral-300 dark:text-neutral-600">
+              <span>m</span>
+              <span>o</span>
+              <span>o</span>
+              <span>d</span>
+            </div>
+            <ManUtdScore />
+          </div>
         </div>
         <Subheading className="py-2">
           I like keeping things simple; coding, reading, writing, crafting and

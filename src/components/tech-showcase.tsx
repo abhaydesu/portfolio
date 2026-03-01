@@ -165,12 +165,15 @@ const TechPill = ({
   const pillContent = (
     <>
       {logo && imgOk ? (
-        <img
-          src={logo}
-          alt={name}
-          className="h-6 w-6 rounded-md object-contain p-0.5 dark:invert transition-transform duration-300 group-hover:-rotate-10 group-hover:scale-100"
-          onError={() => setImgOk(false)}
-        />
+        <>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={logo}
+            alt={name}
+            className="h-6 w-6 rounded-md object-contain p-0.5 dark:invert transition-transform duration-300 group-hover:-rotate-10 group-hover:scale-100"
+            onError={() => setImgOk(false)}
+          />
+        </>
       ) : (
         <div className="h-6 w-6 rounded-md flex items-center justify-center bg-neutral-100 dark:bg-neutral-800 text-xs">
           {name.slice(0, 2).toUpperCase()}

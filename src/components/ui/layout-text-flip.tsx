@@ -20,18 +20,18 @@ export const LayoutTextFlip = ({
     }, duration);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [duration, words.length]);
 
   return (
-    <motion.div 
-        initial={{ opacity: 0, filter: "blur(10px)", y: 10}}
-        whileInView={{ opacity:1, filter: "blur(0px)", y:0}}
-        transition={{
-            duration:0.3,
-            ease: 'easeInOut'
-        }}
-        viewport={{once: true}}
-        className=" flex flex-col items-start justify-start">
+    <motion.div
+      initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
+      whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+      transition={{
+        duration: 0.3,
+        ease: 'easeInOut'
+      }}
+      viewport={{ once: true }}
+      className=" flex flex-col items-start justify-start">
       <motion.span
         layoutId="subtext"
         className="text-[var(--color-primary)] text-3xl font-bold tracking-tighter drop-shadow-md md:text-4xl px-4"
@@ -50,7 +50,7 @@ export const LayoutTextFlip = ({
             animate={{
               y: 0
             }}
-            exit={{  opacity: 0 }}
+            exit={{ opacity: 0 }}
             transition={{
               duration: 0.3,
             }}

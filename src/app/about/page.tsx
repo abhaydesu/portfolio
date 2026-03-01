@@ -3,7 +3,6 @@ import { Collage } from "@/components/collage";
 import { Timeline } from "@/components/timeline";
 import { Heading } from "@/components/heading";
 import { Subheading } from "@/components/subheading";
-import { Scales } from "@/components/scales";
 import { Metadata } from "next";
 import { SectionHeading } from "@/components/section-heading";
 import { ManUtdScore } from "@/components/man-utd-score";

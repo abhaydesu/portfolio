@@ -2,7 +2,7 @@
 
 import { Link } from "next-view-transitions";
 import { AnimatePresence, easeInOut, motion } from "framer-motion";
-import React, { useState } from "react";
+import React from "react";
 
 const LINKS = [
   { label: "resume", href: "https://drive.google.com/file/d/1RhSNatv1mtRrEX8pFy7GzMjNgU6pTbKQ/view?usp=sharing" },
@@ -47,30 +47,30 @@ export const Links = () => {
         viewport={{ once: true }}
         className="relative flex items-start gap-2 text-sm text-pink-300 dark:text-neutral-700"
       >
-          
+
         <div className="flex items-center gap-2">
           <div className="flex gap-2 md:gap-4">
             <AnimatePresence>
-              { LINKS.map((lnk, idx) => (
-                  <motion.div
-                    key={lnk.label}
-                    custom={idx}
-                    initial="hidden"
-                    animate="visible"
-                    exit="exit"
-                    variants={itemVariants}
-                    className="flex items-center text-neutral-500 dark:text-neutral-400"
+              {LINKS.map((lnk, idx) => (
+                <motion.div
+                  key={lnk.label}
+                  custom={idx}
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                  variants={itemVariants}
+                  className="flex items-center text-neutral-500 dark:text-neutral-400"
+                >
+                  <Link
+                    className="hover:text-neutral-700 dark:hover:text-neutral-300"
+                    href={lnk.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    <Link
-                      className="hover:text-neutral-700 dark:hover:text-neutral-300"
-                      href={lnk.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {lnk.label}
-                    </Link>
-                  </motion.div>
-                ))}
+                    {lnk.label}
+                  </Link>
+                </motion.div>
+              ))}
             </AnimatePresence>
           </div>
         </div>

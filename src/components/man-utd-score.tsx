@@ -1,5 +1,18 @@
 import React from 'react';
 
+type ESPNEvent = {
+    date: string;
+    competitions: {
+        status: { type: { state: string; detail: string } };
+        competitors: {
+            team: { id: string; abbreviation: string; displayName: string; logos: { href: string }[] };
+            winner: boolean;
+            score?: { displayValue: string };
+        }[];
+    }[];
+};
+
+
 export async function ManUtdScore() {
     try {
         const res = await fetch(
@@ -11,15 +24,15 @@ export async function ManUtdScore() {
         const data = await res.json();
         if (!data || !data.events) return null;
 
-        const events = data.events;
+        const events: ESPNEvent[] = data.events;
         // Sort events by date chronologically
-        events.sort((a: any, b: any) => new Date(a.date).getTime() - new Date(b.date).getTime());
+        events.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
 
         // Current time locally
         const now = new Date();
 
-        const liveMatch = events.find((e: any) => e.competitions[0].status.type.state === "in");
-        const upcomingMatch = events.find((e: any) => e.competitions[0].status.type.state === "pre");
+        const liveMatch = events.find((e) => e.competitions[0].status.type.state === "in");
+        const upcomingMatch = events.find((e) => e.competitions[0].status.type.state === "pre");
 
         let isUpcomingToday = false;
         if (upcomingMatch) {
@@ -33,7 +46,7 @@ export async function ManUtdScore() {
             }
         }
 
-        const completedMatches = events.filter((e: any) => e.competitions[0].status.type.state === "post");
+        const completedMatches = events.filter((e) => e.competitions[0].status.type.state === "post");
         const lastCompletedMatch = completedMatches[completedMatches.length - 1];
 
         let displayMatch = null;

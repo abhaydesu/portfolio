@@ -80,7 +80,7 @@ export async function ManUtdScore() {
         }
 
         return (
-            <div className="border-l border-neutral-100 dark:border-neutral-800/50 flex items-center justify-end gap-3">
+            <div className="flex items-center justify-end gap-0 my-0">
                 <div className="flex-shrink-0 transition-transform duration-300 hover:-rotate-6 hover:scale-110 cursor-pointer">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={`/moods/${mood}.png`} alt={`Mood: ${mood}`} className="w-14 h-14 object-contain drop-shadow-sm" />

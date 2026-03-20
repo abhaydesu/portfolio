@@ -37,9 +37,9 @@ export const experiences: Experience[] = [
     location: 'Canada (Remote)',
     image: '/seeqlo-logo.png',
     description: [
-      '*UI/UX Redesign*: Spearheaded the redesign of the Presentation Editor and Dashboard, implementing a collapsible sidebar and improving visual hierarchy to enhance user workflow.',
-      '*Rendering Optimization*: Debugged and resolved critical rendering issues, specifically fixing z-index overlaps and component scaling inconsistencies to ensure a flawless responsive experience.',
-      '*State Management*: Engineered a robust state persistence layer to ensure data integrity during page refreshes, preventing data loss during editing sessions.',
+      'Led *end-to-end UI/UX redesign* of the platform, implementing a modern, responsive interface with dynamic theming and consistent slide styling.',
+      'Engineered *core product improvements* including presentation history with caching, credit-based usage system with dynamic messaging, and PPT export with SVG-based icon rendering.',
+      'Resolved *critical state management* and persistence issues (data loss on refresh, routing inconsistencies, scaling/render mismatches), significantly improving reliability and user experience.'
     ],
     startDate: 'Nov 2025',
     endDate: 'Present',

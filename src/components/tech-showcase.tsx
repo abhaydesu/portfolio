@@ -5,16 +5,16 @@ import { SectionHeading } from "./section-heading";
 
 export default function TechShowcase() {
   const techs: { name: string; logo?: string; url?: string }[] = [
-    {
-      name: "C++",
-      logo: "https://cdn.simpleicons.org/cplusplus/262626",
-      url: "https://en.cppreference.com/w/",
-    },
-    {
-      name: "Python",
-      logo: "https://cdn.simpleicons.org/python/262626",
-      url: "https://docs.python.org/3/",
-    },
+    // {
+    //   name: "C++",
+    //   logo: "https://cdn.simpleicons.org/cplusplus/262626",
+    //   url: "https://en.cppreference.com/w/",
+    // },
+    // {
+    //   name: "Python",
+    //   logo: "https://cdn.simpleicons.org/python/262626",
+    //   url: "https://docs.python.org/3/",
+    // },
     {
       name: "JavaScript",
       logo: "https://cdn.simpleicons.org/javascript/262626",
@@ -30,16 +30,16 @@ export default function TechShowcase() {
       logo: "https://cdn.simpleicons.org/nodedotjs/262626",
       url: "https://nodejs.org/en/docs/",
     },
-    {
-      name: "Supabase",
-      logo: "https://cdn.simpleicons.org/supabase/262626",
-      url: "https://supabase.com/docs",
-    },
-    {
-      name: "Svelte",
-      logo: "https://cdn.simpleicons.org/svelte/262626",
-      url: "https://svelte.dev/docs",
-    },
+    // {
+    //   name: "Supabase",
+    //   logo: "https://cdn.simpleicons.org/supabase/262626",
+    //   url: "https://supabase.com/docs",
+    // },
+    // {
+    //   name: "Svelte",
+    //   logo: "https://cdn.simpleicons.org/svelte/262626",
+    //   url: "https://svelte.dev/docs",
+    // },
     {
       name: "Express",
       logo: "https://cdn.simpleicons.org/express/262626",

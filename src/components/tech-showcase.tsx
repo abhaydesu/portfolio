@@ -175,7 +175,7 @@ const TechPill = ({
           />
         </>
       ) : (
-        <div className="h-6 w-6 rounded-md flex items-center justify-center bg-neutral-100 dark:bg-neutral-800 text-xs">
+        <div className="h-6 w-6 rounded-md flex items-center justify-center bg-neutral-100 dark:bg-[#16110F] text-xs">
           {name.slice(0, 2).toUpperCase()}
         </div>
       )}
@@ -189,7 +189,7 @@ const TechPill = ({
   );
 
   const commonClasses =
-    "group flex items-center gap-3 px-2 py-1 hover:shadow-md dark:hover:shadow-md dark:hover:shadow-neutral-800 rounded-full border border-neutral-100 dark:border-neutral-800/50 shadow-[var(--shadow-sm)] bg-white dark:bg-black min-w-[6rem] mr-3 hover:scale-101 transition-all";
+    "group flex items-center gap-3 px-2 py-1 hover:shadow-md dark:hover:shadow-md dark:hover:shadow-neutral-800 rounded-full border border-neutral-100 dark:border-neutral-800/50 shadow-[var(--shadow-sm)] bg-white dark:bg-[#080605] min-w-[6rem] mr-3 hover:scale-101 transition-all";
 
   if (url) {
     return (

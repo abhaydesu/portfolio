@@ -25,10 +25,14 @@ export default function RootLayout({
             href="https://api.fontshare.com/v2/css?f[]=satoshi@400&display=swap"
             rel="stylesheet"
           ></link>
-          <Script defer src="https://cloud.umami.is/script.js" data-website-id="2bea1071-2be4-4fe2-9d11-bfbc407c2028"></Script>
+          <Script
+            defer
+            src="https://cloud.umami.is/script.js"
+            data-website-id="2bea1071-2be4-4fe2-9d11-bfbc407c2028"
+          ></Script>
         </head>
         <body
-          className={` antialiased bg-white dark:bg-black [--pattern-fg:var(--color-neutral-950)]/5  dark:[--pattern-fg:var(--color-neutral-100)]/5 transition-colors duration-500`}
+          className={` antialiased bg-white dark:bg-[#080605] [--pattern-fg:var(--color-neutral-950)]/5  dark:[--pattern-fg:var(--color-neutral-100)]/5 transition-colors duration-500`}
         >
           <ThemeProvider attribute="class" defaultTheme="light">
             <Navbar />

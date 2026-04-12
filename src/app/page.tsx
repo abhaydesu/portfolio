@@ -15,7 +15,7 @@ export default function Home() {
       <Container className="min-h-screen  px-4 md:pb-10">
         <div className=" max-w-5xl items-center py-0  -mx-12 px-8  ">
           <div className="flex justify-between">
-            <div className=" border-r border-neutral-100 dark:border-neutral-800/50 bg-white dark:bg-black transition-color duration-500">
+            <div className=" border-r border-neutral-100 dark:border-neutral-800/50 bg-white dark:bg-[#080605] transition-color duration-500">
               <LeakyCode
                 text="px-4 md:text-4xl tracking-tighter"
                 className="px-4"
@@ -23,13 +23,10 @@ export default function Home() {
 
               <LayoutTextFlip
                 text="Abhay Singh"
-                words={[
-                  "Full Stack Web Developer",
-                  "Sweating the details"
-                ]}
+                words={["Full Stack Web Developer", "Sweating the details"]}
               />
             </div>
-            <div className="relative border-x border-neutral-100 dark:border-neutral-800/50 p-0 mr-4  bg-white dark:bg-black transition-color duration-500">
+            <div className="relative border-x border-neutral-100 dark:border-neutral-800/50 p-0 mr-4  bg-white dark:bg-[#080605] transition-color duration-500">
               <Image
                 height={96}
                 width={96}

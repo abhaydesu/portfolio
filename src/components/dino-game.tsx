@@ -6,6 +6,8 @@ import { Play, RotateCcw, X } from "lucide-react";
 export function DinoGame() {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const retryBtnRef = useRef<HTMLButtonElement>(null);
+  const exitBtnRef = useRef<HTMLButtonElement>(null);
   const [gameState, setGameState] = useState<"idle" | "playing" | "gameover">("idle");
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
@@ -110,6 +112,14 @@ export function DinoGame() {
         if (e.code === "Space") {
           e.preventDefault();
           startGame();
+        }
+      } else if (stateRef.current.gameState === "gameover") {
+        if (e.code === "ArrowRight") {
+          e.preventDefault();
+          exitBtnRef.current?.focus();
+        } else if (e.code === "ArrowLeft") {
+          e.preventDefault();
+          retryBtnRef.current?.focus();
         }
       }
     };
@@ -285,15 +295,18 @@ export function DinoGame() {
           <div className="text-sm font-bold text-neutral-900 dark:text-white tracking-widest">GAME OVER</div>
           <div className="flex gap-2">
             <button 
+              ref={retryBtnRef}
+              autoFocus
               onClick={startGame}
-              className="flex items-center justify-center p-2 bg-neutral-600 text-white dark:bg-white dark:text-neutral-600 rounded-sm hover:scale-110 active:scale-90 transition-all shadow-lg cursor-pointer"
+              className="flex items-center justify-center p-2 bg-neutral-600 text-white dark:bg-white dark:text-neutral-600 rounded-sm hover:scale-110 active:scale-90 transition-all shadow-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-pink-400"
               title="Retry"
             >
               <RotateCcw className="w-4 h-4" />
             </button>
             <button 
+              ref={exitBtnRef}
               onClick={exitGame}
-              className="flex items-center justify-center p-2 bg-neutral-200 text-neutral-600 dark:bg-neutral-600 dark:text-neutral-400 rounded-sm hover:scale-110 hover:bg-pink-300 hover:text-neutral-600 dark:hover:bg-pink-700 dark:hover:text-white active:scale-90 transition-all shadow-lg cursor-pointer"
+              className="flex items-center justify-center p-2 bg-neutral-200 text-neutral-600 dark:bg-neutral-600 dark:text-neutral-400 rounded-sm hover:scale-110 hover:bg-pink-300 hover:text-neutral-600 dark:hover:bg-pink-700 dark:hover:text-white active:scale-90 transition-all shadow-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-pink-400"
               title="Exit"
             >
               <X className="w-4 h-4" />

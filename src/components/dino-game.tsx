@@ -66,9 +66,15 @@ export function DinoGame() {
   }, []);
 
   const exitGame = useCallback(() => {
+    const state = stateRef.current;
     setGameState("idle");
-    stateRef.current.score = 0;
+    state.score = 0;
     setScore(0);
+    state.obstacles = [];
+    state.speedMultiplier = 1;
+    state.dino.y = 0;
+    state.dino.vy = 0;
+    state.frameCount = 0;
   }, []);
 
   useEffect(() => {

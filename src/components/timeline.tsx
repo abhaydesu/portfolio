@@ -23,7 +23,7 @@ export const Timeline = () => {
         title: '2023-2027',
         content: [{
                 title: 'Dayananda Sagar College of Engineering',
-                description: 'B.E. - Information Science and Engineering [9.5]'
+                description: 'B.E. - Information Science and Engineering [9.4]'
             }]
     },
         {

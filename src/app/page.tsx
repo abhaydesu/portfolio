@@ -9,6 +9,7 @@ import { LeakyCode } from "@/components/leaky-code";
 import Experience from "@/components/experience/experience";
 import Image from "next/image";
 import { DinoGame } from "@/components/dino-game";
+import { MotionDiv } from "@/components/motion-div";
 
 export default function Home() {
   return (
@@ -27,10 +28,31 @@ export default function Home() {
                   words={["Full Stack Web Developer", "Sweating the details"]}
                 />
               </div>
-              <div id="game" className="hidden md:block flex-1 self-stretch relative border-l border-neutral-100 dark:border-neutral-800/50">
+              <MotionDiv
+                id="game"
+                initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
+                whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+                transition={{
+                  duration: 0.3,
+                  delay: 0.1,
+                  ease: "easeInOut",
+                }}
+                viewport={{ once: true }}
+                className="hidden md:block flex-1 self-stretch relative border-l border-neutral-100 dark:border-neutral-800/50"
+              >
                 <DinoGame />
-              </div>
-              <div className="relative border-x border-neutral-100 dark:border-neutral-800/50 p-0 mr-4  bg-white dark:bg-[#080605] transition-color duration-500">
+              </MotionDiv>
+              <MotionDiv
+                initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
+                whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+                transition={{
+                  duration: 0.3,
+                  delay: 0.15,
+                  ease: "easeInOut",
+                }}
+                viewport={{ once: true }}
+                className="relative border-x border-neutral-100 dark:border-neutral-800/50 p-0 mr-4  bg-white dark:bg-[#080605] transition-color duration-500"
+              >
                 <Image
                   height={96}
                   width={96}
@@ -46,7 +68,7 @@ export default function Home() {
                     src={"/flag.png"}
                   />
                 </div> */}
-              </div>
+              </MotionDiv>
             </div>
           </div>
         </div>

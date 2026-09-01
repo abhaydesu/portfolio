@@ -38,8 +38,10 @@ export function ProjectCard({ project, idx = 0 }: ProjectCardProps) {
         <Image
           src={project.src}
           alt={project.title}
-          height={100}
+          height={150}
           width={300}
+          sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 300px"
+          priority={idx === 0}
           className="md:w-60 md:h-34 h-fit w-fit rounded-xl object-cover mx-auto md:px-1 md:pt-1 mb-5 md:grayscale-30 md:group-hover:grayscale-0 transition-all duration-300"
         />
 

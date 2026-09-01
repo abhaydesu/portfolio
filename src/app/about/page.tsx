@@ -10,7 +10,23 @@ import { ManUtdScore, ManUtdScoreSkeleton } from "@/components/man-utd-score";
 
 export const metadata: Metadata = {
   title: "About Me",
-  description: "Exploring technology, creativity, and continuous growth.",
+  description:
+    "Learn more about Abhay Singh — education, sketches, photography, and curiosity in technology and design.",
+  openGraph: {
+    title: "About Me | Abhay Singh",
+    description:
+      "Learn more about Abhay Singh — education, sketches, photography, and curiosity in technology and design.",
+    url: "https://abhaydesu.dev/about",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Me | Abhay Singh",
+    description:
+      "Learn more about Abhay Singh — education, sketches, photography, and curiosity in technology and design.",
+  },
+  alternates: {
+    canonical: "https://abhaydesu.dev/about",
+  },
 };
 
 export default function AboutPage() {
@@ -21,7 +37,10 @@ export default function AboutPage() {
           <div className="md:col-span-2 pt-4">
             <Heading>About Me</Heading>
           </div>
-          <div id="score" className="md:col-span-6 border-l border-neutral-100 dark:border-neutral-800/50 flex justify-center items-center md:justify-end px-4 gap-4">
+          <div
+            id="score"
+            className="md:col-span-6 border-l border-neutral-100 dark:border-neutral-800/50 flex justify-center items-center md:justify-end px-4 gap-4"
+          >
             <Suspense fallback={<ManUtdScoreSkeleton />}>
               <ManUtdScore />
             </Suspense>

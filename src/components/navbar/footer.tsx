@@ -8,13 +8,31 @@ export const Footer = () => {
     <Container className="flex justify-between py-3 px-4 border-t border-x border-neutral-100 dark:border-neutral-800/50">
       <p className="text-sm text-neutral-500">built with love by Abhay Singh</p>
       <div className="flex items-center justify-center gap-4">
-        <Link target="_blank" href="https://github.com/abhaydesu">
+        <Link
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/abhaydesu"
+          aria-label="Abhay Singh on GitHub"
+          title="GitHub"
+        >
           <IconBrandGithub className="size-4 dark:text-pink-700 text-pink-300 hover:text-pink-700 dark:hover:text-pink-300" />
         </Link>
-        <Link target="_blank" href="https://www.linkedin.com/in/abhaydesu/">
+        <Link
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.linkedin.com/in/abhaydesu/"
+          aria-label="Abhay Singh on LinkedIn"
+          title="LinkedIn"
+        >
           <IconBrandLinkedin className="size-4 dark:text-pink-700 text-pink-300 hover:text-pink-700 dark:hover:text-pink-300" />
         </Link>
-        <Link target="_blank" href="https://x.com/abhaydesu">
+        <Link
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://x.com/abhaydesu"
+          aria-label="Abhay Singh on X (Twitter)"
+          title="X (Twitter)"
+        >
           <IconBrandX className="size-4 dark:text-pink-700 text-pink-300 hover:text-pink-700 dark:hover:text-pink-300" />
         </Link>
       </div>

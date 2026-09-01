@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 type ESPNEvent = {
     date: string;
@@ -82,8 +83,13 @@ export async function ManUtdScore() {
         return (
             <div className="flex items-center justify-end gap-0 my-0">
                 <div className="flex-shrink-0 transition-transform duration-300 hover:-rotate-6 hover:scale-110 cursor-pointer">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={`/moods/${mood}.png`} alt={`Mood: ${mood}`} className="w-14 h-14 object-contain drop-shadow-sm" />
+                    <Image
+                        src={`/moods/${mood}.png`}
+                        alt={`Mood: ${mood}`}
+                        width={56}
+                        height={56}
+                        className="w-14 h-14 object-contain drop-shadow-sm"
+                    />
                 </div>
 
                 <div className="flex flex-col items-center justify-center">
@@ -92,8 +98,13 @@ export async function ManUtdScore() {
                         <div className="flex items-center gap-1 w-14 justify-end hover:scale-105 transition-transform">
                             <span className="text-[10px] font-semibold text-neutral-600 dark:text-neutral-400">{team1.team.abbreviation}</span>
                             {team1.team.logos?.[0]?.href && (
-                                /* eslint-disable-next-line @next/next/no-img-element */
-                                <img src={team1.team.logos[0].href} alt={team1.team.displayName} className="w-5 h-5 object-contain" />
+                                <Image
+                                    src={team1.team.logos[0].href}
+                                    alt={team1.team.displayName}
+                                    width={20}
+                                    height={20}
+                                    className="w-5 h-5 object-contain"
+                                />
                             )}
                         </div>
 
@@ -109,8 +120,13 @@ export async function ManUtdScore() {
 
                         <div className="flex items-center gap-1 w-14 justify-start hover:scale-105 transition-transform">
                             {team2.team.logos?.[0]?.href && (
-                                /* eslint-disable-next-line @next/next/no-img-element */
-                                <img src={team2.team.logos[0].href} alt={team2.team.displayName} className="w-5 h-5 object-contain" />
+                                <Image
+                                    src={team2.team.logos[0].href}
+                                    alt={team2.team.displayName}
+                                    width={20}
+                                    height={20}
+                                    className="w-5 h-5 object-contain"
+                                />
                             )}
                             <span className="text-[10px] font-semibold text-neutral-600 dark:text-neutral-400">{team2.team.abbreviation}</span>
                         </div>

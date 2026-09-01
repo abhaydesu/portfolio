@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import Marquee from "react-fast-marquee";
 import { SectionHeading } from "./section-heading";
 
@@ -165,15 +166,15 @@ const TechPill = ({
   const pillContent = (
     <>
       {logo && imgOk ? (
-        <>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={logo}
-            alt={name}
-            className="h-6 w-6 rounded-md object-contain p-0.5 dark:invert transition-transform duration-300 group-hover:-rotate-10 group-hover:scale-100"
-            onError={() => setImgOk(false)}
-          />
-        </>
+        <Image
+          src={logo}
+          alt={name}
+          width={24}
+          height={24}
+          unoptimized
+          className="h-6 w-6 rounded-md object-contain p-0.5 dark:invert transition-transform duration-300 group-hover:-rotate-10 group-hover:scale-100"
+          onError={() => setImgOk(false)}
+        />
       ) : (
         <div className="h-6 w-6 rounded-md flex items-center justify-center bg-neutral-100 dark:bg-[#16110F] text-xs">
           {name.slice(0, 2).toUpperCase()}

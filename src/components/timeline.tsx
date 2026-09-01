@@ -1,46 +1,15 @@
 "use client";
 
-import React, { useRef} from "react";
-import {useInView, motion} from 'motion/react';
+import React, { useRef } from "react";
+import { useInView, motion } from 'motion/react';
 import { IconPointFilled } from "./icons";
 import { cn } from "@/lib/utils";
-
-
-type Data = {
-    title: string,
-    content : {
-        title: string,
-        description? : string
-    }[];
-};
+import { educationData } from "@/constants/education";
 
 export const Timeline = () => {
     const ref = useRef<HTMLDivElement>(null);
-    const isInView = useInView(ref, { once: true, amount: 0.6});
-
-    const data: Data[] = [
-        {
-        title: '2023-2027',
-        content: [{
-                title: 'Dayananda Sagar College of Engineering',
-                description: 'B.E. - Information Science and Engineering [9.4]'
-            }]
-    },
-        {
-        title: '2022',
-        content: [{
-                title: 'Narayana E-Techno School',
-                description: 'XII [PCM - 82%]'
-            }]
-    },
-        {
-        title: '2020',
-        content: [{
-                title: 'Narayana E-Techno School',
-                description: 'X [94%]'
-            }]
-    }
-]
+    const isInView = useInView(ref, { once: true, amount: 0.6 });
+    const data = educationData;
 
     return (
     <div ref={ref} className="px-4 py-8">

@@ -98,31 +98,28 @@ export const Navbar = () => {
                   rel={
                     item.new === "_blank" ? "noopener noreferrer" : undefined
                   }
+                  className={`flex items-center justify-center gap-2 rounded-full transition-all px-4 py-2 cursor-pointer ${
+                    isActive
+                      ? "hover:text-neutral-800 hover:font-bold dark:text-neutral-200 font-semibold text-neutral-900"
+                      : "text-neutral-400 hover:text-neutral-500 dark:hover:text-neutral-300"
+                  }`}
                 >
-                  <motion.button
-                    className={`flex items-center justify-center gap-2 rounded-full transition-all px-4 py-2 cursor-pointer ${
-                      isActive
-                        ? "hover:text-neutral-800 hover:font-bold dark:text-neutral-200"
-                        : "text-neutral-400 hover:text-neutral-500 dark:hover:text-neutral-300"
-                    }`}
-                  >
-                    <AnimatePresence>
-                      <motion.span
-                        initial={{ opacity: 0, width: 0 }}
-                        animate={{ opacity: 1, width: "auto" }}
-                        exit={{ opacity: 0, width: 0 }}
-                        transition={{ duration: 0.2 }}
-                        className="text-sm font-medium whitespace-nowrap inline-block"
-                      >
-                        {item.title}
-                        {item.icon && (
-                          <span>
-                            <item.icon className="inline h-3 w-3" />
-                          </span>
-                        )}
-                      </motion.span>
-                    </AnimatePresence>
-                  </motion.button>
+                  <AnimatePresence>
+                    <motion.span
+                      initial={{ opacity: 0, width: 0 }}
+                      animate={{ opacity: 1, width: "auto" }}
+                      exit={{ opacity: 0, width: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="text-sm font-medium whitespace-nowrap inline-flex items-center gap-1"
+                    >
+                      {item.title}
+                      {item.icon && (
+                        <span>
+                          <item.icon className="inline h-3 w-3" />
+                        </span>
+                      )}
+                    </motion.span>
+                  </AnimatePresence>
                 </Link>
               </div>
             );
@@ -131,6 +128,7 @@ export const Navbar = () => {
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             title="Toggle Theme [t]"
+            aria-label={theme === "dark" ? "Switch to light mode (press t)" : "Switch to dark mode (press t)"}
             className="text-neutral-400 hover:text-neutral-500 dark:hover:text-neutral-200 transition-all px-4 py-2 cursor-pointer"
           >
             {theme === "dark" ? (

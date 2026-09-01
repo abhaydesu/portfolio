@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "motion/react";
 import { SectionHeading } from "./section-heading";
 import { LeakyCode } from "./leaky-code";
-import { useTheme } from "next-themes";
 
 const sketches = [
   { src: "/sketch-1.jpg", alt: "Sketch 1" },
@@ -39,13 +38,11 @@ export const Collage = () => {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  const { theme } = useTheme();
-
   return (
-    <section className="relative px-4 pb-4 border-y border-neutral-100 dark:border-neutral-800/50 ">
+    <section className="relative px-4 pb-4 border-y border-neutral-100 dark:border-neutral-800/50">
       <LeakyCode
-        text={`relative text-sm font-normal ${theme === "dark" ? "dark:text-neutral-300" : "text-neutral-700"}`}
-        className="px-1 "
+        text="relative text-sm font-normal text-neutral-700 dark:text-neutral-300"
+        className="px-1"
       />
 
       <SectionHeading className="max-w-lg pt-0 text-sm md:text-sm mb-6 mt-1">

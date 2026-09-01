@@ -6,18 +6,9 @@ import { IconArrowWaveRightUp } from "./icons";
 import { motion } from "framer-motion";
 import { SectionHeading } from "./section-heading";
 import { MotionDiv } from "./motion-div";
+import { blogs } from "@/constants/blogs";
 
 export const LandingBlogs = () => {
-  const blogs = [
-    {
-      title: "How I type 120+ wpm",
-      href: "https://blog.abhaydesu.dev/blog/improve-typing-speed",
-      description:
-        "Learn how to type fast with simple techinques, daily practice routines and the right mindset. ",
-      date: "2025-09-20",
-    },
-  ];
-
   const truncate = (str: string, length: number) =>
     str.length > length ? str.substring(0, length) + "..." : str;
 

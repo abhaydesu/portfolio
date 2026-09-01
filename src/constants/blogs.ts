@@ -17,23 +17,23 @@ export const blogs: BlogPost[] = [
 
 export async function fetchBlogs(): Promise<BlogPost[]> {
   try {
-    const res = await fetch("https://blog.abhaydesu.dev/api/posts", { 
-      next: { revalidate: 3600 } 
+    const res = await fetch("https://blog.abhaydesu.dev/api/posts", {
+      next: { revalidate: 3600 },
     });
-    
+
     if (!res.ok) return blogs;
-    
-    const fetchedBlogs: BlogPost[] = await res.json();
-    
-    // Ensure all hrefs are absolute since they link out from the portfolio
-    const formattedBlogs = fetchedBlogs.map(blog => ({
-      ...blog,
-      href: blog.href.startsWith("http") 
-        ? blog.href 
-        : `https://blog.abhaydesu.dev${blog.href.startsWith("/") ? "" : "/"}${blog.href}`
+
+    const data: BlogPost[] = await res.json();
+    if (!Array.isArray(data) || data.length === 0) return blogs;
+
+    const formattedBlogs = data.map((post) => ({
+      ...post,
+      href: post.href.startsWith("http")
+        ? post.href
+        : `https://blog.abhaydesu.dev${post.href}`,
     }));
-    
-    return formattedBlogs.length > 0 ? formattedBlogs : blogs;
+
+    return formattedBlogs;
   } catch (error) {
     console.error("Failed to fetch blogs:", error);
     return blogs;

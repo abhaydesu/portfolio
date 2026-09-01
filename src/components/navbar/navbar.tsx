@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "next-view-transitions";
+import { Link, useTransitionRouter } from "next-view-transitions";
 import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
 import { Moon, MoveUpRight, Sun } from "lucide-react";
@@ -11,6 +11,7 @@ import { Container } from "../container";
 export const Navbar = () => {
   const { theme, setTheme } = useTheme();
   const pathname = usePathname();
+  const router = useTransitionRouter();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -21,12 +22,46 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement;
+      if (
+        target &&
+        (target.tagName === "INPUT" ||
+          target.tagName === "TEXTAREA" ||
+          target.isContentEditable)
+      ) {
+        return;
+      }
+
+      if (e.metaKey || e.ctrlKey || e.altKey) {
+        return;
+      }
+
+      const key = e.key.toLowerCase();
+      if (key === "h") {
+        router.push("/");
+      } else if (key === "p") {
+        router.push("/projects");
+      } else if (key === "a") {
+        router.push("/about");
+      } else if (key === "b") {
+        window.open("https://blog.abhaydesu.dev", "_blank", "noopener,noreferrer");
+      } else if (key === "t" || key === "d") {
+        setTheme(theme === "dark" ? "light" : "dark");
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [router, theme, setTheme]);
+
   const navItems = [
-    { title: "home", href: "/", new: "_self" },
-    { title: "projects", href: "/projects", new: "_self" },
-    { title: "about", href: "/about", new: "_self" },
+    { title: "[h]ome", href: "/", new: "_self" },
+    { title: "[p]rojects", href: "/projects", new: "_self" },
+    { title: "[a]bout", href: "/about", new: "_self" },
     {
-      title: "blog",
+      title: "[b]log",
       href: "https://blog.abhaydesu.dev",
       new: "_blank",
       icon: MoveUpRight,
@@ -95,7 +130,8 @@ export const Navbar = () => {
 
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="text-neutral-400 hover:text-neutral-500 dark:hover:text-neutral-200 transition-all px-4 py-2"
+            title="Toggle Theme [t]"
+            className="text-neutral-400 hover:text-neutral-500 dark:hover:text-neutral-200 transition-all px-4 py-2 cursor-pointer"
           >
             {theme === "dark" ? (
               <Sun size={18} strokeWidth={1.6} />

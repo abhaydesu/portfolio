@@ -17,7 +17,7 @@ export async function ManUtdScore() {
     try {
         const res = await fetch(
             "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/360/schedule",
-            { cache: "no-store" }
+            { next: { revalidate: 300 } }
         );
         if (!res.ok) return null;
 
@@ -134,3 +134,21 @@ export async function ManUtdScore() {
         return null;
     }
 }
+
+export function ManUtdScoreSkeleton() {
+    return (
+        <div className="flex items-center justify-end gap-2 my-0 animate-pulse py-1">
+            <div className="w-12 h-12 rounded-full bg-neutral-200 dark:bg-neutral-800/60 flex-shrink-0" />
+            <div className="flex flex-col items-center justify-center gap-1">
+                <div className="w-16 h-2 bg-neutral-200 dark:bg-neutral-800/60 rounded" />
+                <div className="flex items-center gap-2">
+                    <div className="w-8 h-4 bg-neutral-200 dark:bg-neutral-800/60 rounded" />
+                    <div className="w-10 h-5 bg-neutral-200 dark:bg-neutral-800/60 rounded" />
+                    <div className="w-8 h-4 bg-neutral-200 dark:bg-neutral-800/60 rounded" />
+                </div>
+                <div className="w-20 h-2 bg-neutral-200 dark:bg-neutral-800/60 rounded" />
+            </div>
+        </div>
+    );
+}
+

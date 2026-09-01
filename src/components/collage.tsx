@@ -100,6 +100,7 @@ export const Collage = () => {
                   src={img.src}
                   alt={img.alt}
                   fill
+                  sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 250px"
                   className="object-cover grayscale-60 md:grayscale hover:grayscale-0 transition duration-300"
                 />
               </motion.div>
@@ -151,6 +152,7 @@ export const Collage = () => {
                   src={img.src}
                   alt={img.alt}
                   fill
+                  sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 250px"
                   className="object-cover grayscale-60 md:grayscale hover:grayscale-60 transition duration-300"
                 />
               </motion.div>
@@ -191,6 +193,7 @@ export const Collage = () => {
                   src={selectedImage.src}
                   alt={selectedImage.alt}
                   fill
+                  sizes="(max-width: 1200px) 100vw, 800px"
                   className="object-contain rounded-lg"
                 />
               </div>

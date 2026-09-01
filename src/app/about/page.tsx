@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { Container } from "@/components/container";
 import { Collage } from "@/components/collage";
 import { Timeline } from "@/components/timeline";
@@ -5,7 +6,7 @@ import { Heading } from "@/components/heading";
 import { Subheading } from "@/components/subheading";
 import { Metadata } from "next";
 import { SectionHeading } from "@/components/section-heading";
-import { ManUtdScore } from "@/components/man-utd-score";
+import { ManUtdScore, ManUtdScoreSkeleton } from "@/components/man-utd-score";
 
 export const metadata: Metadata = {
   title: "About Me",
@@ -21,7 +22,9 @@ export default function AboutPage() {
             <Heading>About Me</Heading>
           </div>
           <div id="score" className="md:col-span-6 border-l border-neutral-100 dark:border-neutral-800/50 flex justify-center items-center md:justify-end px-4 gap-4">
-            <ManUtdScore />
+            <Suspense fallback={<ManUtdScoreSkeleton />}>
+              <ManUtdScore />
+            </Suspense>
           </div>
         </div>
         <Subheading className="py-2">

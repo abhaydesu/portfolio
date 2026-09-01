@@ -25,6 +25,10 @@ export default function RootLayout({
             href="https://api.fontshare.com/v2/css?f[]=satoshi@400&display=swap"
             rel="stylesheet"
           ></link>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+            rel="stylesheet"
+          ></link>
           <Script
             defer
             src="https://cloud.umami.is/script.js"

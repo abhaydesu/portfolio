@@ -17,7 +17,7 @@ export default function Home() {
       <Container className="min-h-screen  px-4 md:pb-10">
         <div className=" max-w-5xl items-center py-0  -mx-12 px-8  ">
           <div className="flex justify-between w-full">
-            <div className="flex flex-1 items-center justify-between border-r border-neutral-100 dark:border-neutral-800/50 bg-white dark:bg-[#080605] transition-color duration-500">
+            <div className="flex flex-1 items-center justify-between border-r border-neutral-100 dark:border-neutral-800/50 bg-white dark:bg-[#080605] transition-colors duration-500">
               <div>
                 <LeakyCode
                   text="px-4 md:text-4xl tracking-tighter"
@@ -51,7 +51,7 @@ export default function Home() {
                   ease: "easeInOut",
                 }}
                 viewport={{ once: true }}
-                className="relative border-x border-neutral-100 dark:border-neutral-800/50 p-0 mr-4  bg-white dark:bg-[#080605] transition-color duration-500"
+                className="relative border-x border-neutral-100 dark:border-neutral-800/50 p-0 mr-4  bg-white dark:bg-[#080605] transition-colors duration-500"
               >
                 <Image
                   height={96}

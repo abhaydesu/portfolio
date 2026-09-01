@@ -17,28 +17,23 @@ export const blogs: BlogPost[] = [
 
 export async function fetchBlogs(): Promise<BlogPost[]> {
   try {
-    const res = await fetch("https://blog.abhaydesu.dev", { next: { revalidate: 3600 } });
+    const res = await fetch("https://blog.abhaydesu.dev/api/posts", { 
+      next: { revalidate: 3600 } 
+    });
+    
     if (!res.ok) return blogs;
-    const html = await res.text();
     
-    const regex = /<a [^>]*href="(\/blog\/[^"]+)"[^>]*>[\s\S]*?<h2[^>]*>([\s\S]*?)<\/h2>[\s\S]*?<p[^>]*>([\s\S]*?)<\/p>[\s\S]*?<p[^>]*>([\s\S]*?)<\/p>/g;
-    const fetchedBlogs: BlogPost[] = [];
-    let match;
+    const fetchedBlogs: BlogPost[] = await res.json();
     
-    while ((match = regex.exec(html)) !== null) {
-      const title = match[2].replace(/<[^>]+>/g, "").trim();
-      const date = match[3].replace(/<[^>]+>/g, "").trim();
-      const description = match[4].replace(/<[^>]+>/g, "").trim();
-      
-      fetchedBlogs.push({
-        title,
-        href: `https://blog.abhaydesu.dev${match[1]}`,
-        date,
-        description,
-      });
-    }
+    // Ensure all hrefs are absolute since they link out from the portfolio
+    const formattedBlogs = fetchedBlogs.map(blog => ({
+      ...blog,
+      href: blog.href.startsWith("http") 
+        ? blog.href 
+        : `https://blog.abhaydesu.dev${blog.href.startsWith("/") ? "" : "/"}${blog.href}`
+    }));
     
-    return fetchedBlogs.length > 0 ? fetchedBlogs : blogs;
+    return formattedBlogs.length > 0 ? formattedBlogs : blogs;
   } catch (error) {
     console.error("Failed to fetch blogs:", error);
     return blogs;

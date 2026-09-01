@@ -10,8 +10,11 @@ import Experience from "@/components/experience/experience";
 import Image from "next/image";
 import { DinoGame } from "@/components/dino-game";
 import { MotionDiv } from "@/components/motion-div";
+import { fetchBlogs } from "@/constants/blogs";
 
-export default function Home() {
+export default async function Home() {
+  const blogs = await fetchBlogs();
+  
   return (
     <div className="min-h-screen flex items-start justify-start">
       <Container className="min-h-screen  px-4 md:pb-10">
@@ -78,7 +81,7 @@ export default function Home() {
         </div>
         <ProjectLanding />
         <Experience />
-        <LandingBlogs />
+        <LandingBlogs blogs={blogs} />
         <TechShowcase />
       </Container>
     </div>

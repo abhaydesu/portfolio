@@ -6,9 +6,9 @@ import { IconArrowWaveRightUp } from "./icons";
 import { motion } from "framer-motion";
 import { SectionHeading } from "./section-heading";
 import { MotionDiv } from "./motion-div";
-import { blogs } from "@/constants/blogs";
+import { blogs as defaultBlogs, BlogPost } from "@/constants/blogs";
 
-export const LandingBlogs = () => {
+export const LandingBlogs = ({ blogs = defaultBlogs }: { blogs?: BlogPost[] }) => {
   const truncate = (str: string, length: number) =>
     str.length > length ? str.substring(0, length) + "..." : str;
 

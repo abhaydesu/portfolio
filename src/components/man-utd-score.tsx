@@ -17,7 +17,7 @@ type ESPNEvent = {
 export async function ManUtdScore() {
     try {
         const res = await fetch(
-            "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/360/schedule",
+            "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/360/schedule",
             { next: { revalidate: 300 } }
         );
         if (!res.ok) return null;
@@ -88,6 +88,7 @@ export async function ManUtdScore() {
                         alt={`Mood: ${mood}`}
                         width={56}
                         height={56}
+                        quality={90}
                         className="w-14 h-14 object-contain drop-shadow-sm"
                     />
                 </div>

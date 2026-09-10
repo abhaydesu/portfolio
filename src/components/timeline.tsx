@@ -1,96 +1,102 @@
 "use client";
 
 import React, { useRef } from "react";
-import { useInView, motion } from 'motion/react';
+import { useInView, motion } from "motion/react";
 import { IconPointFilled } from "./icons";
 import { cn } from "@/lib/utils";
-import { educationData } from "@/constants/education";
+import { educationData, EducationItem } from "@/constants/education";
 
 export const Timeline = () => {
-    const ref = useRef<HTMLDivElement>(null);
-    const isInView = useInView(ref, { once: true, amount: 0.6 });
     const data = educationData;
 
     return (
-    <div ref={ref} className="px-4 py-8">
-        {data.map((year, index) => (
-            <div 
-                key={year.title} 
-                className="mb-4"
-            >
-                <motion.h2 
+        <div className="px-4 py-8">
+            {data.map((year, index) => (
+                <TimelineYear key={year.title} year={year} index={index} />
+            ))}
+        </div>
+    );
+};
+
+const TimelineYear = ({ year, index }: { year: EducationItem; index: number }) => {
+    const ref = useRef<HTMLDivElement>(null);
+    const isInView = useInView(ref, { once: true, amount: 0.1 });
+
+    return (
+        <div ref={ref} className="mb-4">
+            <motion.h2
                 initial={{
                     filter: "blur(10px)",
                     opacity: 0,
                 }}
                 animate={{
-                    filter: isInView ? 'blur(0px)' : 'blur(10px)',
+                    filter: isInView ? "blur(0px)" : "blur(10px)",
                     opacity: isInView ? 1 : 0,
                 }}
                 transition={{
                     duration: 0.3,
-                    ease: 'easeInOut',
-                    delay: 0.1 * index
+                    ease: "easeInOut",
+                    delay: 0.05 * index,
                 }}
-                className="font-bold text-black dark:text-white px-2 mb-2 py-0.5 rounded-md shadow-[var(--shadow-aceternity)] w-fit px-4 py-1">
-                    {year.title}
-                </motion.h2>
-                <div className="flex flex-col gap-4 ">
+                className="font-bold text-black dark:text-white mb-2 py-1 px-4 rounded-md shadow-[var(--shadow-aceternity)] w-fit"
+            >
+                {year.title}
+            </motion.h2>
+            <div className="flex flex-col gap-4">
                 {year.content.map((item, idx) => (
-                    <div key={item.title} className="pl-4 ">
+                    <div key={item.title} className="pl-4">
                         <Step isInView={isInView} idx={idx}>
-                        <motion.h3
-                            initial={{
-                                opacity: 0,
-                                y: -10,
-                            }}
-                            animate={{
-                                opacity: isInView ? 1 : 0,
-                                y : isInView ? 0 : -10,
-                            }}
-                            transition={{
-                                duration: 0.3,
-                                ease: 'easeInOut',
-                                delay: 0.2 * idx
-                            }}
-                            className="text-neutral-600 dark:text-neutral-400"
+                            <motion.h3
+                                initial={{
+                                    opacity: 0,
+                                    y: -10,
+                                }}
+                                animate={{
+                                    opacity: isInView ? 1 : 0,
+                                    y: isInView ? 0 : -10,
+                                }}
+                                transition={{
+                                    duration: 0.3,
+                                    ease: "easeInOut",
+                                    delay: 0.15 * idx,
+                                }}
+                                className="text-neutral-600 dark:text-neutral-400"
                             >
-                            {item.title}
-                        </motion.h3>
+                                {item.title}
+                            </motion.h3>
                         </Step>
                         {item.description && (
-                            <motion.p 
-                            initial={{
-                                opacity:0,
-                                y:-10,
-                            }}
-                            animate={{
-                                opacity: isInView ? 1 : 0,
-                                y : isInView ? 0 : -10,
-                            }}
-                            transition={{
-                                duration: 0.3,
-                                ease: 'easeInOut',
-                                delay: 0.3 * idx
-                            }}                          
-                            className="pt-1 pl-6 text-neutral-400 dark:text-neutral-600 text-sm">
-                                {item.description
-                            }</motion.p>
+                            <motion.p
+                                initial={{
+                                    opacity: 0,
+                                    y: -10,
+                                }}
+                                animate={{
+                                    opacity: isInView ? 1 : 0,
+                                    y: isInView ? 0 : -10,
+                                }}
+                                transition={{
+                                    duration: 0.3,
+                                    ease: "easeInOut",
+                                    delay: 0.2 * idx + 0.1,
+                                }}
+                                className="pt-1 pl-6 text-neutral-400 dark:text-neutral-600 text-sm"
+                            >
+                                {item.description}
+                            </motion.p>
                         )}
                     </div>
                 ))}
-                </div>
             </div>
-        ))}
         </div>
-    );    
+    );
 };
 
 const Step = ({
     className,
     children,
     isInView,
-    idx
+    idx,
 }: {
     className?: string;
     children: React.ReactNode;
@@ -98,23 +104,24 @@ const Step = ({
     idx: number;
 }) => {
     return (
-    <motion.div 
-    initial={{
-        opacity:0,
-        y: -10
-    }}
-    animate={{
-        opacity: isInView ? 1 : 0,
-        y : isInView ? 0 : -10,
-    }}
-    transition={{
-        duration: 0.3,
-        ease: 'easeInOut',
-        delay: 0.2 * idx
-    }}
-    className={cn("flex items-start gap-2", className)}>
-        <IconPointFilled className="h-4 w-4 mt-1 text-neutral-500" />
+        <motion.div
+            initial={{
+                opacity: 0,
+                y: -10,
+            }}
+            animate={{
+                opacity: isInView ? 1 : 0,
+                y: isInView ? 0 : -10,
+            }}
+            transition={{
+                duration: 0.3,
+                ease: "easeInOut",
+                delay: 0.15 * idx,
+            }}
+            className={cn("flex items-start gap-2", className)}
+        >
+            <IconPointFilled className="h-4 w-4 mt-1 text-neutral-500" />
             {children}
-    </motion.div>
-    )
-}
+        </motion.div>
+    );
+};

@@ -60,6 +60,7 @@ export const Links = () => {
                   exit="exit"
                   variants={itemVariants}
                   className="flex items-center text-neutral-500 dark:text-neutral-400"
+                  data-cuelume-hover="tick"
                 >
                   <Link
                     className="hover:text-neutral-700 dark:hover:text-neutral-300"

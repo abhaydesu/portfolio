@@ -14,6 +14,7 @@ export const Footer = () => {
           href="https://github.com/abhaydesu"
           aria-label="Abhay Singh on GitHub"
           title="GitHub"
+          data-cuelume-hover="tick"
         >
           <IconBrandGithub className="size-4 dark:text-pink-700 text-pink-300 hover:text-pink-700 dark:hover:text-pink-300" />
         </Link>
@@ -23,6 +24,7 @@ export const Footer = () => {
           href="https://www.linkedin.com/in/abhaydesu/"
           aria-label="Abhay Singh on LinkedIn"
           title="LinkedIn"
+          data-cuelume-hover="tick"
         >
           <IconBrandLinkedin className="size-4 dark:text-pink-700 text-pink-300 hover:text-pink-700 dark:hover:text-pink-300" />
         </Link>
@@ -32,6 +34,7 @@ export const Footer = () => {
           href="https://x.com/abhaydesu"
           aria-label="Abhay Singh on X (Twitter)"
           title="X (Twitter)"
+          data-cuelume-hover="tick"
         >
           <IconBrandX className="size-4 dark:text-pink-700 text-pink-300 hover:text-pink-700 dark:hover:text-pink-300" />
         </Link>

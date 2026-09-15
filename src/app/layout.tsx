@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar/navbar";
 import { JsonLd } from "@/components/json-ld";
 import { ErrorBoundary } from "@/components/error-boundary";
+import { CuelumeProvider } from "@/components/cuelume-provider";
 import Script from "next/script";
 
 export const viewport: Viewport = {
@@ -100,6 +101,7 @@ export default function RootLayout({
           className="antialiased bg-white dark:bg-[#080605] [--pattern-fg:var(--color-neutral-950)]/5 dark:[--pattern-fg:var(--color-neutral-100)]/5 transition-colors duration-500"
         >
           <ThemeProvider attribute="class" defaultTheme="light">
+            <CuelumeProvider />
             <ErrorBoundary>
               <Navbar />
               {children}

@@ -24,6 +24,7 @@
     "@tailwindcss/typography": "^0.5.16",
     "@types/mdx": "^2.0.13",
     "clsx": "^2.1.1",
+    "cuelume": "^0.2.2",
     "lucide-react": "^0.542.0",
     "motion": "^12.23.12",
     "next": "15.5.7",

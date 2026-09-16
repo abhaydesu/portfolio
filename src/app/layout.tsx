@@ -98,7 +98,7 @@ export default function RootLayout({
           <JsonLd />
         </head>
         <body
-          className="antialiased bg-white dark:bg-[#080605] [--pattern-fg:var(--color-neutral-950)]/5 dark:[--pattern-fg:var(--color-neutral-100)]/5 transition-colors duration-500"
+          className="antialiased bg-white dark:bg-[#080605] [--pattern-fg:var(--color-neutral-950)]/5 dark:[--pattern-fg:var(--color-neutral-100)]/5 transition-colors duration-500 overflow-x-hidden"
         >
           <ThemeProvider attribute="class" defaultTheme="light">
             <CuelumeProvider />

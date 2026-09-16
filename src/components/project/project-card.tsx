@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { Forward, MoveUpRight } from "lucide-react";
 import * as React from "react";
+import { play } from "cuelume";
 import type { Project } from "@/constants/projects";
 
 type ProjectCardProps = {
@@ -13,9 +14,26 @@ type ProjectCardProps = {
 };
 
 export function ProjectCard({ project, idx = 0 }: ProjectCardProps) {
-  const handleCardClick = () => {
+  const handleCardClick = (e: React.MouseEvent) => {
+    // If it was touch/pen (detail === 0 or pointerType touch), play the paired press & release sound
+    if ((e.nativeEvent as any).pointerType !== "mouse") {
+      play("press");
+      setTimeout(() => play("release"), 70);
+    }
     if (project.href) {
       window.open(project.href, "_blank", "noopener,noreferrer");
+    }
+  };
+
+  const handlePointerDown = (e: React.PointerEvent) => {
+    if (e.pointerType === "mouse") {
+      play("press");
+    }
+  };
+
+  const handlePointerUp = (e: React.PointerEvent) => {
+    if (e.pointerType === "mouse") {
+      play("release");
     }
   };
 
@@ -25,7 +43,7 @@ export function ProjectCard({ project, idx = 0 }: ProjectCardProps) {
       whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
       transition={{ duration: 0.3, delay: idx * 0.1, ease: "easeInOut" }}
       viewport={{ once: true }}
-      className="group relative flex flex-col items-center md:items-start  md:h-100   border-neutral-100  dark:border-neutral-800/50  -mx-4 py-2 px-4"
+      className="group relative flex flex-col items-center md:items-start md:h-100 border-neutral-100 dark:border-neutral-800/50 -mx-4 py-2 px-4"
     >
       <div className="h-2 w-0.5 bg-neutral-400 dark:bg-neutral-600 absolute transition-all duration-3 top-2 left-4 opacity-0 group-hover:opacity-100" />
       <div className="h-0.5 w-2 bg-neutral-400 dark:bg-neutral-600 absolute transition-all duration-3 top-2 left-4 opacity-0 group-hover:opacity-100" />
@@ -33,9 +51,9 @@ export function ProjectCard({ project, idx = 0 }: ProjectCardProps) {
       <div className="h-0.5 w-2 bg-neutral-400 dark:bg-neutral-600 absolute transition-all duration-3 bottom-2 right-4 opacity-0 group-hover:opacity-100" />
       <div
         onClick={handleCardClick}
-        data-cuelume-press
-        data-cuelume-release
-        className="block border border-neutral-200 dark:border-neutral-800/50 md:py-2 py-4 px-4 md:px-2 hover:border-dashed hover:border-neutral-400 hover:dark:border-neutral-600 h-full transition-all duration-200 cursor-pointer"
+        onPointerDown={handlePointerDown}
+        onPointerUp={handlePointerUp}
+        className="w-full md:w-auto block border border-neutral-200 dark:border-neutral-800/50 md:py-2 py-4 px-4 md:px-2 hover:border-dashed hover:border-neutral-400 hover:dark:border-neutral-600 h-full transition-all duration-200 cursor-pointer"
       >
         <Image
           src={project.src}
@@ -44,7 +62,7 @@ export function ProjectCard({ project, idx = 0 }: ProjectCardProps) {
           width={300}
           sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 300px"
           priority={idx === 0}
-          className="md:w-60 md:h-34 h-fit w-fit rounded-xl object-cover mx-auto md:px-1 md:pt-1 mb-5 md:grayscale-30 md:group-hover:grayscale-0 transition-all duration-300"
+          className="w-full md:w-60 h-40 md:h-34 rounded-xl object-cover mx-auto md:px-1 md:pt-1 mb-5 md:grayscale-30 md:group-hover:grayscale-0 transition-all duration-300"
         />
 
         <div className="border-t border-dashed border-neutral-200 dark:border-neutral-700 w-full" />
@@ -74,7 +92,6 @@ export function ProjectCard({ project, idx = 0 }: ProjectCardProps) {
                       href={project.github}
                       target="_blank"
                       aria-label="View on GitHub"
-                      data-cuelume-hover="whisper"
                       className="p-1 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-pink-400/60 hover:scale-110 transition"
                     >
                       <svg
@@ -137,8 +154,28 @@ function TooltipIcon({
   label: string;
   children: React.ReactNode;
 }) {
+  const timeoutRef = React.useRef<NodeJS.Timeout | null>(null);
+
+  const handlePointerEnter = () => {
+    // Only play whisper sound if hover persists and tooltip actually appears
+    timeoutRef.current = setTimeout(() => {
+      play("whisper");
+    }, 120);
+  };
+
+  const handlePointerLeave = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+  };
+
   return (
-    <div className="relative inline-flex group/tt">
+    <div
+      className="relative inline-flex group/tt"
+      onPointerEnter={handlePointerEnter}
+      onPointerLeave={handlePointerLeave}
+    >
       {children}
       <div
         role="presentation"

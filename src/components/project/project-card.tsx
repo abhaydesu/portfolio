@@ -16,7 +16,10 @@ type ProjectCardProps = {
 export function ProjectCard({ project, idx = 0 }: ProjectCardProps) {
   const handleCardClick = (e: React.MouseEvent) => {
     // If it was touch/pen (detail === 0 or pointerType touch), play the paired press & release sound
-    if ((e.nativeEvent as any).pointerType !== "mouse") {
+    const isMouse =
+      "pointerType" in e.nativeEvent &&
+      (e.nativeEvent as PointerEvent).pointerType === "mouse";
+    if (!isMouse) {
       play("press");
       setTimeout(() => play("release"), 70);
     }

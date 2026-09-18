@@ -11,6 +11,15 @@ export type Project = {
 export const projects: Project[] = [
         {
             id: 1,
+            title: "Hash-it",
+            src: "/hash-it.png",
+            href: "https://hash-it.abhaydesu.me",
+            github: "https://github.com/abhaydesu/hash-it",
+            description: "A platform to log your leetcode solves, and revise them.",
+            tech: ["TypeScript", "Next.js", "Postgres", "NeonDB", "TailwindCSS"]
+        },
+        {
+            id: 2,
             title: "Lexiq",
             src: "/lexiq.png",
             href: "https://lexiq-seven.vercel.app",
@@ -19,7 +28,7 @@ export const projects: Project[] = [
             tech: ["TypeScript", "React.js", "TailwindCSS"]
         },
         {
-            id: 2,
+            id: 3,
             title: "Git Pilot",
             src: "/git-pilot.png",
             href: "https://gitpilot.abhaydesu.dev/",
@@ -28,7 +37,7 @@ export const projects: Project[] = [
             tech: ['Node.js', 'JavaScript', 'Express', 'Gemini API']
         },
         {
-            id: 3,
+            id: 4,  
             title: "Dip-Dash",
             src: "/dipdash.png",
             href:"https://dipdash.abhaydesu.dev/",
@@ -37,7 +46,7 @@ export const projects: Project[] = [
             tech: ['Three.js','HTML', 'CSS', 'JavaScript' ]
         },
         {
-            id: 4,
+            id: 5,
             title: "Pathly",
             src: "/pathly.png",
             href:"https://pathly-delta.vercel.app/",
@@ -46,7 +55,7 @@ export const projects: Project[] = [
             tech: ['React', 'Express', 'MongoDB', 'Tailwind']
         },
         {
-            id: 5,
+            id: 6,
             title: "Throtl",
             src: "/throtl.png",
             href:"https://throtl.vercel.app/",
@@ -55,7 +64,7 @@ export const projects: Project[] = [
             tech: ['Frontend','Tailwind', 'Motion', 'React' ]
         },
         {
-            id: 6,
+            id: 7,
             title: "Aakar ",
             src: "/aakar.png",
             href:"https://aakar0.vercel.app/",
@@ -64,7 +73,7 @@ export const projects: Project[] = [
             tech: ['Next.js', 'Tailwind', 'Motion']
         },
         {
-            id: 7,
+            id: 8,
             title: "Aetos ",
             src: "/aetos.png",
             href:"https://aetos0.vercel.app/",
@@ -73,7 +82,7 @@ export const projects: Project[] = [
             tech: ['React', 'Tailwind', 'Motion']
         },
         {
-            id: 8,
+            id: 9,
             title: "Virtual Gallery",
             src: "/art-gallery.png",
             href:"https://3d-virtualgallery.netlify.app/",
@@ -82,7 +91,7 @@ export const projects: Project[] = [
             tech: ['Three.js', 'HTML', 'CSS', 'JavaScript']
         },
         {
-            id: 9,
+            id: 10,
             title: "Portfolio Website",
             src: "/portfolio.png",
             href:"#",
@@ -91,7 +100,7 @@ export const projects: Project[] = [
             tech: ['TypeScript', 'Next.js', 'TailwindCSS', 'Motion']
         },
         {
-            id: 10,
+            id: 11,
             title: "Coming soon",
             src: "/coming-soon.png",
             href:"",

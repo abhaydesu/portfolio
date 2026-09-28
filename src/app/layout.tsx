@@ -19,7 +19,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://abhaydesu.dev"),
+  metadataBase: new URL("https://abhaydesu.me"),
   title: {
     default: "Abhay Singh — Full Stack Web Developer",
     template: "%s | Abhay Singh",
@@ -40,13 +40,13 @@ export const metadata: Metadata = {
     "Software Engineer",
     "India",
   ],
-  authors: [{ name: "Abhay Singh", url: "https://abhaydesu.dev" }],
+  authors: [{ name: "Abhay Singh", url: "https://abhaydesu.me" }],
   creator: "Abhay Singh",
   openGraph: {
     title: "Abhay Singh — Full Stack Web Developer",
     description:
       "Full Stack Web Developer crafting minimal and smooth micro-interactions with Next.js, React, and TypeScript.",
-    url: "https://abhaydesu.dev",
+    url: "https://abhaydesu.me",
     siteName: "Abhay Singh",
     locale: "en_US",
     type: "website",
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://abhaydesu.dev",
+    canonical: "https://abhaydesu.me",
   },
 };
 

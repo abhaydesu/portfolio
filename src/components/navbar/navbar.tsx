@@ -47,7 +47,7 @@ export const Navbar = () => {
       } else if (key === "a") {
         router.push("/about");
       } else if (key === "b") {
-        window.open("https://blog.abhaydesu.dev", "_blank", "noopener,noreferrer");
+        window.open("https://blog.abhaydesu.me", "_blank", "noopener,noreferrer");
       } else if (key === "t") {
         setTheme(theme === "dark" ? "light" : "dark");
         play("toggle");
@@ -64,7 +64,7 @@ export const Navbar = () => {
     { title: "[a]bout", href: "/about", new: "_self" },
     {
       title: "[b]log",
-      href: "https://blog.abhaydesu.dev",
+      href: "https://blog.abhaydesu.me",
       new: "_blank",
       icon: MoveUpRight,
     },

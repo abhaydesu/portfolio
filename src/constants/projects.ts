@@ -31,7 +31,7 @@ export const projects: Project[] = [
             id: 3,
             title: "Git Pilot",
             src: "/git-pilot.png",
-            href: "https://gitpilot.abhaydesu.dev/",
+            href: "https://gitpilot.abhaydesu.me/",
             github: "https://github.com/abhaydesu/git-pilot-cli",
             description: "A cli tool that makes git simpler, leveraging AI. With 600+ all-time downloads",
             tech: ['Node.js', 'JavaScript', 'Express', 'Gemini API']
@@ -40,7 +40,7 @@ export const projects: Project[] = [
             id: 4,  
             title: "Dip-Dash",
             src: "/dipdash.png",
-            href:"https://dipdash.abhaydesu.dev/",
+            href:"https://dipdash.abhaydesu.me/",
             github: "https://github.com/abhaydesu/dip-dash",
             description: "An endless, crossy-road type game.",
             tech: ['Three.js','HTML', 'CSS', 'JavaScript' ]

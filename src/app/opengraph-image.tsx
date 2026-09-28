@@ -35,7 +35,7 @@ export default async function Image() {
             textTransform: "uppercase",
           }}
         >
-          <span>abhaydesu.dev</span>
+          <span>abhaydesu.me</span>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>

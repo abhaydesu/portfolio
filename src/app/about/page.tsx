@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "About Me | Abhay Singh",
     description:
       "Learn more about Abhay Singh — education, sketches, photography, and curiosity in technology and design.",
-    url: "https://abhaydesu.dev/about",
+    url: "https://abhaydesu.me/about",
   },
   twitter: {
     card: "summary_large_image",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
       "Learn more about Abhay Singh — education, sketches, photography, and curiosity in technology and design.",
   },
   alternates: {
-    canonical: "https://abhaydesu.dev/about",
+    canonical: "https://abhaydesu.me/about",
   },
 };
 

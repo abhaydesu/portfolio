@@ -6,16 +6,16 @@ export function JsonLd() {
     "@graph": [
       {
         "@type": "Person",
-        "@id": "https://abhaydesu.dev/#person",
+        "@id": "https://abhaydesu.me/#person",
         name: "Abhay Singh",
         alternateName: "abhaydesu",
-        url: "https://abhaydesu.dev",
-        image: "https://abhaydesu.dev/avatar.jpg",
+        url: "https://abhaydesu.me",
+        image: "https://abhaydesu.me/avatar.jpg",
         sameAs: [
           "https://github.com/abhaydesu",
           "https://x.com/abhaydesu",
           "https://linkedin.com/in/abhaydesu",
-          "https://blog.abhaydesu.dev",
+          "https://blog.abhaydesu.me",
         ],
         jobTitle: "Full Stack Web Developer",
         description:
@@ -23,13 +23,13 @@ export function JsonLd() {
       },
       {
         "@type": "WebSite",
-        "@id": "https://abhaydesu.dev/#website",
-        url: "https://abhaydesu.dev",
+        "@id": "https://abhaydesu.me/#website",
+        url: "https://abhaydesu.me",
         name: "Abhay Singh — Portfolio",
         description:
           "Personal portfolio of Abhay Singh showcasing projects, skills, and writing.",
         publisher: {
-          "@id": "https://abhaydesu.dev/#person",
+          "@id": "https://abhaydesu.me/#person",
         },
       },
     ],

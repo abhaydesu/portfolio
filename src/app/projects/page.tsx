@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: "Projects | Abhay Singh",
     description:
       "Showcasing software projects, web applications, open source tools, and experiments built with Next.js, React, and TypeScript.",
-    url: "https://abhaydesu.dev/projects",
+    url: "https://abhaydesu.me/projects",
   },
   twitter: {
     card: "summary_large_image",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
       "Showcasing software projects, web applications, open source tools, and experiments built with Next.js, React, and TypeScript.",
   },
   alternates: {
-    canonical: "https://abhaydesu.dev/projects",
+    canonical: "https://abhaydesu.me/projects",
   },
 };
 

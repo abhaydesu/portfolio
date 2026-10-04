@@ -60,7 +60,7 @@ export default async function Home() {
                   height={96}
                   width={96}
                   alt="Avatar"
-                  src={"/avatar.jpg"}
+                  src={"/avatar-2.jpeg"}
                   className="rounded-full border border-neutral-100 dark:border-neutral-800/50 p-0.5 md:grayscale-30 md:hover:grayscale-0 transition-all duration-300"
                 />
                 {/* <div className="absolute right-0 top-0">

@@ -2,6 +2,7 @@ export type Project = {
     id:number,
     title: string
     src: string;
+    darkSrc?: string;
     href: string;
     github: string;
     description: string;
@@ -12,7 +13,8 @@ export const projects: Project[] = [
         {
             id: 1,
             title: "Hash-it",
-            src: "/hash-it.png",
+            src: "/hash-it-light.png",
+            darkSrc: "/hash-it-dark.png",
             href: "https://hash-it.abhaydesu.me",
             github: "https://github.com/abhaydesu/hash-it",
             description: "A platform to log your leetcode solves, and revise them.",
@@ -20,24 +22,35 @@ export const projects: Project[] = [
         },
         {
             id: 2,
+            title: "Baithak",
+            src: "/baithak.png",
+            href: "https://baithak.abhaydesu.me",
+            github: "https://github.com/abhaydesu/baithak",
+            description: "A collection of one-phone party games for friends and family.",
+            tech: ['Next.js', 'TypeScript', 'TailwindCSS', 'Zustand']
+        },
+        {
+            id: 3,
             title: "Lexiq",
             src: "/lexiq.png",
+            darkSrc: "/lexiq-dark.png",
             href: "https://lexiq-seven.vercel.app",
             github: "https://github.com/abhaydesu/lexiq",
             description: "An epub reader, built for providing a seamless and cozy reading experience",
             tech: ["TypeScript", "React.js", "TailwindCSS"]
         },
         {
-            id: 3,
+            id: 4,
             title: "Git Pilot",
-            src: "/git-pilot.png",
+            src: "/git-pilot-light.png",
+            darkSrc: "/git-pilot-dark.png",
             href: "https://gitpilot.abhaydesu.me/",
             github: "https://github.com/abhaydesu/git-pilot-cli",
-            description: "A cli tool that makes git simpler, leveraging AI. With 600+ all-time downloads",
+            description: "A cli tool that makes git simpler, leveraging AI. With 900+ all-time downloads",
             tech: ['Node.js', 'JavaScript', 'Express', 'Gemini API']
         },
         {
-            id: 4,  
+            id: 5,
             title: "Dip-Dash",
             src: "/dipdash.png",
             href:"https://dipdash.abhaydesu.me/",
@@ -46,7 +59,7 @@ export const projects: Project[] = [
             tech: ['Three.js','HTML', 'CSS', 'JavaScript' ]
         },
         {
-            id: 5,
+            id: 6,
             title: "Pathly",
             src: "/pathly.png",
             href:"https://pathly-delta.vercel.app/",
@@ -55,7 +68,7 @@ export const projects: Project[] = [
             tech: ['React', 'Express', 'MongoDB', 'Tailwind']
         },
         {
-            id: 6,
+            id: 7,
             title: "Throtl",
             src: "/throtl.png",
             href:"https://throtl.vercel.app/",
@@ -64,7 +77,7 @@ export const projects: Project[] = [
             tech: ['Frontend','Tailwind', 'Motion', 'React' ]
         },
         {
-            id: 7,
+            id: 8,
             title: "Aakar ",
             src: "/aakar.png",
             href:"https://aakar0.vercel.app/",
@@ -73,7 +86,7 @@ export const projects: Project[] = [
             tech: ['Next.js', 'Tailwind', 'Motion']
         },
         {
-            id: 8,
+            id: 9,
             title: "Aetos ",
             src: "/aetos.png",
             href:"https://aetos0.vercel.app/",
@@ -82,7 +95,7 @@ export const projects: Project[] = [
             tech: ['React', 'Tailwind', 'Motion']
         },
         {
-            id: 9,
+            id: 10,
             title: "Virtual Gallery",
             src: "/art-gallery.png",
             href:"https://3d-virtualgallery.netlify.app/",
@@ -91,16 +104,17 @@ export const projects: Project[] = [
             tech: ['Three.js', 'HTML', 'CSS', 'JavaScript']
         },
         {
-            id: 10,
+            id: 11,
             title: "Portfolio Website",
-            src: "/portfolio.png",
+            src: "/portfolio-light.png",
+            darkSrc: "/portfolio-dark.png",
             href:"#",
             github: "https://github.com/abhaydesu/portfolio",
             description: "This website you're on :)",
             tech: ['TypeScript', 'Next.js', 'TailwindCSS', 'Motion']
         },
         {
-            id: 11,
+            id: 12,
             title: "Coming soon",
             src: "/coming-soon.png",
             href:"",

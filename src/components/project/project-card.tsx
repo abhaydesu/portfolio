@@ -58,15 +58,36 @@ export function ProjectCard({ project, idx = 0 }: ProjectCardProps) {
         onPointerUp={handlePointerUp}
         className="w-full md:w-auto block border border-neutral-200 dark:border-neutral-800/50 md:py-2 py-4 px-4 md:px-2 hover:border-dashed hover:border-neutral-400 hover:dark:border-neutral-600 h-full transition-all duration-200 cursor-pointer"
       >
-        <Image
-          src={project.src}
-          alt={project.title}
-          height={150}
-          width={300}
-          sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 300px"
-          priority={idx === 0}
-          className="w-full md:w-60 h-40 md:h-34 rounded-xl object-cover mx-auto md:px-1 md:pt-1 mb-5 md:grayscale-30 md:group-hover:grayscale-0 transition-all duration-300"
-        />
+        {project.darkSrc ? (
+          <div className="relative w-full md:w-60 h-40 md:h-34 mx-auto mb-5">
+            <Image
+              src={project.src}
+              alt={project.title}
+              fill
+              sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 300px"
+              priority={idx === 0}
+              className="rounded-xl object-cover md:px-1 md:pt-1 md:grayscale-30 md:group-hover:grayscale-0 opacity-100 dark:opacity-0 transition-[opacity,filter] duration-500 ease-in-out"
+            />
+            <Image
+              src={project.darkSrc}
+              alt=""
+              aria-hidden="true"
+              fill
+              sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 300px"
+              className="rounded-xl object-cover md:px-1 md:pt-1 md:grayscale-30 md:group-hover:grayscale-0 opacity-0 dark:opacity-100 transition-[opacity,filter] duration-500 ease-in-out"
+            />
+          </div>
+        ) : (
+          <Image
+            src={project.src}
+            alt={project.title}
+            height={150}
+            width={300}
+            sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 300px"
+            priority={idx === 0}
+            className="w-full md:w-60 h-40 md:h-34 rounded-xl object-cover mx-auto md:px-1 md:pt-1 mb-5 md:grayscale-30 md:group-hover:grayscale-0 transition-all duration-300"
+          />
+        )}
 
         <div className="border-t border-dashed border-neutral-200 dark:border-neutral-700 w-full" />
         <div className="flex flex-col justify-between md:h-48">

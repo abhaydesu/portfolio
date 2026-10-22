@@ -414,11 +414,11 @@ const MAT: Record<number, string> = {
   // git pilot: warm paper
   5: ld("#efe9df", "#25211b"),
   // dip-dash: a pixel sky
-  6: ld("#dfeaf3", "#18222b"),
-  // pathly: amber on charcoal
-  7: ld("#f1e7d6", "#2a2318"),
-  // the virtual gallery: a dark room, a wave
-  8: ld("#e2e6ea", "#1c2026"),
+  6: ld("#c9e4f3", "#15303f"),
+  // pathly: a periwinkle wash of its blue hero, indigo by night
+  7: ld("#d9ddf5", "#1b1d3a"),
+  // the virtual gallery: a dark room, gilt frames, so a warm stone
+  8: ld("#ddd9d0", "#1e1c19"),
   // throtl, aakar, aetos
   9: ld("#e4e5ea", "#1e1f25"),
   10: ld("#e3ece3", "#1b231c"),

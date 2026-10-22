@@ -72,7 +72,8 @@ export const projects: Project[] = [
         {
             id: 7,
             title: "Pathly",
-            src: "/projects/pathly.png",
+            src: "/projects/pathly-light.png",
+            darkSrc: "/projects/pathly-dark.png",
             href:"https://pathly-delta.vercel.app/",
             github: "https://github.com/abhaydesu/pathly",
             description: "A URL shortener with simple analytics",

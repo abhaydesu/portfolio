@@ -8,17 +8,17 @@ import { SectionHeading } from "./section-heading";
 import { LeakyCode } from "./leaky-code";
 
 const sketches = [
-  { src: "/sketch-1.jpg", alt: "Sketch 1" },
-  { src: "/sketch4.jpg", alt: "Sketch 2" },
-  { src: "/sketch-2.jpg", alt: "Sketch 3" },
-  { src: "/sketch-3.jpg", alt: "Sketch 4" },
+  { src: "/sketches/sketch-1.jpg", alt: "Sketch 1" },
+  { src: "/sketches/sketch-4.jpg", alt: "Sketch 2" },
+  { src: "/sketches/sketch-2.jpg", alt: "Sketch 3" },
+  { src: "/sketches/sketch-3.jpg", alt: "Sketch 4" },
 ];
 
 const photos = [
-  { src: "/photo-3.jpg", alt: "Photo 1" },
-  { src: "/photo-5.jpg", alt: "Photo 2" },
-  { src: "/photo-2.jpg", alt: "Photo 3" },
-  { src: "/photo-4.jpg", alt: "Photo 4" },
+  { src: "/photography/photo-14.jpg", alt: "Photo 1" },
+  { src: "/photography/photo-16.jpg", alt: "Photo 2" },
+  { src: "/photography/photo-13.jpg", alt: "Photo 3" },
+  { src: "/photography/photo-15.jpg", alt: "Photo 4" },
 ];
 
 export const Collage = () => {

@@ -84,7 +84,7 @@ export async function ManUtdScore() {
             <div className="flex items-center justify-end gap-0 my-0">
                 <div className="flex-shrink-0 transition-transform duration-300 hover:-rotate-6 hover:scale-110 cursor-pointer">
                     <Image
-                        src={`/moods/${mood}.png`}
+                        src={`/football/me/${mood}.png`}
                         alt={`Mood: ${mood}`}
                         width={56}
                         height={56}

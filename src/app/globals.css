@@ -2,92 +2,979 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: 'Satoshi';
-  src: url('/fonts/Satoshi-Regular.woff2') format('woff2');
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi-Regular.woff2") format("woff2");
   font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+/* the medium, for the daily puzzles' names: a step up from the text
+   around them, short of the hobby words' bold */
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+/* the bold, for the about text's hobby words, so it's drawn rather than
+   smeared out of the regular by the browser */
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi-Bold.woff2") format("woff2");
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @plugin '@tailwindcss/typography';
 
-::-webkit-scrollbar {
-  width: 8px; 
-  height: 8px; 
+/* dark: a .dark class on <html>, set by next-themes */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* anything you can press shows a pointer. Tailwind v4 leaves buttons on the
+   default arrow, so say it once here; utilities still override, and so do
+   the site's own cursors (cursors.tsx), drawn once it's up */
+@layer base {
+  :where(
+    a[href],
+    button:not(:disabled),
+    summary,
+    select,
+    label[for],
+    [role="button"]:not([aria-disabled="true"]),
+    [role="tab"],
+    input:is(
+        [type="checkbox"],
+        [type="radio"],
+        [type="submit"],
+        [type="button"]
+      ):not(:disabled)
+  ) {
+    cursor: pointer;
+  }
 }
 
-body { 
-  font-family: 'Satoshi', sans-serif;
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+body {
+  font-family: "Satoshi", sans-serif;
+}
+
+/* v2: the page's colours. the .v2 wrapper (components/v2/home.tsx) takes a
+   color-scheme from the theme, so a colour picked with light-dark() anywhere
+   inside it (see components/v2/theme.ts) follows along. at night the paper
+   goes a warm near-black and the neutral scale turns over, light ink on
+   dark, so every grey on the page flips with it */
+.v2 {
+  color-scheme: light;
+  --paper: #f7f7f5;
+  /* the light edge along the top of a raised thing */
+  --hi: rgb(255 255 255 / 0.9);
+}
+.dark .v2 {
+  color-scheme: dark;
+  --paper: #11100e;
+  --hi: rgb(255 255 255 / 0.13);
+  /* cards and popovers: a step up from the paper */
+  --color-white: #1b1a17;
+  --color-neutral-50: #191816;
+  --color-neutral-100: #1f1e1b;
+  --color-neutral-200: #2b2926;
+  --color-neutral-300: #3b3935;
+  --color-neutral-400: #67635d;
+  --color-neutral-500: #8c8881;
+  --color-neutral-600: #aaa59d;
+  --color-neutral-700: #c3beb6;
+  --color-neutral-800: #d9d5cd;
+  --color-neutral-900: #ebe8e2;
+  --color-neutral-950: #f5f3ee;
+}
+.dark .v2 ::selection {
+  background-color: #d9d5cd;
+  color: #11100e;
+}
+
+/* switching themes: the new one spreads out from the switch over the old
+   (components/v2/theme-toggle.tsx), rather than crossfading, which would pass
+   through a flat grey where dark text on light meets light text on dark */
+.theme-flip::view-transition-old(root),
+.theme-flip::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+/* and everything takes its new colours at once, under it, rather than
+   easing over from the old ones as it's uncovered */
+.theme-flip,
+.theme-flip * {
+  transition: none !important;
+}
+
+/* v2: docked hobby panels live in the gutters beside the 32rem column */
+:root {
+  /* panels hug the column: 3rem from its edge, at most 22rem wide, 2rem clear of the viewport */
+  --dock-offset: calc(50% + 16rem + 3rem);
+  --dock-w: min(22rem, calc((100vw - 32rem) / 2 - 5rem));
+}
+
+/* the scrollbar's room is always kept, so locking scroll (an open hobby
+   window) never changes the page's width and shifts it sideways */
+html {
+  scrollbar-gutter: stable;
+}
+
+/* v2: the page's way in. each part of the column fades up a few px, one
+   after the other (--enter is its place in line), from the first paint:
+   css alone, so it never waits on the page's script. backwards, not both:
+   once it's played it leaves nothing on the element (a translate held on
+   would make it the frame for the fixed things inside it, the theme
+   bubble among them) */
+@keyframes v2-enter {
+  from {
+    opacity: 0;
+    translate: 0 8px;
+  }
+}
+.v2-enter {
+  animation: v2-enter 0.7s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: calc(var(--enter, 0) * 80ms + 60ms);
+}
+@media (prefers-reduced-motion: reduce) {
+  .v2-enter {
+    animation: none;
+  }
+}
+
+/* v2: a hobby panel: a soft raised slab (a light edge on top, a deeper curve
+   below, a cast shadow in the hobby's own ink). it's there from the first
+   frame, so the panel's own fade-in brings it in with it */
+/* v2: the ground a hobby's scene sits on, laid straight on the paper. its
+   own colour, mottled with its ink (a deeper patch here, a lighter one
+   there) and a little darker towards the edges, under a fine grain, then
+   faded out into the page all round. --fade sets how soft the edge is */
+.hobby-ground {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.25 0 0 0 0 0.24 0 0 0 0 0.22 0 0 0 0.55 -0.1'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E")
+      0 0 / 180px 180px,
+    radial-gradient(
+      120% 110% at 50% 50%,
+      transparent 45%,
+      color-mix(in srgb, var(--ink) 16%, transparent)
+    ),
+    radial-gradient(
+      45% 40% at 28% 32%,
+      color-mix(in srgb, var(--ink) 9%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      40% 45% at 74% 70%,
+      color-mix(in srgb, var(--ink) 7%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      35% 30% at 70% 22%,
+      rgb(255 255 255 / 0.22),
+      transparent 70%
+    ),
+    var(--ground);
+  --fade: 18px;
+  mask:
+    linear-gradient(
+      to right,
+      transparent,
+      #000 var(--fade),
+      #000 calc(100% - var(--fade)),
+      transparent
+    ),
+    linear-gradient(
+      to bottom,
+      transparent,
+      #000 var(--fade),
+      #000 calc(100% - var(--fade)),
+      transparent
+    );
+  mask-composite: intersect;
+}
+.dark .v2 .hobby-ground {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.9 0 0 0 0 0.88 0 0 0 0 0.84 0 0 0 0.22 -0.08'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E")
+      0 0 / 180px 180px,
+    radial-gradient(120% 110% at 50% 50%, transparent 45%, rgb(0 0 0 / 0.28)),
+    radial-gradient(
+      45% 40% at 28% 32%,
+      color-mix(in srgb, var(--ink) 7%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      40% 45% at 74% 70%,
+      color-mix(in srgb, var(--ink) 5%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      35% 30% at 70% 22%,
+      rgb(255 255 255 / 0.03),
+      transparent 70%
+    ),
+    var(--ground);
+}
+/* the fireside's ground is the night itself: the sky of its game screen,
+   carried out past the screen's edges and faded into the paper, with a
+   little firelight low down and a dusting of grain */
+.hobby-ground[data-ground="fireside"],
+.dark .v2 .hobby-ground[data-ground="fireside"] {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.55 0 0 0 0 0.58 0 0 0 0 0.8 0 0 0 0.35 -0.12'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E")
+      0 0 / 180px 180px,
+    radial-gradient(50% 30% at 42% 34%, rgb(194 103 31 / 0.1), transparent 70%),
+    linear-gradient(
+      to bottom,
+      #090b1c,
+      #10142e 30%,
+      #161b3c 46%,
+      #0d1028 62%,
+      #090b1c
+    );
+  --fade: 26px;
+}
+/* by day: a clear sky, the sun's warmth up by it, lighter toward the
+   island's horizon */
+.hobby-ground[data-ground="fireside"][data-sky="day"],
+.dark .v2 .hobby-ground[data-ground="fireside"][data-sky="day"] {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.3 -0.12'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E")
+      0 0 / 180px 180px,
+    radial-gradient(
+      26% 22% at 76% 9%,
+      rgb(255 240 190 / 0.55),
+      transparent 70%
+    ),
+    linear-gradient(
+      to bottom,
+      #7db4df,
+      #9cc7e8 30%,
+      #bcdbee 46%,
+      #a9d0ea 62%,
+      #8dbde2
+    );
+}
+/* rain by day: low and grey */
+.hobby-ground[data-ground="fireside"][data-sky="rain-day"],
+.dark .v2 .hobby-ground[data-ground="fireside"][data-sky="rain-day"] {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.85 0 0 0 0 0.88 0 0 0 0 0.92 0 0 0 0.3 -0.12'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E")
+      0 0 / 180px 180px,
+    radial-gradient(
+      40% 26% at 60% 44%,
+      rgb(214 160 90 / 0.12),
+      transparent 70%
+    ),
+    linear-gradient(
+      to bottom,
+      #5a6572,
+      #6c7884 30%,
+      #7c8792 46%,
+      #6a7581 62%,
+      #56616d
+    );
+}
+/* a flash of lightning, for a frame or two (set by the scene) */
+.hobby-ground[data-ground="fireside"][data-flash] {
+  filter: brightness(2.6) saturate(0.4);
+}
+/* rain at night: darker than a dry one, and greyer, with the lantern's
+   warmth where the fire's would be */
+.hobby-ground[data-ground="fireside"][data-sky="rain-night"],
+.dark .v2 .hobby-ground[data-ground="fireside"][data-sky="rain-night"] {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.6 0 0 0 0 0.64 0 0 0 0 0.74 0 0 0 0.35 -0.12'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E")
+      0 0 / 180px 180px,
+    radial-gradient(40% 26% at 60% 44%, rgb(214 140 60 / 0.1), transparent 70%),
+    linear-gradient(
+      to bottom,
+      #080a12,
+      #0e121c 30%,
+      #141925 46%,
+      #0c1019 62%,
+      #080a12
+    );
+}
+
+/* v2: the work exhibit's walls. each room sets --damask (the tone-on-tone
+   acanthus tile drawn in its colour, public/velvet-damask*.svg) and
+   --ground. a sheen from above, shade below, and a soft inset shadow at the
+   top and bottom edges so the band reads as a recessed wall, not a block */
+.velvet-wall {
+  background:
+    radial-gradient(
+      80% 60% at 50% -10%,
+      rgb(255 255 255 / 0.07),
+      transparent 60%
+    ),
+    radial-gradient(90% 70% at 50% 115%, rgb(0 0 0 / 0.4), transparent 70%),
+    radial-gradient(70% 60% at 50% 45%, transparent, rgb(0 0 0 / 0.3)),
+    var(--damask) 0 0 / 165px 165px,
+    var(--ground);
+  box-shadow:
+    inset 0 18px 28px -18px rgb(0 0 0 / 0.6),
+    inset 0 -18px 28px -18px rgb(0 0 0 / 0.6);
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* v2: icons (components/v2/icons.tsx). word icons play once on hover;
+   weather icons idle slowly; under reduced motion everything stands still */
+@keyframes icon-flicker {
+  0%,
+  100% {
+    transform: scale(1) skewX(0);
+  }
+  25% {
+    transform: scale(0.94, 1.1) skewX(-5deg);
+  }
+  55% {
+    transform: scale(1.04, 0.95) skewX(4deg);
+  }
+  80% {
+    transform: scale(0.98, 1.05) skewX(-2deg);
+  }
+}
+@keyframes icon-hop {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  35% {
+    transform: translateY(-3px);
+  }
+  65% {
+    transform: translateY(0);
+  }
+  82% {
+    transform: translateY(-1px);
+  }
+}
+@keyframes icon-roll {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes icon-drive {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  45% {
+    transform: translateX(2.5px);
+  }
+}
+@keyframes icon-shutter {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(0.55);
+  }
+}
+@keyframes icon-flash {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+}
+@keyframes icon-scribble {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(6deg);
+  }
+  75% {
+    transform: rotate(-3deg);
+  }
+}
+@keyframes icon-page {
+  0% {
+    opacity: 0;
+    transform: scaleX(1);
+  }
+  15% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: scaleX(-1);
+  }
+}
+@keyframes icon-write {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes icon-pop {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.7);
+  }
+}
+@keyframes icon-node {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  45% {
+    transform: translateY(5.5px);
+  }
+}
+@keyframes icon-branch {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  45% {
+    transform: scaleY(0.1);
+  }
+}
+@keyframes icon-swing {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  30% {
+    transform: rotate(16deg);
+  }
+  60% {
+    transform: rotate(-9deg);
+  }
+  80% {
+    transform: rotate(4deg);
+  }
+}
+/* v2: hobby marks */
+@keyframes devil-jab {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+  30% {
+    transform: translateY(-9%) rotate(-7deg);
+  }
+  55% {
+    transform: translateY(0) rotate(4deg);
+  }
+  75% {
+    transform: rotate(-1.5deg);
+  }
+}
+@keyframes crest-cheer {
+  0%,
+  100% {
+    transform: rotate(0) scale(1);
+  }
+  30% {
+    transform: rotate(-10deg) scale(1.15);
+  }
+  60% {
+    transform: rotate(5deg) scale(1.1);
+  }
+}
+@keyframes cam-press {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(0.7px);
+  }
+}
+@keyframes cam-flash {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+}
+@keyframes pencil-scribble {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0);
+  }
+  15% {
+    transform: translate(-1px, -1.5px) rotate(-16deg);
+  }
+  35% {
+    transform: translate(1.5px, 0.5px) rotate(8deg);
+  }
+  55% {
+    transform: translate(-1px, 0.8px) rotate(-9deg);
+  }
+  75% {
+    transform: translate(1px, 0.3px) rotate(4deg);
+  }
+}
+@keyframes pencil-line {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+/* winds back on its springs, nose up, then launches and settles */
+@keyframes car-dash {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0);
+  }
+  25% {
+    transform: translateX(-2px) rotate(-7deg);
+  }
+  55% {
+    transform: translateX(4px) rotate(2deg);
+  }
+  78% {
+    transform: translateX(-0.6px) rotate(-1deg);
+  }
+}
+@keyframes car-lines {
+  0%,
+  35% {
+    opacity: 0;
+    transform: translateX(3px) scaleX(0.4);
+  }
+  55% {
+    opacity: 1;
+    transform: translateX(0) scaleX(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-3px) scaleX(0.6);
+  }
+}
+/* the book's and the camera's: a hop and a tilt, like the devil's jab */
+@keyframes mark-hop {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+  30% {
+    transform: translateY(-14%) rotate(-8deg);
+  }
+  55% {
+    transform: translateY(0) rotate(4deg);
+  }
+  75% {
+    transform: rotate(-1.5deg);
+  }
+}
+@keyframes book-turn {
+  from {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(-1);
+  }
+}
+@keyframes pola-eject {
+  from {
+    transform: translateY(0) rotate(0);
+  }
+  to {
+    transform: translateY(3.4px) rotate(-5deg);
+  }
+}
+@keyframes pola-develop {
+  from {
+    opacity: 0;
+    filter: saturate(0) brightness(1.4);
+  }
+  to {
+    opacity: 1;
+    filter: saturate(1) brightness(1);
+  }
+}
+@keyframes cap-toss {
+  0% {
+    transform: translateY(0) rotate(0);
+  }
+  40% {
+    transform: translateY(-6px) rotate(-22deg);
+  }
+  55% {
+    transform: translateY(-6.5px) rotate(-14deg);
+  }
+  82% {
+    transform: translateY(0) rotate(4deg) scale(1, 1);
+  }
+  90% {
+    transform: translateY(0.4px) rotate(0) scale(1.1, 0.88);
+  }
+  100% {
+    transform: translateY(0) rotate(0) scale(1, 1);
+  }
+}
+@keyframes spark-burst {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  35% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.25);
+  }
+}
+@keyframes wx-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes wx-twinkle {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes wx-drift {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(1px);
+  }
+}
+@keyframes wx-peek {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-0.6px, 0.6px);
+  }
+}
+@keyframes wx-fall {
+  0% {
+    transform: translateY(-1px);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(2.5px);
+    opacity: 0;
+  }
+}
+@keyframes wx-flash {
+  0%,
+  86%,
+  100% {
+    opacity: 0.3;
+  }
+  89% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 0.3;
+  }
+  95% {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  [class*="animate-["] {
+    animation: none !important;
+  }
 }
 
 .font-pixel {
-  font-family: 'Press Start 2P', cursive, monospace;
+  font-family: "Press Start 2P", cursive, monospace;
 }
 
 @theme inline {
-    --shadow-aceternity:
-    0px 2px 3px -10px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02),
+  --shadow-aceternity:
+    0px 2px 3px -10px rgba(0, 0, 0, 0.1),
+    0px 1px 0px 0px rgba(25, 28, 33, 0.02),
     0px 0px 0px 1px rgba(25, 28, 33, 0.08);
 
-    --shadow-section: rgba(34, 42, 53, 0.06) 0px 0px 24px, rgba(0, 0, 0, 0.05) 0px 1px 1px, rgba(34, 42, 53, 0.04) 0px 0px 0px 1px, rgba(34, 42, 53, 0.08) 0px 0px 4px, rgba(47, 48, 55, 0.05) 0px 16px 68px, rgba(255, 255, 255, 0.1) 0px 1px 0px inset;
+  --shadow-section:
+    rgba(34, 42, 53, 0.06) 0px 0px 24px, rgba(0, 0, 0, 0.05) 0px 1px 1px,
+    rgba(34, 42, 53, 0.04) 0px 0px 0px 1px, rgba(34, 42, 53, 0.08) 0px 0px 4px,
+    rgba(47, 48, 55, 0.05) 0px 16px 68px,
+    rgba(255, 255, 255, 0.1) 0px 1px 0px inset;
 
-    --shadow-section-inset: 0px 1px 4px 0px var(--color-neutral-100) inset, 0px -1px 4px 0px var(--color-neutral-100) inset;
+  --shadow-section-inset:
+    0px 1px 4px 0px var(--color-neutral-100) inset,
+    0px -1px 4px 0px var(--color-neutral-100) inset;
 
-    --color-primary: var(--color-neutral-800);
-    --color-secondary: var(--color-neutral-500);
+  --color-primary: var(--color-neutral-800);
+  --color-secondary: var(--color-neutral-500);
 
-      --shadow-pink: 0 4px 6px -1px rgb(157 23 77 / 0.5), 0 2px 4px -2px rgb(157 23 77 / 0.3);
+  --shadow-pink:
+    0 4px 6px -1px rgb(157 23 77 / 0.5), 0 2px 4px -2px rgb(157 23 77 / 0.3);
 
-    --border-hover-color: #f9a8d4;
+  --border-hover-color: #f9a8d4;
 
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
 
-    --bg-mobile-menu-light: radial-gradient(circle,rgba(252, 231, 243, 1) 0%, rgba(255, 255, 255, 1) 100%)
+  --bg-mobile-menu-light: radial-gradient(
+    circle,
+    rgba(252, 231, 243, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
 }
 
-  .pink-shadow-theme {
-    --shadow-color-rgb: 249 168 212;
-  }
-
+.pink-shadow-theme {
+  --shadow-color-rgb: 249 168 212;
+}
 
 .dark {
   --color-primary: white;
   --color-secondary: var(--color-neutral-300);
 
   --shadow-aceternity:
-    0px 2px 3px -10px rgba(255, 255, 255, 0.1), 0px 1px 0px 0px rgba(255, 255, 255, 0.02),
+    0px 2px 3px -10px rgba(255, 255, 255, 0.1),
+    0px 1px 0px 0px rgba(255, 255, 255, 0.02),
     0px 0px 0px 1px rgba(255, 255, 255, 0.08);
 
-  --shadow-section-inset: 0px 1px 4px 0px var(--color-neutral-950) inset, 0px -1px 4px 0px var(--color-neutral-950) inset;
+  --shadow-section-inset:
+    0px 1px 4px 0px var(--color-neutral-950) inset,
+    0px -1px 4px 0px var(--color-neutral-950) inset;
 
-  --shadow-section: 
-    rgba(255, 255, 255, 0.06) 0px 0px 24px, rgba(255, 255, 255, 0.05) 0px 1px 1px,
-    rgba(255, 255, 255, 0.04) 0px 0px 0px 1px, rgba(255, 255, 255, 0.08) 0px 0px 4px,
-    rgba(255, 255, 255, 0.05) 0px 16px 68px, rgba(255, 255, 255, 0.1) 0px 1px 0px inset;
+  --shadow-section:
+    rgba(255, 255, 255, 0.06) 0px 0px 24px,
+    rgba(255, 255, 255, 0.05) 0px 1px 1px,
+    rgba(255, 255, 255, 0.04) 0px 0px 0px 1px,
+    rgba(255, 255, 255, 0.08) 0px 0px 4px,
+    rgba(255, 255, 255, 0.05) 0px 16px 68px,
+    rgba(255, 255, 255, 0.1) 0px 1px 0px inset;
 
   --shadow-sm: 0 1px 2px 0 rgb(255 255 255 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(255 255 255 / 0.1), 0 2px 4px -2px rgb(255 255 255 / 0.1);
+  --shadow-md:
+    0 4px 6px -1px rgb(255 255 255 / 0.1), 0 2px 4px -2px rgb(255 255 255 / 0.1);
   --shadow-2xl: 0 25px 50px -12px rgb(255 255 255 / 0.15);
 
-   --border-hover-color: #831843;
+  --border-hover-color: #831843;
 
-  --bg-mobile-menu-dark:  radial-gradient(circle,rgba(46, 23, 29, 1) 0%, rgba(23, 23, 23, 1) 100%);
+  --bg-mobile-menu-dark: radial-gradient(
+    circle,
+    rgba(46, 23, 29, 1) 0%,
+    rgba(23, 23, 23, 1) 100%
+  );
 
   pink-shadow-theme {
     --shadow-color-rgb: 157 23 77;
   }
-
-  ::selection {
-   background-color: var(--color-pink-900);
-   color: var(--color-pink-200);  
-  }
-
-
 }
 
+/* ink on paper: selections and keyboard focus stay in the page's palette */
 ::selection {
-  background-color: var(--color-pink-200); 
-  color: var(--color-pink-900)
+  background-color: var(--color-neutral-800);
+  color: #f7f7f5;
 }
 
+:where(a, button, [tabindex]):focus-visible {
+  outline: 1px dashed currentColor;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* v2: the work room's sketchbook mood (components/v2/exhibit-moods.tsx).
+   a page of a sketchbook: pencil grain over paper, ruled per
+   room (graph, dot grid, then a toned kraft page), its edges a shade darker
+   where the light falls off */
+.sketch-wall {
+  background:
+    url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22180%22%20height%3D%22180%22%3E%3Cfilter%20id%3D%22n%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%22.85%22%20numOctaves%3D%222%22%20stitchTiles%3D%22stitch%22/%3E%3CfeColorMatrix%20values%3D%220%200%200%200%200.35%20%200%200%200%200%200.3%20%200%200%200%200%200.22%20%200%200%200%20.09%200%22/%3E%3C/filter%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20filter%3D%22url%28%23n%29%22/%3E%3C/svg%3E")
+      0 0 / 180px 180px,
+    radial-gradient(120% 90% at 50% 40%, transparent 60%, rgb(120 96 56 / 0.1)),
+    var(--sheet);
+  box-shadow: inset 0 0 0 1px rgb(120 100 70 / 0.12);
+}
+.sketch-grid {
+  --sheet:
+    linear-gradient(rgb(70 115 180 / 0.16) 1px, transparent 1px) 0 0 / 80px 80px,
+    linear-gradient(90deg, rgb(70 115 180 / 0.16) 1px, transparent 1px) 0 0 /
+      80px 80px,
+    linear-gradient(rgb(70 115 180 / 0.08) 1px, transparent 1px) 0 0 / 16px 16px,
+    linear-gradient(90deg, rgb(70 115 180 / 0.08) 1px, transparent 1px) 0 0 /
+      16px 16px,
+    #f6f1e4;
+}
+.sketch-dots {
+  --sheet:
+    radial-gradient(circle, rgb(60 56 50 / 0.24) 1px, transparent 1.5px) 0 0 /
+      18px 18px,
+    #f2ede1;
+}
+.sketch-kraft {
+  --sheet:
+    radial-gradient(60% 40% at 30% 30%, rgb(255 255 255 / 0.12), transparent),
+    #e6d8bd;
+}
+
+/* boiling pencil: on hover the frame's three takes are shown in turn, a
+   few times a second, like hand-drawn animation */
+@keyframes sketch-boil {
+  0%,
+  33.32% {
+    opacity: 1;
+  }
+  33.33%,
+  100% {
+    opacity: 0;
+  }
+}
+.group\/e:hover .sketch-take {
+  animation: sketch-boil 0.36s steps(1) infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .group\/e:hover .sketch-take {
+    animation: none;
+  }
+}
+
+/* the exhibit picker's swatches */
+.mood-swatch-museum {
+  background:
+    url("/exhibit/velvet-damask.svg") 0 0 / 40px 40px,
+    #3d0a10;
+}
+.mood-swatch-sketchbook {
+  background:
+    linear-gradient(rgb(70 115 180 / 0.35) 1px, transparent 1px) 0 0 / 4px 4px,
+    linear-gradient(90deg, rgb(70 115 180 / 0.35) 1px, transparent 1px) 0 0 /
+      4px 4px,
+    #f6f1e4;
+}
+
+/* v2: the football tv's static between channels: coarse grey noise, jumping
+   to a new spot every frame or so */
+.tv-static {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='1' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E")
+    0 0 / 90px 90px;
+  animation: tv-static 0.2s steps(1) infinite;
+}
+
+@keyframes tv-static {
+  0% {
+    background-position: 0 0;
+  }
+  25% {
+    background-position: -37px 21px;
+  }
+  50% {
+    background-position: 18px -44px;
+  }
+  75% {
+    background-position: -52px -13px;
+  }
+}
+
+/* v2: the fireside. the scene is a canvas that runs itself; all that's left
+   here is the dialogue box's blinking caret */
+.fs-caret {
+  animation: fs-caret 1s steps(1) infinite;
+}
+@keyframes fs-caret {
+  50% {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fs-caret {
+    animation: none;
+  }
+}
+
+/* v2: the theme bubble's glass (avatar-dock.tsx), after Apple's liquid
+   glass. hanging over the page it's see-through, with a faint wash of the
+   paper, a sheen across its top left, a bright rim round its top and a
+   softer one round its foot, a hairline, and a soft shadow; joined to the
+   picture's mat (on plain paper, where there's nothing to see through) it
+   keeps only its light */
+.lg {
+  border-radius: 9999px;
+  background:
+    radial-gradient(
+      110% 80% at var(--gx, 30%) var(--gy, 12%),
+      rgb(255 255 255 / 0.55),
+      transparent 55%
+    ),
+    radial-gradient(80% 60% at 70% 100%, rgb(255 255 255 / 0.2), transparent),
+    color-mix(in srgb, var(--paper) 30%, transparent);
+  box-shadow:
+    inset 0 1px 1px rgb(255 255 255 / 0.95),
+    inset 0 -1px 1.5px rgb(255 255 255 / 0.45),
+    inset 0 0 4px rgb(255 255 255 / 0.25),
+    0 0 0 0.75px rgb(0 0 0 / 0.12),
+    0 6px 14px -4px rgb(0 0 0 / 0.22);
+}
+.lg-rim {
+  border-radius: 9999px;
+  background: radial-gradient(
+    110% 80% at var(--gx, 30%) var(--gy, 12%),
+    rgb(255 255 255 / 0.5),
+    transparent 55%
+  );
+  box-shadow:
+    inset 0 1px 1px rgb(255 255 255 / 0.95),
+    inset 0 -1px 1.5px rgb(255 255 255 / 0.4);
+}
+/* at night: the same light, dimmer, and a deeper shadow under it */
+.dark .v2 .lg {
+  background:
+    radial-gradient(
+      110% 80% at var(--gx, 30%) var(--gy, 12%),
+      rgb(255 255 255 / 0.14),
+      transparent 55%
+    ),
+    radial-gradient(80% 60% at 70% 100%, rgb(255 255 255 / 0.06), transparent),
+    color-mix(in srgb, var(--paper) 35%, transparent);
+  box-shadow:
+    inset 0 1px 0.5px rgb(255 255 255 / 0.35),
+    inset 0 -1px 1px rgb(255 255 255 / 0.12),
+    inset 0 0 4px rgb(255 255 255 / 0.05),
+    0 0 0 0.75px rgb(255 255 255 / 0.1),
+    0 6px 16px -4px rgb(0 0 0 / 0.7);
+}
+.dark .v2 .lg-rim {
+  background: radial-gradient(
+    110% 80% at var(--gx, 30%) var(--gy, 12%),
+    rgb(255 255 255 / 0.12),
+    transparent 55%
+  );
+  box-shadow:
+    inset 0 1px 0.5px rgb(255 255 255 / 0.3),
+    inset 0 -1px 1px rgb(255 255 255 / 0.1);
+}

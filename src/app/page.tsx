@@ -1,89 +1,11 @@
-import { Container } from "@/components/container";
-import { LandingBlogs } from "@/components/landing-blogs";
-import { Subheading } from "@/components/subheading";
-import { ProjectLanding } from "@/components/project/project-landing";
-import { Links } from "@/components/links";
-import TechShowcase from "@/components/tech-showcase";
-import { LayoutTextFlip } from "@/components/ui/layout-text-flip";
-import { LeakyCode } from "@/components/leaky-code";
-import Experience from "@/components/experience/experience";
-import Image from "next/image";
-import { DinoGame } from "@/components/dino-game";
-import { MotionDiv } from "@/components/motion-div";
-import { fetchBlogs } from "@/constants/blogs";
+import { Home } from "@/components/v2/home";
+import { bangaloreWeather } from "@/components/v2/weather";
+import { unitedNow } from "@/components/v2/football";
 
-export default async function Home() {
-  const blogs = await fetchBlogs();
-  
-  return (
-    <div className="min-h-screen flex items-start justify-start">
-      <Container className="min-h-screen  px-4 md:pb-10">
-        <div className=" max-w-5xl items-center py-0  -mx-12 px-8  ">
-          <div className="flex justify-between w-full">
-            <div className="flex flex-1 items-center justify-between border-r border-neutral-100 dark:border-neutral-800/50 bg-white dark:bg-[#080605] transition-colors duration-500">
-              <div>
-                <LeakyCode
-                  text="px-4 md:text-4xl tracking-tighter"
-                  className="px-4"
-                />
-                <LayoutTextFlip
-                  text="Abhay Singh"
-                  words={["Full Stack Web Developer", "Sweating the details"]}
-                />
-              </div>
-              <MotionDiv
-                id="game"
-                initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
-                whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-                transition={{
-                  duration: 0.3,
-                  delay: 0.1,
-                  ease: "easeInOut",
-                }}
-                viewport={{ once: true }}
-                className="hidden md:block flex-1 self-stretch relative border-l border-neutral-100 dark:border-neutral-800/50"
-              >
-                <DinoGame />
-              </MotionDiv>
-              <MotionDiv
-                initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
-                whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-                transition={{
-                  duration: 0.3,
-                  delay: 0.15,
-                  ease: "easeInOut",
-                }}
-                viewport={{ once: true }}
-                className="relative border-x border-neutral-100 dark:border-neutral-800/50 p-0 mr-4  bg-white dark:bg-[#080605] transition-colors duration-500"
-              >
-                <Image
-                  height={96}
-                  width={96}
-                  alt="Avatar"
-                  src={"/avatar-2.jpeg"}
-                  className="rounded-full border border-neutral-100 dark:border-neutral-800/50 p-0.5 md:grayscale-30 md:hover:grayscale-0 transition-all duration-300"
-                />
-                {/* <div className="absolute right-0 top-0">
-                  <Image
-                    height={20}
-                    width={28}
-                    alt="Flag of the Republic of India"
-                    src={"/flag.png"}
-                  />
-                </div> */}
-              </MotionDiv>
-            </div>
-          </div>
-        </div>
-        <div className="flex justify-between max-w-5xl items-center -mx-4 border-t md:h-8 border-neutral-100 dark:border-neutral-800/50">
-          <Subheading>A dev with an eye for design.</Subheading>
-          <Links />
-        </div>
-        <ProjectLanding />
-        <Experience />
-        <LandingBlogs blogs={blogs} />
-        <TechShowcase />
-      </Container>
-    </div>
-  );
+export default async function Page() {
+  const [weather, football] = await Promise.all([
+    bangaloreWeather(),
+    unitedNow(),
+  ]);
+  return <Home football={football} weather={weather} />;
 }

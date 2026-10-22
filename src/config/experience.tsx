@@ -1,4 +1,3 @@
-import CSS from "@/components/technologies/css";
 import JavaScript from "@/components/technologies/javascript";
 import ReactIcon from "@/components/technologies/react-icon";
 import TailwindCss from "@/components/technologies/tailwind-css";
@@ -33,7 +32,7 @@ export const experiences: Experience[] = [
     company: "Seeqlo",
     position: "Frontend Developer Intern",
     location: "Canada (Remote)",
-    image: "/seeqlo-logo.png",
+    image: "/experience/seeqlo-logo.png",
     description: [
       "Led *end-to-end UI/UX redesign* of the platform, implementing a modern, responsive interface with dynamic theming and consistent slide styling.",
       "Engineered *core product improvements* including presentation history with caching, credit-based usage system with dynamic messaging, and PPT export with SVG-based icon rendering.",
@@ -56,11 +55,6 @@ export const experiences: Experience[] = [
         name: "Tailwind CSS",
         href: "https://tailwindcss.com/",
         icon: <TailwindCss />,
-      },
-      {
-        name: "CSS",
-        href: "https://www.w3.org/Style/CSS/Overview.en.html",
-        icon: <CSS />,
       },
     ],
     website: "https://seeqlo.com",

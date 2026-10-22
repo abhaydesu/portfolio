@@ -6,6 +6,8 @@ const nextConfig: NextConfig = {
   compress: true,
   images: {
     formats: ["image/avif", "image/webp"],
+    // 90 for the portraits and pixel figures, where 75 goes soft
+    qualities: [75, 90],
     remotePatterns: [
       {
         protocol: "https",

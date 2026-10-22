@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
-export const alt = "Abhay Singh — Full Stack Web Developer";
+// built once, at build time, rather than drawn again for every share
+export const alt = "Abhay Singh — Full Stack Engineer, Bangalore";
 export const size = {
   width: 1200,
   height: 630,
@@ -58,7 +58,7 @@ export default async function Image() {
               lineHeight: 1.4,
             }}
           >
-            Full Stack Web Developer & Designer · Sweating the details & minimal micro-interactions
+            Full stack engineer in Bangalore, India · sweating the details
           </div>
         </div>
 

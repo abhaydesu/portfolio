@@ -483,60 +483,31 @@ const AboutMe = ({
   );
 };
 
-// the daily puzzles, each a link to where it's played: its icon before its
-// name, grey at rest like United's crest, and in its own colours on hover,
-// with a little tilt, as its name takes the puzzle's colour
+// the daily puzzles, named like United: its icon before its name, grey at
+// rest and in its own colours on hover, with a little tilt. they aren't
+// links, so the name stays in the sentence's own ink; only the icon reacts
 const PUZZLES = {
-  cryptic: {
-    name: "Minute Cryptic",
-    href: "https://www.minutecryptic.com/",
-    icon: "/puzzles/minute-cryptic.png",
-    color: ld("#94589f", "#e4bdf0"),
-  },
-  wordle: {
-    name: "Wordle",
-    href: "https://www.nytimes.com/games/wordle/index.html",
-    icon: "/puzzles/wordle.png",
-    color: ld("#537749", "#b3d6a9"),
-  },
+  cryptic: { name: "Minute Cryptic", icon: "/puzzles/minute-cryptic.png" },
+  wordle: { name: "Wordle", icon: "/puzzles/wordle.png" },
 };
 
-const Puzzle = ({
-  name,
-  href,
-  icon,
-  color,
-}: {
-  name: string;
-  href: string;
-  icon: string;
-  color: string;
-}) => (
-  <a
-    href={href}
-    target="_blank"
-    rel="noopener noreferrer"
-    style={{ "--accent": color } as React.CSSProperties}
-    // medium, a step up from the text round it: they're links out, and
-    // should read as something to press, without the hobby words' bold
-    className="group/u inline-flex items-baseline gap-1 font-medium text-neutral-800 transition-colors duration-300 hover:text-(--accent) focus-visible:text-(--accent)"
-  >
+const Puzzle = ({ name, icon }: { name: string; icon: string }) => (
+  <span className="group/u inline-flex items-baseline gap-1">
     {/* eslint-disable-next-line @next/next/no-img-element -- a tiny static icon */}
     <img
       src={icon}
       alt=""
       width={15}
       height={15}
-      className="size-[1.05em] translate-y-[0.18em] rounded-[3px] grayscale transition duration-300 group-hover/u:-rotate-6 group-hover/u:scale-110 group-hover/u:grayscale-0 group-focus-visible/u:grayscale-0"
+      className="size-[1.05em] translate-y-[0.18em] rounded-[3px] grayscale transition duration-300 group-hover/u:-rotate-6 group-hover/u:scale-110 group-hover/u:grayscale-0"
     />
     {name}
-  </a>
+  </span>
 );
 
 // "United", with the club's crest before it: grey at rest, in colour with a
 // little cheer on hover. it isn't a link, so the word stays in the
-// sentence's own ink, not the darker ink and hover colour the puzzle links
-// beside it have; only the crest reacts
+// sentence's own ink; only the crest reacts
 const United = () => (
   <span className="group/u inline-flex items-baseline gap-1">
     {/* eslint-disable-next-line @next/next/no-img-element -- a tiny static svg */}

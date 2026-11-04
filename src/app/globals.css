@@ -968,13 +968,73 @@ html {
     0 0 0 0.75px rgb(255 255 255 / 0.1),
     0 6px 16px -4px rgb(0 0 0 / 0.7);
 }
+/* (docked by the mat at night it has no edge of its own, as by day, where
+   the white light vanishes into the paper: only a faint glow up top that's
+   gone well before the edge, so no ring shows inside the mat's outline) */
 .dark .v2 .lg-rim {
   background: radial-gradient(
-    110% 80% at var(--gx, 30%) var(--gy, 12%),
-    rgb(255 255 255 / 0.12),
-    transparent 55%
+    90% 70% at var(--gx, 30%) var(--gy, 12%),
+    rgb(255 255 255 / 0.05),
+    transparent 60%
   );
-  box-shadow:
-    inset 0 1px 0.5px rgb(255 255 255 / 0.3),
-    inset 0 -1px 1px rgb(255 255 255 / 0.1);
+  box-shadow: none;
+}
+
+/* the about text noticing the pointer (see useNotice in home.tsx): with a
+   mouse over it, the plain words step back a shade, and each thing in it
+   that does something turns toward the pointer, by how near it is (--near,
+   0 to 1): its icon leans and drifts its way, and a hobby's band comes up
+   faintly behind its word. the grey icons all bloom into their colours at
+   once */
+.about-text {
+  transition: color 0.6s ease;
+}
+.about-text[data-looking] {
+  color: var(--color-neutral-500);
+}
+/* the names that only react on hover keep the sentence's full ink */
+.about-text [data-near="plain"] {
+  transition: color 0.6s ease;
+}
+.about-text[data-looking] [data-near="plain"] {
+  color: var(--color-neutral-700);
+}
+.about-text .near-icon {
+  transform: translate(var(--tx, 0px), var(--ty, 0px)) rotate(var(--lean, 0deg));
+  transition-property:
+    transform, color, filter, opacity, rotate, scale, translate;
+  transition-duration: 0.8s, 0.3s, 0.3s, 0.3s, 0.3s, 0.3s, 0.3s;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+.about-text[data-looking] .near-warm {
+  --tw-grayscale: grayscale(0);
+}
+.about-text[data-looking] [data-near="logo"] .near-warm {
+  opacity: 1;
+}
+.about-text[data-looking] [aria-disabled="true"] .near-warm {
+  --tw-grayscale: grayscale(0);
+  opacity: 1;
+}
+/* at night the logo is inverted till it's pointed at, and half-warmed it
+   would come out in its opposite colours, so it only brightens */
+.dark
+  .v2
+  .about-text
+  [data-near="logo"]:not(:hover):not([aria-disabled="true"])
+  .near-warm {
+  --tw-grayscale: grayscale(1);
+}
+.about-text[data-looking] .near-tint {
+  color: var(--accent);
+}
+.about-text .near-band {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.about-text[data-looking] .near-band {
+  opacity: calc(var(--near, 0) * 0.6);
+}
+.about-text [aria-pressed="true"] .near-band {
+  opacity: 0;
 }

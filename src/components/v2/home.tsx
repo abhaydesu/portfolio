@@ -124,7 +124,7 @@ export const Home = ({
           read (v2-enter in globals.css, --enter its place in line) */}
         <div
           data-bp-column
-          className="mx-auto flex max-w-[32rem] flex-col gap-20 md:gap-24"
+          className="mx-auto flex max-w-[32rem] flex-col gap-[88px] md:gap-[104px]"
         >
           {/* the intro and its links read as one block, like a letterhead */}
           <div className="flex flex-col gap-14 md:gap-16">
@@ -143,7 +143,14 @@ export const Home = ({
             <WorkSection />
           </div>
 
-          <section id="about" className="v2-enter scroll-mt-20 [--enter:4]">
+          {/* drawn up a little, as work is: the work cards keep room below
+            them for the longest description (so the page doesn't jump as
+            they shuffle), which would otherwise widen this gap past the
+            others */}
+          <section
+            id="about"
+            className="v2-enter -mt-6 scroll-mt-20 [--enter:4] sm:-mt-[47px] md:-mt-[55px]"
+          >
             <AboutMe openId={openHobby?.id ?? null} onToggle={toggleHobby} />
           </section>
 
@@ -260,14 +267,15 @@ const InPage = ({
   }, [openId]);
 
   return (
-    // pulled up over the column's gap, so it takes no room shut and sits
+    // pulled up over the column's gap (keep the two in step), so it takes
+    // no room shut and sits
     // close under the text open. it clips as its space opens and closes, so
     // room is left inside it, above and below, for the panel's soft edge (it
     // reaches 20px past the panel; overflow-clip-margin can't be used, as it
     // only works when both axes clip, and not at all in Safari). the room
     // below is given back with a margin, so it takes no space in the page
     <motion.div
-      className="-mt-20 [overflow-y:clip] md:-mt-24"
+      className="-mt-[88px] [overflow-y:clip] md:-mt-[104px]"
       initial={false}
       animate={{ height: open ? h : 0, marginBottom: open ? -EDGE_ROOM : 0 }}
       onAnimationComplete={() => showRef.current()}
@@ -288,10 +296,15 @@ const InPage = ({
 
 /* ---------- intro ---------- */
 
+// (on the narrowest phones there isn't room for the name and the time side
+// by side, so the time drops under the name rather than squeezing it onto
+// two lines)
 const Intro = ({ weather }: { weather: Weather }) => (
-  <header className="v2-enter flex items-center gap-4">
-    <AvatarDock />
-    <div className="flex-1">
+  <header className="v2-enter grid grid-cols-[auto_1fr_auto] items-center gap-x-4 max-[390px]:grid-cols-[auto_1fr] max-[390px]:gap-y-1.5">
+    <div className="max-[390px]:row-span-2">
+      <AvatarDock />
+    </div>
+    <div className="min-w-0 max-[390px]:self-end">
       <h1
         data-intro="head"
         data-intro-name
@@ -303,7 +316,9 @@ const Intro = ({ weather }: { weather: Weather }) => (
         sweating the details
       </p>
     </div>
-    <BangaloreNow weather={weather} />
+    <div className="max-[390px]:col-start-2 max-[390px]:self-start max-[390px]:[&>div]:text-left">
+      <BangaloreNow weather={weather} />
+    </div>
   </header>
 );
 
@@ -444,6 +459,93 @@ const Warm = () => {
 
 /* ---------- about me ---------- */
 
+/*
+ * The about text notices you. As a mouse comes onto it, the grey icons
+ * bloom into their colours, while the plain words step back a shade. Then, as you move about, each turns toward the pointer: its icon
+ * leans your way and a hobby's band comes up faintly behind its word, more
+ * the nearer you get, until you're on it and its own hover takes over. Each
+ * thing that does something is marked `data-near`; this sets how near the
+ * pointer is on it (`--near`, 0 to 1) and which way to lean, and the rest
+ * is css (see .about-text in globals.css).
+ */
+function useNotice(ref: React.RefObject<HTMLDivElement | null>) {
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let frame = 0;
+    let at: { x: number; y: number } | null = null;
+    const REACH = 130; // px from a thing at which it starts to notice
+
+    const update = () => {
+      frame = 0;
+      const items = el.querySelectorAll<HTMLElement>("[data-near]");
+      for (const item of items) {
+        if (!at) {
+          item.style.setProperty("--near", "0");
+          item.style.setProperty("--lean", "0deg");
+          item.style.setProperty("--tx", "0px");
+          item.style.setProperty("--ty", "0px");
+          continue;
+        }
+        const r = item.getBoundingClientRect();
+        // how far the pointer is from its box, nothing once inside it
+        const dx = Math.max(r.left - at.x, 0, at.x - r.right);
+        const dy = Math.max(r.top - at.y, 0, at.y - r.bottom);
+        const d = Math.hypot(dx, dy);
+        const near = Math.max(0, 1 - d / REACH) ** 2;
+        // its icon leans toward the pointer, and drifts a pixel its way;
+        // once the pointer's on it, it straightens up for its own hover
+        const icon = item.querySelector(".near-icon") ?? item;
+        const c = icon.getBoundingClientRect();
+        const ix = at.x - (c.left + c.width / 2);
+        const iy = at.y - (c.top + c.height / 2);
+        const len = Math.hypot(ix, iy) || 1;
+        const pull = still ? 0 : near * Math.min(1, d / 24);
+        item.style.setProperty("--near", near.toFixed(3));
+        item.style.setProperty(
+          "--lean",
+          `${(Math.max(-1, Math.min(1, ix / 70)) * 10 * pull).toFixed(2)}deg`,
+        );
+        item.style.setProperty(
+          "--tx",
+          `${((ix / len) * 1.5 * pull).toFixed(2)}px`,
+        );
+        item.style.setProperty(
+          "--ty",
+          `${((iy / len) * 1.5 * pull).toFixed(2)}px`,
+        );
+      }
+    };
+    const queue = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    // (a mouse only: a thumb has no pointer to be near)
+    const onMove = (e: PointerEvent) => {
+      if (e.pointerType !== "mouse") return;
+      at = { x: e.clientX, y: e.clientY };
+      el.dataset.looking = "";
+      queue();
+    };
+    const onLeave = () => {
+      at = null;
+      delete el.dataset.looking;
+      queue();
+    };
+    // the words move under a still pointer when the page scrolls
+    const onScroll = () => at && queue();
+    el.addEventListener("pointermove", onMove);
+    el.addEventListener("pointerleave", onLeave);
+    addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      el.removeEventListener("pointermove", onMove);
+      el.removeEventListener("pointerleave", onLeave);
+      removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(frame);
+    };
+  }, [ref]);
+}
+
 const AboutMe = ({
   openId,
   onToggle,
@@ -451,10 +553,16 @@ const AboutMe = ({
   openId: HobbyId | null;
   onToggle: (id: HobbyId, anchor?: DOMRect) => void;
 }) => {
+  const text = useRef<HTMLDivElement>(null);
+  useNotice(text);
   return (
     <div className="flex flex-col gap-6">
       <SectionLabel sketch>about me</SectionLabel>
-      <div data-intro="text" className="text-[15px] leading-loose text-neutral-600">
+      <div
+        ref={text}
+        data-intro="text"
+        className="about-text text-[15px] leading-loose text-neutral-600"
+      >
         {" "}
         Currently in my <EducationWord>final year</EducationWord> of college. I
         like <HobbyWord id="football" openId={openId} onToggle={onToggle} />,
@@ -492,14 +600,14 @@ const PUZZLES = {
 };
 
 const Puzzle = ({ name, icon }: { name: string; icon: string }) => (
-  <span className="group/u inline-flex items-baseline gap-1">
+  <span data-near="plain" className="group/u inline-flex items-baseline gap-1">
     {/* eslint-disable-next-line @next/next/no-img-element -- a tiny static icon */}
     <img
       src={icon}
       alt=""
       width={15}
       height={15}
-      className="size-[1.05em] translate-y-[0.18em] rounded-[3px] grayscale transition duration-300 group-hover/u:-rotate-6 group-hover/u:scale-110 group-hover/u:grayscale-0"
+      className="near-icon near-warm size-[1.05em] translate-y-[0.18em] rounded-[3px] grayscale transition duration-300 group-hover/u:-rotate-6 group-hover/u:scale-110 group-hover/u:grayscale-0"
     />
     {name}
   </span>
@@ -509,14 +617,14 @@ const Puzzle = ({ name, icon }: { name: string; icon: string }) => (
 // little cheer on hover. it isn't a link, so the word stays in the
 // sentence's own ink; only the crest reacts
 const United = () => (
-  <span className="group/u inline-flex items-baseline gap-1">
+  <span data-near="plain" className="group/u inline-flex items-baseline gap-1">
     {/* eslint-disable-next-line @next/next/no-img-element -- a tiny static svg */}
     <img
       src="/football/manutd-crest.svg"
       alt=""
       width={15}
       height={15}
-      className="size-[1.1em] translate-y-[0.2em] grayscale transition duration-300 group-hover/u:grayscale-0 group-hover/u:animate-[crest-cheer_0.6s_cubic-bezier(0.22,1,0.36,1)]"
+      className="near-icon near-warm size-[1.1em] translate-y-[0.2em] grayscale transition duration-300 group-hover/u:grayscale-0 group-hover/u:animate-[crest-cheer_0.6s_cubic-bezier(0.22,1,0.36,1)]"
     />
     United
   </span>
@@ -549,6 +657,7 @@ const HobbyWord = ({
       type="button"
       aria-pressed={isOpen}
       data-hobby-word={id}
+      data-near="hobby"
       data-sound={isOpen ? "close" : "open"}
       onClick={(e) => onToggle(id, e.currentTarget.getBoundingClientRect())}
       // its panel's fetched as the pointer heads for it, if it isn't in yet
@@ -583,15 +692,23 @@ const HobbyWord = ({
         "hover:text-(--on) hover:delay-[140ms]",
       )}
     >
+      {/* its band, come up faintly as the pointer nears (see useNotice) */}
+      <span
+        aria-hidden
+        style={{ backgroundColor: look.sweep.band }}
+        className="near-band pointer-events-none absolute inset-0 rounded-[inherit]"
+      />
       {/* the sweep, behind the words */}
       <Sweep edge={look.sweep.edge} band={look.sweep.band} />
-      <span className="relative">{children ?? hobby.label}</span>
+      <span className="relative tracking-tighter">
+        {children ?? hobby.label}
+      </span>
       {/* in the hobby's ink, and the sweep's text colour on hover. centred
         on the word's lowercase letters (most marks sit cap-high in their
         boxes, which reads as resting on the baseline) */}
       <span
         className={cn(
-          "relative inline-flex translate-y-[0.085em] text-[0.95em] transition-colors duration-300",
+          "near-icon relative inline-flex translate-y-[0.085em] text-[0.95em] transition-colors duration-300",
           "group-hover/w:text-(--on) group-hover/w:delay-[160ms]",
           "text-(--ink)",
         )}

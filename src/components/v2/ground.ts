@@ -26,12 +26,21 @@ export function groundMask(
   h: number,
   id: string,
   expanded: boolean,
+  // the same edge at other sizes, for things that aren't a panel's ground
+  // (the footer's sunset)
+  tune: Partial<Record<"soft" | "inset" | "waver" | "radius", number>> = {},
 ): string | null {
   if (w <= 0 || h <= 0) return null;
   const k = expanded ? "window" : "docked";
-  const inset = INSET[k];
-  const r = Math.min(RADIUS[k], (w - inset * 2) / 2, (h - inset * 2) / 2);
-  const x0 = inset, y0 = inset, x1 = w - inset, y1 = h - inset;
+  const inset = tune.inset ?? INSET[k];
+  const soft = tune.soft ?? SOFT[k];
+  const waver = tune.waver ?? WAVER[k];
+  const radius = tune.radius ?? RADIUS[k];
+  const r = Math.min(radius, (w - inset * 2) / 2, (h - inset * 2) / 2);
+  const x0 = inset,
+    y0 = inset,
+    x1 = w - inset,
+    y1 = h - inset;
   const sides = [x1 - x0 - 2 * r, y1 - y0 - 2 * r];
   const arc = (Math.PI / 2) * r;
   const perimeter = 2 * sides[0] + 2 * sides[1] + 4 * arc;
@@ -72,7 +81,7 @@ export function groundMask(
     { n: Math.max(5, Math.round(perimeter / 70)), amp: 0.1 },
   ].map((wv) => ({ ...wv, phase: rand() * Math.PI * 2 }));
   const wander = (s: number) =>
-    WAVER[k] *
+    waver *
     waves.reduce(
       (sum, wv) =>
         sum +
@@ -89,6 +98,6 @@ export function groundMask(
     d += `${i ? "L" : "M"}${(x + nx * o).toFixed(1)} ${(y + ny * o).toFixed(1)}`;
   }
 
-  const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='${w}' height='${h}' viewBox='0 0 ${w} ${h}'><filter id='f' x='-20%' y='-20%' width='140%' height='140%'><feGaussianBlur stdDeviation='${SOFT[k]}'/></filter><path d='${d}Z' fill='#000' filter='url(#f)'/></svg>`;
+  const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='${w}' height='${h}' viewBox='0 0 ${w} ${h}'><filter id='f' x='-20%' y='-20%' width='140%' height='140%'><feGaussianBlur stdDeviation='${soft}'/></filter><path d='${d}Z' fill='#000' filter='url(#f)'/></svg>`;
   return `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
 }

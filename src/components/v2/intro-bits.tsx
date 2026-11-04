@@ -39,7 +39,7 @@ export const Dotted = ({ children }: { children: React.ReactNode }) => (
 
 // the small icon after a hint's words: grey at rest, in the accent on hover
 export const WordIcon = ({ children }: { children: React.ReactNode }) => (
-  <span className="ml-1 inline-flex translate-y-[-0.04em] align-middle text-neutral-400 transition-colors duration-300 group-hover/w:text-(--accent) group-focus-visible/w:text-(--accent) group-aria-expanded/w:text-(--accent)">
+  <span className="near-icon near-tint ml-1 inline-flex translate-y-[-0.04em] align-middle text-neutral-400 transition-colors duration-300 group-hover/w:text-(--accent) group-focus-visible/w:text-(--accent) group-aria-expanded/w:text-(--accent)">
     {children}
   </span>
 );
@@ -490,6 +490,7 @@ export const EducationWord = ({ children }: { children: React.ReactNode }) => {
     <span
       ref={ref}
       style={{ "--accent": ld("#98588a", "#e6b8da") } as React.CSSProperties}
+      data-near="hint"
       className="relative inline-block"
       onPointerEnter={enter}
       onPointerLeave={leave}
@@ -509,7 +510,7 @@ export const EducationWord = ({ children }: { children: React.ReactNode }) => {
         }}
         data-sound={open ? "close" : "open"}
         data-cursor="arrow"
-        className={cn("text-left", hint)}
+        className={cn("text-left tracking-tighter", hint)}
       >
         <Dotted>{children}</Dotted>
         <WordIcon>

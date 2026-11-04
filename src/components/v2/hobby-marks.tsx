@@ -311,6 +311,6 @@ export const HaikyuMark = () => (
     width={168}
     height={56}
     draggable={false}
-    className="mx-0.5 block h-[1.2em] w-auto translate-y-[0.1em] opacity-60 grayscale transition dark:invert dark:group-hover/w:invert-0 duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/w:-rotate-2 group-hover/w:scale-105 group-hover/w:opacity-100 group-hover/w:grayscale-0 group-aria-disabled/w:opacity-100 group-aria-disabled/w:grayscale-0 dark:group-aria-disabled/w:invert-0"
+    className="near-icon near-warm mx-0.5 block h-[1.2em] w-auto translate-y-[0.1em] opacity-60 grayscale transition dark:invert dark:group-hover/w:invert-0 duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/w:-rotate-2 group-hover/w:scale-105 group-hover/w:opacity-100 group-hover/w:grayscale-0 group-aria-disabled/w:opacity-100 group-aria-disabled/w:grayscale-0 dark:group-aria-disabled/w:invert-0"
   />
 );

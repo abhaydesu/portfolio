@@ -306,6 +306,21 @@ export const Cursors = () => {
           cursor(20, 20, [7, 0], "pointer", pixels(PIXEL_HAND), "pixel hand"),
         ),
       );
+      // the old man's panel is all pixels, so it takes the pixel cursors
+      // throughout, not only over his island: an arrow over all of it, a
+      // hand over whatever can be pressed. (with the classed rules, so they
+      // win over the page's own hands and carets)
+      const fire = '.v2 [data-hobby-panel="fireside"]';
+      classed.push(
+        rule(
+          `${fire}, ${fire} *`,
+          cursor(14, 20, [0, 0], "default", pixels(PIXEL_ARROW), "pixel arrow"),
+        ),
+        rule(
+          `${fire} :is(button, a, [role="button"], .cursor-pointer, [data-poke]):not([aria-disabled="true"]), ${fire} :is(button, a, [role="button"], .cursor-pointer) *`,
+          cursor(20, 20, [7, 0], "pointer", pixels(PIXEL_HAND), "pixel hand"),
+        ),
+      );
       const next = `@layer base {\n${base.join("\n")}\n}\n@layer utilities {\n${classed.join("\n")}\n}`;
       // (unchanged, the page isn't asked to restyle itself)
       if (next !== style.textContent) style.textContent = next;

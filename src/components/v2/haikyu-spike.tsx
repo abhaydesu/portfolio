@@ -360,6 +360,7 @@ export const HaikyuWord = () => {
         // (no click sound while he's mid-spike, and an arrow, not a hand:
         // see cursors.tsx)
         data-sound={busy ? undefined : "action"}
+        data-near="logo"
         // the logo's short for a thumb; an unseen ::before reaches above
         // and below it
         className="group/w relative inline-flex before:absolute before:inset-x-0 before:-inset-y-[5px]"
